@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "C:/xammp/htdocs/torre7-motion/assets/css/styles.css"
+        ],
+        "createdAt": "2026-10-20T20:24:26.228Z",
+        "reason": "Claude decided: brand gradient (Torre 7 logo yellow-orange-green) used intentionally; user chose the vivid Lovable/Envato direction in earlier versions"
+      }
+    ]
+  }
+}
