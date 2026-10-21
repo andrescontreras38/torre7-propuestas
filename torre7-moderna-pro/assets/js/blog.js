@@ -49,7 +49,7 @@
         <h1>${esc(p.titulo)}</h1>
         <p class="article__lead">${esc(p.resumen)}</p>
         <figure class="article__img"><img src="${esc(p.imagen)}" alt="" width="1600" height="900"></figure>
-        <div class="article__body">${p.contenido.join("\n")}</div>
+        <div class="article__body">${p.contenido.map((c) => (/^\s*</.test(c) ? c : `<p>${c}</p>`)).join("\n")}</div>
         <p class="post-meta" style="margin-top:28px">Por ${esc(p.autor || "Equipo Torre 7")}</p>
         <div class="article__cta">
           <p>¿Quieres apoyo para tu organización?</p>

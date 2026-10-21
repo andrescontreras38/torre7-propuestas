@@ -303,3 +303,19 @@ a.org:hover, .org--real:hover { transform: translateY(-4px); border-color: rgba(
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (max-width: 980px) { .red__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .red__grid { grid-template-columns: 1fr; } .red__search { max-width: none; } }
+
+/* ==========================================================
+   FUENTES DE LA MARCA (Bebas Neue para títulos, DIN Pro para texto)
+   ========================================================== */
+@font-face { font-family: "Bebas Neue"; src: url("../fonts/BebasNeue.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "DIN Pro"; src: url("../fonts/DINPro-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "DIN Pro"; src: url("../fonts/DINPro-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "DIN Pro"; src: url("../fonts/DINPro-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "DIN Pro"; src: url("../fonts/DINPro-Black.ttf") format("truetype"); font-weight: 900; font-display: swap; }
+html { font-synthesis: none; }
+body { font-family: "DIN Pro", "Segoe UI", system-ui, -apple-system, sans-serif; }
+:root { --head: "Bebas Neue", Impact, "Arial Narrow", sans-serif; --body: "DIN Pro", "Segoe UI", system-ui, -apple-system, sans-serif; }
+h1, h2, h3, h4, .h2, .h3, .display, .hero__title, .intro__title, .title, .index__name, .plan__name, .feature__title, .quote__text, .foot__line, .tunnel__title, .srow__t, .statement__text, .manifesto__text, .velo__row, .footer__giant, .contact__title, .finale__title, .red-esal__title, .blog-title, .loader__word { letter-spacing: .01em !important; }
+
+/* espacio para tildes en títulos animados (Bebas Neue) */
+.hero__title .ln { padding-top: .16em; margin-top: -.16em; }

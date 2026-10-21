@@ -6,22 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Torre 7 · Versiones del sitio</title>
   <link rel="icon" type="image/png" href="torre7-moderna-pro/assets/img/favicon.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap">
   <style>
+    @font-face { font-family: "Bebas Neue"; src: url("torre7-sobria-plus/assets/fonts/BebasNeue.otf") format("opentype"); }
+    @font-face { font-family: "DIN Pro"; src: url("torre7-sobria-plus/assets/fonts/DINPro-Regular.ttf") format("truetype"); font-weight: 400; }
+    @font-face { font-family: "DIN Pro"; src: url("torre7-sobria-plus/assets/fonts/DINPro-Bold.ttf") format("truetype"); font-weight: 700; }
     :root { --ink: #141414; --muted: #62625d; --line: #e7e7e2; --grad: linear-gradient(120deg, #ffcc33, #ff8a1f 45%, #1fae5b); }
     * { box-sizing: border-box; }
-    body { margin: 0; font-family: "Plus Jakarta Sans", system-ui, sans-serif; background: #f6f6f3; color: var(--ink); }
+    body { margin: 0; font-family: "DIN Pro", system-ui, sans-serif; background: #f6f6f3; color: var(--ink); }
     .wrap { width: min(1200px, 100%); margin-inline: auto; padding: 56px 20px 80px; }
     header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
     header img { width: 44px; }
-    h1 { font-size: clamp(30px, 4vw, 44px); letter-spacing: -.035em; margin: 0; }
+    h1 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: clamp(36px, 5vw, 56px); letter-spacing: .01em; margin: 0; }
     .sub { color: var(--muted); margin: 6px 0 36px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 20px; }
     a.card { display: block; background: #fff; border-radius: 20px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid var(--line); transition: transform .25s, box-shadow .25s; position: relative; }
     a.card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -28px rgba(0,0,0,.4); }
     a.card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid var(--line); }
     .body { padding: 16px 18px 18px; }
-    .body h2 { font-size: 18px; margin: 0 0 4px; letter-spacing: -.02em; }
+    .body h2 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 26px; margin: 0 0 4px; letter-spacing: .01em; }
     .body p { margin: 0; color: var(--muted); font-size: 14px; }
     .body code { font-size: 12.5px; color: var(--muted); display: block; margin-top: 10px; }
     .tag { position: absolute; top: 12px; left: 12px; background: var(--ink); color: #fff; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 999px; }
