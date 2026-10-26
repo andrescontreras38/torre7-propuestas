@@ -7,8 +7,8 @@
    whatsapp: solo números con indicativo, ej. "573001234567"
    ---------------------------------------------------------- */
 const CONTACTO = {
-  whatsapp: "",   // PENDIENTE
-  telefono: "",   // PENDIENTE, ej. "+57 300 123 4567"
+  whatsapp: "573117723689",   // +57 311 772 3689 (el mismo número está en assets/js/whatsapp.js)
+  telefono: "+57 311 772 3689",
   correo: "torre7.colombia@gmail.com",     // correo oficial del cliente
   ciudad: "",     // PENDIENTE, ej. "Medellín, Colombia"
   redes: { facebook: "", instagram: "", linkedin: "" }   // PENDIENTE

@@ -29,10 +29,10 @@ const plain = (h) => h.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(
 const org = {
   "@context": "https://schema.org", "@type": ["Organization", "ProfessionalService"], "@id": ORG_ID,
   name: "Torre 7 Soluciones Integrales", legalName: ORG, url: abs(""), logo: abs("assets/img/logo-h.png"), image: abs("assets/img/portada.webp"),
-  email: EMAIL, slogan: "Convertimos propósitos sociales en organizaciones sostenibles",
+  email: EMAIL, telephone: "+573117723689", slogan: "Convertimos propósitos sociales en organizaciones sostenibles",
   description: "Diseñamos y desarrollamos soluciones integrales para fortalecer organizaciones, con especial atención a las entidades sin ánimo de lucro (ESAL) y las organizaciones sociales: gestión de proyectos, fortalecimiento organizacional, formación, investigación aplicada e innovación.",
   areaServed: { "@type": "Country", name: "Colombia" }, availableLanguage: "es",
-  contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: EMAIL, availableLanguage: "es" },
+  contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: EMAIL, telephone: "+573117723689", availableLanguage: "es" },
   knowsAbout: ["Fortalecimiento organizacional", "Gestión de proyectos sociales", "Entidades sin ánimo de lucro (ESAL)", "Formulación de proyectos", "Marco lógico", "Planeación estratégica", "Cooperación y movilización de recursos", "Seguimiento y evaluación", "Innovación social", "Investigación aplicada"]
 };
 const svc = (name, url, description, catalog) => ({

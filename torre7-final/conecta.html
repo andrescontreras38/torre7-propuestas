@@ -11,17 +11,18 @@
   <meta property="og:description" content="Red Torre 7: conectamos entidades sin ánimo de lucro, profesionales y organizaciones aliadas. Registra gratis tu organización en el directorio.">
   <meta property="og:image" content="assets/img/doc-equipo.webp">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/slider.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/pulido.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/servicios.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/lineas.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/red-esal.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/premium.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/delicado.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/minimal.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/efectos.css?v=202610262045">
-  <link rel="stylesheet" href="assets/css/corporativo.css?v=202610262045">
+  <link rel="stylesheet" href="assets/css/styles.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/slider.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/pulido.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/servicios.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/lineas.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/red-esal.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/premium.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/delicado.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/minimal.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/efectos.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/corporativo.css?v=202610262056">
+  <link rel="stylesheet" href="assets/css/menu.css?v=202610262056">
   <!--seo:start-->
   <link rel="canonical" href="https://andrescontreras38.github.io/torre7-propuestas/torre7-final/conecta.html">
   <link rel="alternate" hreflang="es-CO" href="https://andrescontreras38.github.io/torre7-propuestas/torre7-final/conecta.html">
@@ -59,11 +60,16 @@
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="nosotros.html">Nosotros</a>
-      <a href="proyecta.html">Proyectos</a>
-      <a href="capacita.html">Formación</a>
-      <a href="innova.html">Innovación</a>
-      <a href="investiga.html">Investigación</a>
-      <a href="conecta.html">Colabora</a>
+      <div class="nav__drop">
+        <button type="button" class="nav__trigger" data-current aria-expanded="false" aria-haspopup="true" aria-controls="menuServicios">Servicios <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav__menu" id="menuServicios">
+        <a href="proyecta.html"><b>Proyectos</b><small>Fortalecimiento organizacional y proyectos</small></a>
+        <a href="capacita.html"><b>Formación</b><small>Cursos, talleres y programas a la medida</small></a>
+        <a href="innova.html"><b>Innovación</b><small>Diagnóstico, cocreación y pilotos</small></a>
+        <a href="investiga.html"><b>Investigación</b><small>Estudios y evaluación de resultados</small></a>
+        <a href="conecta.html" aria-current="page"><b>Colabora</b><small>Únete a la red de aliados</small></a>
+        </div>
+      </div>
       <a href="blog.html">Blog</a>
       <a href="#contacto" class="btn btn--dark btn--sm nav__cta">Solicita asesoría</a>
     </nav>
@@ -180,7 +186,7 @@
           </label>
           <label class="field"><span>Cuéntanos qué necesita tu organización *</span><textarea name="mensaje" rows="3" required></textarea></label>
           <label class="consent"><input type="checkbox" name="autorizacion" required> <span>Autorizo el tratamiento de mis datos personales según la <a href="privacidad.html" target="_blank" rel="noopener">política de tratamiento de datos</a>.</span></label>
-          <button class="btn btn--grad btn--block form__send" type="submit">Enviar solicitud</button>
+          <button class="btn btn--grad btn--block form__send" type="submit">Enviar solicitud por WhatsApp</button>
           <p class="form__safe"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tus datos se tratan conforme a la Ley 1581 de 2012.</p>
           <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
         </form>
@@ -214,9 +220,11 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=202610262045" defer></script>
-<script src="assets/js/animar.js?v=202610262045" defer></script>
-<script src="assets/js/efectos.js?v=202610262045" defer></script>
-<script src="assets/js/red-esal.js?v=202610262045"></script>
+<script src="assets/js/main.js?v=202610262056" defer></script>
+<script src="assets/js/menu.js?v=202610262056" defer></script>
+<script src="assets/js/animar.js?v=202610262056" defer></script>
+<script src="assets/js/efectos.js?v=202610262056" defer></script>
+<script src="assets/js/red-esal.js?v=202610262056"></script>
+<script src="assets/js/whatsapp.js?v=202610262056" defer></script>
 </body>
 </html>

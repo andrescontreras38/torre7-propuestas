@@ -1,0 +1,36 @@
+/* ==========================================================
+   Menú «Servicios» con submenú desplegable
+   Escritorio: se abre al pasar el cursor, con teclado o con clic.
+   Celular: acordeón dentro del menú de la hamburguesa.
+   ========================================================== */
+.nav__drop { position: relative; display: flex; align-items: center; }
+.nav__trigger { display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; cursor: pointer; font: inherit; color: var(--text); transition: color .2s; }
+.nav__trigger:hover, .nav__drop.is-open .nav__trigger, .nav__trigger[data-current] { color: var(--ink); }
+.nav__trigger svg { width: 12px; height: 12px; transition: transform .3s var(--ease); }
+.nav__drop.is-open .nav__trigger svg { transform: rotate(180deg); }
+.nav__trigger[data-current]::after { content: ""; position: absolute; left: 0; right: 18px; bottom: -4px; height: 2px; border-radius: 2px; background: #f7b100; }
+
+.nav__menu { position: absolute; z-index: 60; top: 100%; left: -18px; min-width: 330px; padding: 20px 8px 8px; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .25s var(--ease), transform .3s var(--ease), visibility .25s; }
+.nav__menu::before { content: ""; position: absolute; inset: 8px 0 0; z-index: -1; background: rgba(255,255,255,.99); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 30px 60px -28px rgba(20,20,20,.35); }
+.nav__drop.is-open .nav__menu, .nav__drop:focus-within .nav__menu { opacity: 1; visibility: visible; transform: none; }
+@media (hover: hover) and (min-width: 1001px) { .nav__drop:hover .nav__menu { opacity: 1; visibility: visible; transform: none; } .nav__drop:hover .nav__trigger svg { transform: rotate(180deg); } }
+
+.nav .nav__menu a { display: grid; gap: 2px; padding: 11px 14px; border-radius: 14px; text-decoration: none; color: var(--ink); position: relative; transition: background .2s, transform .25s var(--ease); }
+.nav .nav__menu a::after { display: none; }
+.nav .nav__menu a b { font-size: 15px; font-weight: 700; }
+.nav .nav__menu a small { font-size: 12.5px; color: #6a6a64; line-height: 1.35; }
+.nav .nav__menu a:hover, .nav .nav__menu a:focus-visible { background: #f6f6f6; transform: translateX(3px); }
+.nav .nav__menu a[aria-current="page"] { background: #0b5c33; }
+.nav .nav__menu a[aria-current="page"] b { color: #fff; }
+.nav .nav__menu a[aria-current="page"] small { color: rgba(255,255,255,.78); }
+
+@media (max-width: 1000px) {
+  .nav__drop { display: block; border-bottom: 1px solid var(--line); }
+  .nav__trigger { width: 100%; justify-content: space-between; padding: 14px 0; font-size: 17px; }
+  .nav__trigger[data-current]::after { display: none; }
+  .nav__menu { position: static; min-width: 0; padding: 0 0 8px; opacity: 1; visibility: visible; transform: none; display: none; }
+  .nav__menu::before { display: none; }
+  .nav__drop.is-open .nav__menu { display: block; }
+  .nav .nav__menu a { border-bottom: 0; padding: 10px 14px; }
+  .nav .nav__menu a:hover { transform: none; }
+}
