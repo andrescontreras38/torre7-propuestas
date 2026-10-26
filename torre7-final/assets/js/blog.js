@@ -24,7 +24,8 @@
   const app = document.getElementById("blogApp");
   if (!app) return;
   const baseTitle = document.title;
-  let cat = "Todas", query = "";
+  const params = new URLSearchParams(location.search); /* ?cat= y ?q= vienen de la barra lateral de los artículos */
+  let cat = params.get("cat") || "Todas", query = params.get("q") || "";
   const norm = (t) => String(t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   const catCount = POSTS.reduce((m, p) => (m[p.categoria] = (m[p.categoria] || 0) + 1, m), {});
   const slugify = (t) => norm(t).replace(/<[^>]+>/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

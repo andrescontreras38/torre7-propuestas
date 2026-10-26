@@ -49,6 +49,46 @@ const fixLinks = (html) => html.replace(/href='([^']+)'/g, (m, h) => {
   return h.startsWith("blog/") ? `href="${h.slice(5)}"` : `href="../${h}"`;
 });
 
+/* ---------- barra lateral (misma que blog.html) ---------- */
+const catCount = POSTS.reduce((m, p) => (m[p.categoria] = (m[p.categoria] || 0) + 1, m), {});
+const sidebar = (p, toc) => `
+      <aside class="bl-side" aria-label="Barra lateral del blog">
+        <div class="bl-box">
+          <form action="../blog.html" method="get" role="search"><label class="bl-search"><span class="sr">Buscar en el blog</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="search" name="q" placeholder="Buscar artículos…"></label></form>
+        </div>
+        ${toc.length ? `<div class="bl-box"><h3 class="bl-h">En este artículo</h3><ol class="bl-toc">${toc.map((t) => `<li><a href="#${t.id}">${esc(t.txt)}</a></li>`).join("")}</ol></div>` : ""}
+        <div class="bl-box">
+          <h3 class="bl-h">Categorías</h3>
+          <ul class="bl-cats">
+            <li><a href="../blog.html"><span>Todas</span><b>${POSTS.length}</b></a></li>
+            ${Object.entries(catCount).map(([c, n]) => `<li><a href="../blog.html?cat=${encodeURIComponent(c)}"${c === p.categoria ? ' aria-current="true"' : ""}><span>${esc(c)}</span><b>${n}</b></a></li>`).join("")}
+          </ul>
+        </div>
+        <div class="bl-box">
+          <h3 class="bl-h">Más artículos</h3>
+          <ul class="bl-recent">
+            ${POSTS.filter((x) => x.slug !== p.slug).slice(0, 4).map((x) => `<li><a href="${x.slug}.html"><img src="../${x.imagen}" alt="" loading="lazy" width="160" height="120"><span><b>${esc(x.titulo)}</b><small>${minutes(x)} min de lectura</small></span></a></li>`).join("")}
+          </ul>
+        </div>
+        <div class="bl-cta">
+          <p class="bl-cta__kicker">Torre 7 Proyecta</p>
+          <h3>¿Quieres apoyo para tu organización?</h3>
+          <p>Te acompañamos a fortalecer tu gestión con una propuesta a tu medida.</p>
+          <a class="btn btn--dark btn--block" href="../index.html#contacto">Solicita una asesoría →</a>
+        </div>
+        <div class="bl-box">
+          <h3 class="bl-h">Membresías</h3>
+          <ul class="bl-plans">
+            <li><a href="../proyecta.html#membresias"><b>Basic</b><span>Impulsa tu gestión</span></a></li>
+            <li class="is-pop"><a href="../proyecta.html#membresias"><b>Standard</b><span>Fortalece tu organización</span></a></li>
+            <li><a href="../proyecta.html#membresias"><b>Premium</b><span>Maximiza tu impacto</span></a></li>
+          </ul>
+        </div>
+        <a class="bl-red" href="../conecta.html"><span class="bl-red__ic" aria-hidden="true">✦</span><span><b>¿Tu organización es una ESAL?</b><small>Regístrala gratis en la Red Torre 7 →</small></span></a>
+      </aside>`;
+
 const render = (p) => {
   const toc = [];
   const body = p.contenido.map((c) => {
@@ -161,7 +201,8 @@ ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</scri
 
 <main class="blog-page" data-theme="light" style="--b-head: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif; --b-head-w: 400; --b-title-ls: .01em;">
   <div class="blog-wrap">
-    <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="bl-layout bl-layout--post">
+    <article class="article bl-main" itemscope itemtype="https://schema.org/BlogPosting">
       <nav class="article__crumbs" aria-label="Ruta de navegación"><a href="../index.html">Inicio</a><span>/</span><a href="../blog.html">Blog</a><span>/</span><span aria-current="page">${esc(p.categoria)}</span></nav>
       <div class="post-meta"><span class="post-cat">${esc(p.categoria)}</span><span>·</span><span>${minutes(p)} min de lectura</span><span>·</span><time datetime="${iso(p)}" itemprop="datePublished">${esc(p.fecha || "26 de octubre de 2026")}</time>${p.ejemplo ? '<span class="post-badge">Borrador de ejemplo</span>' : ""}</div>
       <h1 itemprop="headline">${esc(p.titulo)}</h1>
@@ -179,6 +220,8 @@ ${body}
         <a class="blog-more" href="../index.html#contacto">Solicita una asesoría →</a>
       </div>
     </article>
+    ${sidebar(p, toc)}
+    </div>
     <section class="article__related" aria-labelledby="relT">
       <h2 id="relT">Sigue leyendo</h2>
       <div class="blog-grid">
