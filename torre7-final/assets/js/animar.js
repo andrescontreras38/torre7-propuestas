@@ -15,7 +15,8 @@
 
   // filas de dos columnas: el texto entra escalonado
   document.querySelectorAll(".split").forEach((row) => {
-    [...row.querySelector(".split__text").children].forEach((c, i) => c.style.setProperty("--i", i));
+    const txt = row.querySelector(".split__text");
+    if (txt) [...txt.children].forEach((c, i) => c.style.setProperty("--i", i));
   });
 
   const io = new IntersectionObserver((entries) => entries.forEach((en) => {
