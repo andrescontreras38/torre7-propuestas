@@ -177,3 +177,16 @@ a.tile:hover { transform: translateY(-5px); box-shadow: var(--glow); }
 #lineas { padding-bottom: calc(var(--sec-y) * .6); }
 #nosotros { padding-block: calc(var(--sec-y) * .6); }
 .sec.social { padding-top: calc(var(--sec-y) * .6); }
+
+/* franjas finales (formulario y pie): contenidas en el mismo ancho que el banner,
+   como tarjetas, para que no se estiren de borde a borde en pantallas muy anchas */
+.lead-sec { width: calc(100% - 2 * var(--gutter)); max-width: 1320px; margin-inline: auto; }
+.footer { width: calc(100% - 2 * var(--gutter)); max-width: 1320px; margin: 14px auto var(--gutter); border-radius: 32px; }
+.footer::before { border-radius: 32px 32px 0 0; }
+.finale { width: calc(100% - 2 * var(--gutter)); max-width: 1320px; margin-inline: auto; border-radius: 32px; }
+.lead-sec .cta-card__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); }
+.lead-sec .wrap, .footer .wrap { width: min(1160px, 100%); }
+@media (max-width: 760px) { .footer { border-radius: 24px; margin-bottom: 10px; } }
+.lead-sec .eyebrow, .cta-card__copy .eyebrow { width: fit-content; align-self: flex-start; }
+.footer__top, .footer__grid, .footer__bottom { padding-inline: clamp(20px, 3vw, 40px); }
+.footer__top { margin-inline: 0; }
