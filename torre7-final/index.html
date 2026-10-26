@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="assets/css/menu.css?v=202610262122">
   <link rel="stylesheet" href="assets/css/elegirnos.css?v=202610262122">
   <link rel="stylesheet" href="assets/css/secciones.css?v=202610262122">
-  <link rel="stylesheet" href="assets/css/hero.css?v=202610262126">
+  <link rel="stylesheet" href="assets/css/hero.css?v=202610262139">
   <!--seo:start-->
   <link rel="canonical" href="https://andrescontreras38.github.io/torre7-propuestas/torre7-final/">
   <link rel="alternate" hreflang="es-CO" href="https://andrescontreras38.github.io/torre7-propuestas/torre7-final/">
@@ -88,50 +88,60 @@
 
 <main id="contenido">
 
-<!-- ============ 1. HERO BENTO ============ -->
-<section class="hb" id="inicio" aria-label="Torre 7 Soluciones Integrales">
-  <div class="hb__grid">
-    <article class="hb__main" id="hbMain">
-      <div class="hb__photos" aria-hidden="true">
-        <img class="is-on" src="assets/img/portada.webp" alt="" width="1600" height="1067" fetchpriority="high">
-        <img src="assets/img/pizarra.webp" alt="" width="1600" height="1067" loading="lazy">
-        <img src="assets/img/doc-proyecta.webp" alt="" width="1600" height="1067" loading="lazy">
-        <img src="assets/img/equipo.webp" alt="" width="1600" height="1067" loading="lazy">
+<!-- ============ 1. HERO (estilo Framer / Linear: titular grande + ventana de producto) ============ -->
+<section class="hx" id="inicio" aria-label="Torre 7 Soluciones Integrales">
+  <div class="hx__glow" aria-hidden="true"></div>
+  <div class="hx__wrap">
+    <div class="hx__top">
+      <h1 class="hx__title">Convertimos propósitos sociales en organizaciones <span>sostenibles</span></h1>
+      <p class="hx__lead">Torre 7 acompaña a ESAL y organizaciones sociales de Colombia con proyectos, formación, innovación e investigación. Un solo equipo, de la idea al resultado.</p>
+      <div class="hx__ctas">
+        <a href="#contacto" class="btn btn--grad">Solicita una asesoría inicial</a>
+        <a href="#ruta" class="hx__ghost">¿Por dónde empezar?</a>
+        <a href="conecta.html" class="hx__new"><b>Nuevo:</b> Red ESAL <span aria-hidden="true">→</span></a>
       </div>
-      <div class="hb__veil" aria-hidden="true"></div>
-      <div class="hb__copy">
-        <span class="hb__tag"><i></i>Para ESAL y organizaciones sociales en Colombia</span>
-        <h1 class="hb__title">Convertimos propósitos sociales en organizaciones <span class="grad-text">sostenibles</span></h1>
-        <p class="hb__lead">Proyectos, formación, innovación e investigación para fortalecer tu organización, con un solo equipo que te acompaña.</p>
-        <div class="hb__ctas">
-          <a href="#contacto" class="btn btn--grad">Solicita una asesoría inicial →</a>
-          <a href="#ruta" class="btn btn--glass">¿Por dónde empezar?</a>
-        </div>
-      </div>
-      <div class="hb__dots" role="tablist" aria-label="Fotos"><button type="button" role="tab" aria-selected="true" aria-label="Foto 1"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Foto 2"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Foto 3"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Foto 4"><i></i></button></div>
-    </article>
-
-    <aside class="hb__services" aria-label="Nuestros servicios">
-      <p class="hb__kicker">Nuestros servicios</p>
-      <a href="proyecta.html" style="--i:0"><span class="hb__n">01</span><span><b>Proyectos</b><small>Fortalecimiento y gestión de proyectos</small></span><i aria-hidden="true">→</i></a>
-      <a href="capacita.html" style="--i:1"><span class="hb__n">02</span><span><b>Formación</b><small>Cursos, talleres y programas</small></span><i aria-hidden="true">→</i></a>
-      <a href="innova.html" style="--i:2"><span class="hb__n">03</span><span><b>Innovación</b><small>Diagnóstico, cocreación y pilotos</small></span><i aria-hidden="true">→</i></a>
-      <a href="investiga.html" style="--i:3"><span class="hb__n">04</span><span><b>Investigación</b><small>Estudios y evaluación de resultados</small></span><i aria-hidden="true">→</i></a>
-    </aside>
-
-    <a class="hb__red" href="conecta.html">
-      <span class="hb__kicker">Red ESAL</span>
-      <b>Haz visible tu organización</b>
-      <small>Regístrala gratis en el directorio →</small>
-      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="30" cy="60" r="9"/><circle cx="90" cy="28" r="9"/><circle cx="90" cy="92" r="9"/><path d="m38 56 44-24M38 64l44 24"/></svg>
-    </a>
-  </div>
-
-  <div class="hb__ticker" aria-hidden="true">
-    <div class="hb__track">
-      <span>Diagnóstico organizacional</span><span>Planeación estratégica</span><span>Formulación de proyectos</span><span>Cooperación y financiación</span><span>Seguimiento y evaluación</span><span>Formación a la medida</span><span>Innovación social</span><span>Investigación aplicada</span>
-      <span>Diagnóstico organizacional</span><span>Planeación estratégica</span><span>Formulación de proyectos</span><span>Cooperación y financiación</span><span>Seguimiento y evaluación</span><span>Formación a la medida</span><span>Innovación social</span><span>Investigación aplicada</span>
     </div>
+
+    <div class="hx__stage">
+      <div class="hx__edge" aria-hidden="true"></div>
+      <div class="hx__window" id="hxWindow">
+        <div class="hx__bar"><i></i><i></i><i></i><span>Torre 7 · Ruta de fortalecimiento</span></div>
+        <div class="hx__body">
+          <nav class="hx__side" aria-hidden="true">
+            <span class="is-on">Diagnóstico</span><span>Planeación</span><span>Proyectos</span><span>Financiación</span><span>Seguimiento</span><span>Sostenibilidad</span>
+          </nav>
+          <div class="hx__main">
+            <p class="hx__prompt" aria-label="Necesitamos un proyecto listo para presentar a una convocatoria"><span id="hxType" data-text="Necesitamos un proyecto listo para presentar a una convocatoria"></span><em></em></p>
+            <div class="hx__cards" aria-hidden="true">
+              <div class="hx__card" style="--i:0">
+                <h3>Diagnóstico</h3>
+                <div class="hx__row"><span>Planeación</span><b style="--w:78%"></b></div>
+                <div class="hx__row"><span>Proyectos</span><b style="--w:52%"></b></div>
+                <div class="hx__row"><span>Seguimiento</span><b style="--w:34%"></b></div>
+                <div class="hx__row"><span>Sostenibilidad</span><b style="--w:61%"></b></div>
+              </div>
+              <div class="hx__card" style="--i:1">
+                <h3>Marco lógico</h3>
+                <table><tr><th>Objetivo</th><th>Indicador</th></tr><tr><td>Fortalecer la gestión</td><td>Plan aprobado</td></tr><tr><td>Formar al equipo</td><td>20 personas</td></tr><tr><td>Medir resultados</td><td>Informe trimestral</td></tr></table>
+              </div>
+              <div class="hx__card hx__card--gold" style="--i:2">
+                <h3>Indicadores</h3>
+                <div class="hx__bars"><b style="--h:35%"></b><b style="--h:48%"></b><b style="--h:44%"></b><b style="--h:62%"></b><b style="--h:70%"></b><b style="--h:88%"></b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hx__float hx__float--a" aria-hidden="true"><span>✓</span><div><b>Perfil de proyecto listo</b><small>Presupuesto y cronograma</small></div></div>
+        <div class="hx__float hx__float--b" aria-hidden="true"><span>★</span><div><b>Membresía Standard</b><small>Hoja de ruta activa</small></div></div>
+      </div>
+    </div>
+
+    <ul class="hx__links" aria-label="Nuestros servicios">
+      <li><a href="proyecta.html"><b>Proyectos</b><small>Fortalecimiento y gestión</small></a></li>
+      <li><a href="capacita.html"><b>Formación</b><small>Cursos y talleres</small></a></li>
+      <li><a href="innova.html"><b>Innovación</b><small>Cocreación y pilotos</small></a></li>
+      <li><a href="investiga.html"><b>Investigación</b><small>Estudios y evaluación</small></a></li>
+    </ul>
   </div>
 </section>
 
@@ -596,7 +606,7 @@
 <script src="assets/js/blog-datos.js?v=202610262122"></script>
 <script src="assets/js/blog-seo.js?v=202610262122"></script>
 <script src="assets/js/blog.js?v=202610262122"></script>
-<script src="assets/js/hero.js?v=202610262126" defer></script>
+<script src="assets/js/hero.js?v=202610262139" defer></script>
 <script src="assets/js/ruta.js?v=202610262122" defer></script>
 <script src="assets/js/whatsapp.js?v=202610262122" defer></script>
 </body>
