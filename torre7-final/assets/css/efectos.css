@@ -1,0 +1,87 @@
+/* ==========================================================
+   Efectos: banner con vida propia, títulos que se escriben
+   palabra por palabra, brillo en tarjetas y movimiento fino.
+   ========================================================== */
+
+/* ---------- banner ---------- */
+.slider { --mx: 70%; --my: 30%; --px: 0px; --py: 0px; }
+.slide__img { animation: none; translate: var(--px) var(--py); scale: 1.06; transition: transform 7s linear, translate .8s var(--ease); }
+/* luz cálida que sigue al puntero */
+.slider::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255,208,90,.2), transparent 62%); mix-blend-mode: soft-light; transition: opacity .4s; }
+/* resplandor verde y dorado que se mueve despacio sobre la foto */
+.slide::after { content: ""; position: absolute; inset: -20%; z-index: -1; pointer-events: none; background: radial-gradient(40% 50% at 82% 88%, rgba(11,92,51,.55), transparent 70%), radial-gradient(34% 44% at 12% 8%, rgba(247,177,0,.22), transparent 70%); animation: aurora 14s ease-in-out infinite alternate; }
+@keyframes aurora { to { transform: translate(3%, -3%) scale(1.08); } }
+
+/* título palabra por palabra */
+.slide__title .w { display: inline-block; opacity: 0; transform: translateY(.55em) rotate(2deg); filter: blur(8px); transition: opacity .7s var(--ease), transform .8s var(--ease), filter .7s var(--ease); transition-delay: calc(.12s + var(--wi, 0) * .07s); }
+.slide.is-active .slide__title .w { opacity: 1; transform: none; filter: none; }
+.slide__title { opacity: 1 !important; transform: none !important; }
+.slide__title .grad-text .w { background: linear-gradient(100deg, #f7b100 30%, #ffe08a 48%, #f7b100 66%) 0 0 / 260% 100% !important; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent !important; animation: brillo 5.5s linear infinite; }
+@keyframes brillo { from { background-position: 100% 0; } to { background-position: -60% 0; } }
+
+/* etiqueta con punto que late */
+.slide__tag::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #f7b100; box-shadow: 0 0 0 0 rgba(247,177,0,.7); animation: pulso 2.2s ease-out infinite; vertical-align: 1px; }
+@keyframes pulso { to { box-shadow: 0 0 0 9px rgba(247,177,0,0); } }
+
+/* panel de líneas de cristal */
+.slider__lines { position: absolute; z-index: 3; right: clamp(18px, 3vw, 36px); bottom: clamp(18px, 3vw, 30px); display: grid; gap: 6px; width: 218px; padding: 12px; border-radius: 22px; background: rgba(14,18,16,.34); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3); box-shadow: 0 24px 50px -24px rgba(0,0,0,.6); animation: panel-in 1s .5s var(--ease) both; }
+@keyframes panel-in { from { opacity: 0; transform: translateX(24px); } }
+.slider__lines-t { padding: 4px 8px 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.62); }
+.slider__lines a { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 14px; color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; background: rgba(255,255,255,.06); transition: background .3s, transform .3s var(--ease); animation: panel-in .7s calc(.7s + var(--i) * .08s) var(--ease) both; }
+.slider__lines a i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.45); transition: background .3s, transform .3s; }
+.slider__lines a b { margin-left: auto; font-weight: 400; opacity: 0; transform: translateX(-6px); transition: opacity .3s, transform .3s; }
+.slider__lines a:hover, .slider__lines a[aria-current] { background: rgba(247,177,0,.9); color: #141414; transform: translateX(-4px); }
+.slider__lines a:hover i, .slider__lines a[aria-current] i { background: #141414; transform: scale(1.3); }
+.slider__lines a:hover b { opacity: 1; transform: none; }
+@media (max-width: 1100px) { .slider__lines { display: none; } }
+
+/* ---------- títulos de sección ---------- */
+.js-fx main .h2 .w, .js-fx .split__h--xl .w, .js-fx .finale__title .w { display: inline-block; opacity: 0; transform: translateY(.45em); filter: blur(6px); transition: opacity .65s var(--ease), transform .75s var(--ease), filter .65s var(--ease); transition-delay: calc(var(--wi, 0) * .06s); }
+.js-fx .is-seen .w, .js-fx .is-seen.w { opacity: 1; transform: none; filter: none; }
+.js-fx .slide__title .w { filter: blur(8px); }
+
+/* subrayado dorado que se dibuja bajo las palabras destacadas */
+main .h2 .grad-text { position: relative; }
+main .h2 .grad-text::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.06em; height: .09em; border-radius: 99px; background: linear-gradient(90deg, #f7b100, #ffd45c); transform: scaleX(0); transform-origin: left; transition: transform 1s .5s var(--ease); }
+main .h2.is-seen .grad-text::after { transform: scaleX(1); }
+
+/* ---------- tarjetas con brillo que sigue al puntero ---------- */
+.plan:not(.plan--pop):hover, .rowc:hover, .info:hover, .tl__card:hover, .nums > div:hover, .faq details:hover { background-image: radial-gradient(260px circle at var(--cx, 50%) var(--cy, 50%), rgba(247,177,0,.14), transparent 65%); }
+.rowc, .info, .tl__card { transition: transform .35s var(--ease), box-shadow .35s, border-color .35s; }
+.rowc:hover, .info:hover { transform: translateY(-4px); border-color: rgba(247,177,0,.45); box-shadow: var(--glow); }
+.rowc__img { transition: transform .5s var(--ease); }
+.rowc:hover .rowc__img { transform: scale(1.08) rotate(-2deg); }
+
+/* ---------- imágenes que se descubren ---------- */
+.js-anim .reveal-l .split__media > img, .js-anim .reveal-r .split__media > img { clip-path: inset(0 100% 0 0 round 28px); transition: clip-path 1.2s .1s var(--ease), transform .9s var(--ease); }
+.js-anim .reveal-r .split__media > img { clip-path: inset(0 0 0 100% round 28px); }
+.js-anim .split.is-in .split__media > img { clip-path: inset(0 0 0 0 round 28px); }
+
+/* ---------- navegación y botones ---------- */
+.nav a:not(.btn) { position: relative; }
+.nav a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; border-radius: 2px; background: #f7b100; transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease); }
+.nav a:not(.btn):hover::after { transform: scaleX(1); transform-origin: left; }
+.btn { transition: transform .25s var(--ease), background .25s, box-shadow .25s, border-color .25s; }
+.btn:active { transform: scale(.97); }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+/* ---------- decoración flotante en secciones ---------- */
+.sec.plans-sec::after, #metodo::after { content: ""; position: absolute; z-index: -1; width: 120px; height: 120px; right: 8%; top: 14%; border-radius: 34px; border: 2px solid rgba(247,177,0,.45); transform: rotate(14deg); animation: gira 18s linear infinite; pointer-events: none; }
+#metodo::after { right: auto; left: 7%; top: 30%; width: 70px; height: 70px; border-radius: 50%; border-color: rgba(11,92,51,.3); animation-duration: 24s; }
+@keyframes gira { to { transform: rotate(374deg) scale(1.1); } }
+
+/* barra de progreso con degradado de marca */
+.progress { background: linear-gradient(90deg, #f7b100, #0b5c33) !important; }
+
+/* entrada de la página */
+body { animation: pagina .8s var(--ease) both; }
+@keyframes pagina { from { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .slide::after, .slider__lines, .slider__lines a, .slide__tag::before, .sec.plans-sec::after, #metodo::after, .slide__title .grad-text .w { animation: none !important; }
+}
+@media (max-width: 760px) { .sec.plans-sec::after, #metodo::after { display: none; } }
+
+/* el banner deja aire entre los botones y los controles */
+.slider { min-height: clamp(420px, 48vh, 470px); }
+.slide { padding-block: clamp(48px, 6vh, 64px) 96px; }
