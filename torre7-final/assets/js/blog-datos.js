@@ -16,6 +16,7 @@
    funciona el blog. Revísalos, ajústalos o reemplázalos antes de publicar.
    ========================================================== */
 const BLOG_POSTS = [
+  ...(typeof BLOG_NUEVOS !== "undefined" ? BLOG_NUEVOS : []), /* artículos nuevos: assets/js/blog-nuevos.js */
   {
     slug: "senales-diagnostico-organizacional",
     titulo: "5 señales de que tu organización necesita un diagnóstico",

@@ -1,0 +1,52 @@
+/* ==========================================================
+   Páginas de artículo del blog (blog/*.html)
+   ========================================================== */
+.article { max-width: 780px; }
+.article__crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 22px; font-size: 13.5px; color: #6a6a64; }
+.article__crumbs a { color: #0b5c33; font-weight: 600; text-decoration: none; }
+.article__crumbs a:hover { text-decoration: underline; }
+.article h1 { font-size: clamp(34px, 4.4vw, 54px); line-height: 1; margin: 14px 0 16px; }
+.article__lead { font-size: clamp(17px, 1.5vw, 20px); }
+
+/* respuesta directa al inicio: lo primero que leen personas y asistentes de IA */
+.article__brief { margin: 0 0 30px; padding: 20px 24px; border-radius: 18px; background: #fff; border: 1px solid #e9e9e9; border-left: 5px solid #f7b100; }
+.article__brief b { display: block; margin-bottom: 6px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #0b5c33; }
+.article__brief p { margin: 0; font-size: 17px; line-height: 1.65; color: #141414; }
+
+.article__toc { margin: 0 0 34px; padding: 20px 24px; border-radius: 18px; background: #f6f6f6; }
+.article__toc b { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #6a6a64; }
+.article__toc ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 15.5px; }
+.article__toc a { color: #141414; text-decoration: none; }
+.article__toc a:hover { color: #0b5c33; text-decoration: underline; }
+
+.article__body { font-size: 18px; line-height: 1.75; }
+.article__body h2, .article__faq h2 { scroll-margin-top: 90px; }
+.article__body ol { padding-left: 24px; margin: 0 0 1.2em; }
+.article__body a, .article__faq a { color: #0b5c33; font-weight: 600; text-underline-offset: 3px; }
+
+/* tablas: datos ordenados que se leen y se citan fácilmente */
+.article__body table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0 0 1.6em; font-size: 15.5px; line-height: 1.5; border: 1px solid #e9e9e9; border-radius: 16px; overflow: hidden; display: block; overflow-x: auto; }
+.article__body th, .article__body td { padding: 12px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid #e9e9e9; }
+.article__body thead th { background: #0b5c33; color: #fff; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.article__body tbody tr:last-child td { border-bottom: 0; }
+.article__body tbody tr:nth-child(even) td { background: #f6f6f6; }
+.article__body td:first-child { font-weight: 700; color: #141414; }
+
+/* preguntas frecuentes */
+.article__faq { margin-top: 44px; }
+.article__faq h2 { font-family: var(--b-head, inherit); font-weight: var(--b-head-w, 400); font-size: 30px; margin: 0 0 14px; color: #141414; }
+.article__faq details { border: 1px solid #e9e9e9; border-radius: 16px; background: #f6f6f6; margin-bottom: 10px; transition: background .2s, border-color .2s; }
+.article__faq details[open] { background: #fff; border-color: #141414; }
+.article__faq summary { cursor: pointer; padding: 16px 20px; font-weight: 700; font-size: 16.5px; color: #141414; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.article__faq summary::-webkit-details-marker { display: none; }
+.article__faq summary::after { content: "+"; flex: none; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 1px solid #e9e9e9; display: grid; place-items: center; line-height: 1; }
+.article__faq details[open] summary::after { content: "–"; background: #f7b100; border-color: #f7b100; }
+.article__faq details p { margin: 0; padding: 0 20px 18px; font-size: 16.5px; line-height: 1.65; color: #3a3a3a; }
+
+.article__author { margin: 34px 0 6px; font-size: 14.5px; color: #6a6a64; }
+.article__note { margin: 0; font-size: 13.5px; color: #6a6a64; }
+
+.article__related { margin-top: clamp(56px, 7vw, 90px); }
+.article__related h2 { font-family: var(--b-head, inherit); font-weight: var(--b-head-w, 400); font-size: clamp(30px, 3.4vw, 42px); margin: 0 0 22px; color: #141414; }
+
+@media (max-width: 640px) { .article__body { font-size: 17px; } .article__brief { padding: 16px 18px; } }

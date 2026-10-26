@@ -7,7 +7,7 @@
   const minutes = (p) => Math.max(1, Math.ceil(p.contenido.join(" ").replace(/<[^>]+>/g, " ").split(/\s+/).length / 180));
   const meta = (p) => `<div class="post-meta"><span class="post-cat">${esc(p.categoria)}</span><span>·</span><span>${minutes(p)} min de lectura</span>${p.fecha ? `<span>·</span><span>${esc(p.fecha)}</span>` : ""}${p.ejemplo ? '<span class="post-badge">Borrador de ejemplo</span>' : ""}</div>`;
   const card = (p) => `
-    <a class="post-card" href="blog.html#${encodeURIComponent(p.slug)}">
+    <a class="post-card" href="blog/${encodeURIComponent(p.slug)}.html">
       <div class="post-card__img"><img src="${esc(p.imagen)}" alt="" loading="lazy" width="1600" height="1000"></div>
       <div class="post-card__body">${meta(p)}<h3>${esc(p.titulo)}</h3><p>${esc(p.resumen)}</p><span class="post-card__more">Leer artículo →</span></div>
     </a>`;
@@ -49,7 +49,7 @@
         <h3 class="bl-h">${current ? "Más artículos" : "Recientes"}</h3>
         <ul class="bl-recent">
           ${POSTS.filter((p) => !current || p.slug !== current.slug).slice(0, 4).map((p) => `
-            <li><a href="blog.html#${encodeURIComponent(p.slug)}"><img src="${esc(p.imagen)}" alt="" loading="lazy" width="160" height="120"><span><b>${esc(p.titulo)}</b><small>${minutes(p)} min de lectura</small></span></a></li>`).join("")}
+            <li><a href="blog/${encodeURIComponent(p.slug)}.html"><img src="${esc(p.imagen)}" alt="" loading="lazy" width="160" height="120"><span><b>${esc(p.titulo)}</b><small>${minutes(p)} min de lectura</small></span></a></li>`).join("")}
         </ul>
       </div>
       <div class="bl-cta">
@@ -143,7 +143,9 @@
   const route = () => {
     const slug = decodeURIComponent(location.hash.slice(1));
     const p = POSTS.find((x) => x.slug === slug);
-    p ? renderPost(p) : renderList();
+    /* los artículos viven en páginas propias (blog/<slug>.html); los enlaces antiguos con # se redirigen */
+    if (p) { location.replace(`blog/${encodeURIComponent(p.slug)}.html`); return; }
+    renderList();
     window.scrollTo(0, 0);
   };
   addEventListener("hashchange", route);

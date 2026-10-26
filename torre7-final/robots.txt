@@ -1,0 +1,3 @@
+# Versión de propuesta: sin indexar. Al publicar el sitio, ejecuta: node tools/build-blog.mjs --indexable
+User-agent: *
+Disallow: /
