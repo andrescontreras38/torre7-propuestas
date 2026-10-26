@@ -85,3 +85,10 @@ body { animation: pagina .8s var(--ease) both; }
 /* el banner deja aire entre los botones y los controles */
 .slider { min-height: clamp(420px, 48vh, 470px); }
 .slide { padding-block: clamp(48px, 6vh, 64px) 96px; }
+
+/* la cinta de públicos sigue desplazándose aunque el sistema pida reducir animaciones:
+   es lenta, lineal y no hay parpadeo; se pausa al pasar el cursor */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: slide 70s linear infinite !important; }
+  .marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused !important; }
+}
