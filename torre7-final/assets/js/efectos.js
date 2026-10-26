@@ -6,7 +6,7 @@
   const root = document.documentElement;
 
   // ---------- panel de servicios dentro del banner ----------
-  const lineas = [["Proyectos", "proyecta.html"], ["Formación", "capacita.html"], ["Innovación", "innova.html"], ["Investigación", "investiga.html"], ["Colabora con nosotros", "conecta.html"]];
+  const lineas = [["Proyectos", "proyecta.html"], ["Formación", "capacita.html"], ["Innovación", "innova.html"], ["Investigación", "investiga.html"], ["Red ESAL", "conecta.html"]];
   const actual = location.pathname.split("/").pop();
   document.querySelectorAll(".slider").forEach((s) => {
     const nav = document.createElement("nav");

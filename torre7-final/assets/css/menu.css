@@ -34,3 +34,7 @@
   .nav .nav__menu a { border-bottom: 0; padding: 10px 14px; }
   .nav .nav__menu a:hover { transform: none; }
 }
+
+/* enlace de la página actual en el menú principal */
+.nav > a[aria-current="page"] { color: var(--ink); }
+.nav > a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
