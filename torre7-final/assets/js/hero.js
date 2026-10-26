@@ -1,30 +1,39 @@
-/* Hero estilo Framer: el texto de la ventana se escribe solo y, al terminar,
-   aparecen las tarjetas, las barras se llenan y las gráficas crecen. */
+/* Hero a ancho completo: fotos que rotan cada 6 s con barra de progreso
+   y título que entra palabra por palabra. */
 (() => {
-  const hero = document.getElementById("inicio");
-  const out = document.getElementById("hxType");
-  if (!hero || !out || !hero.classList.contains("hx")) return;
+  const hero = document.querySelector(".hf");
+  if (!hero) return;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const frases = [
-    "Necesitamos un proyecto listo para presentar a una convocatoria",
-    "Queremos ordenar y fortalecer la gestión de nuestra fundación",
-    "Buscamos formar a nuestro equipo en indicadores y seguimiento"
-  ];
-  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-  let vivo = false;
-  const encender = () => { if (!vivo) { vivo = true; hero.classList.add("is-live"); } };
+  const fotos = [...hero.querySelectorAll(".hf__photos img")];
+  const dots = [...hero.querySelectorAll(".hf__dots button")];
+  let i = 0, timer;
 
-  if (reduce) { out.textContent = frases[0]; encender(); return; }
+  const t = hero.querySelector(".hf__title");
+  let n = 0;
+  const partir = (nodo) => [...nodo.childNodes].forEach((c) => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach((p) => {
+        if (!p) return;
+        if (/^\s+$/.test(p)) { f.appendChild(document.createTextNode(" ")); return; }
+        const w = document.createElement("span");
+        w.className = "w"; w.style.setProperty("--wi", n++); w.textContent = p; f.appendChild(w);
+      });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1) partir(c);
+  });
+  const texto = t.textContent.replace(/\s+/g, " ").trim();
+  partir(t);
+  t.setAttribute("aria-label", texto);
 
-  (async () => {
-    let k = 0;
-    while (true) {
-      const f = frases[k % frases.length];
-      for (let c = 1; c <= f.length; c++) { out.textContent = f.slice(0, c); await sleep(34); }
-      encender();
-      await sleep(3600);
-      for (let c = f.length; c >= 0; c -= 2) { out.textContent = f.slice(0, Math.max(c, 0)); await sleep(14); }
-      k++;
-    }
-  })();
+  const mostrar = (k) => {
+    fotos[i].classList.remove("is-on"); dots[i].setAttribute("aria-selected", "false");
+    i = (k + fotos.length) % fotos.length;
+    fotos[i].classList.add("is-on"); dots[i].setAttribute("aria-selected", "true");
+  };
+  const iniciar = () => { clearInterval(timer); if (!reduce) timer = setInterval(() => mostrar(i + 1), 6000); };
+  dots.forEach((d, k) => d.addEventListener("click", () => { mostrar(k); iniciar(); }));
+  hero.addEventListener("pointerenter", () => clearInterval(timer));
+  hero.addEventListener("pointerleave", iniciar);
+  iniciar();
 })();
