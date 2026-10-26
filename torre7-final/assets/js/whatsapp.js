@@ -12,17 +12,35 @@
   const archivo = location.pathname.split("/").pop() || "index.html";
   const enArticulo = /\/blog\/[^/]+\.html$/.test(location.pathname);
 
+  /* Mensajes escritos como los diría una persona: cálidos, directos y sin tecnicismos.
+     PAGINAS: qué dice quien escribe desde cada página cuando el botón es general. */
   const PAGINAS = {
-    "index.html": ["Inicio", "una asesoría inicial para mi organización"],
-    "nosotros.html": ["Quiénes somos", "los servicios de Torre 7"],
-    "proyecta.html": ["Torre 7 Proyecta", "fortalecimiento organizacional y gestión de proyectos"],
-    "capacita.html": ["Torre 7 Capacita", "formación y programas para mi organización"],
-    "innova.html": ["Torre 7 Innova", "innovación para mi organización"],
-    "investiga.html": ["Torre 7 Investiga", "investigación aplicada"],
-    "conecta.html": ["Torre 7 Conecta (Red de aliados)", "la Red Torre 7 y cómo registrar mi organización"],
-    "blog.html": ["Blog", "asesoría para mi organización"]
+    "index.html": "¡Hola! Estuve revisando su página web y me gustaría que me contaran cómo pueden acompañar a mi organización.",
+    "nosotros.html": "¡Hola! Estuve conociendo a Torre 7 y me gustaría saber cómo podrían acompañar a mi organización.",
+    "proyecta.html": "¡Hola! Estuve viendo Torre 7 Proyecta y me gustaría saber cómo pueden ayudarnos a fortalecer nuestra organización y a sacar adelante nuestros proyectos.",
+    "capacita.html": "¡Hola! Estuve viendo los programas de formación de Torre 7 Capacita y me gustaría recibir más información.",
+    "innova.html": "¡Hola! Me interesó Torre 7 Innova y me gustaría conversar sobre cómo innovar en mi organización.",
+    "investiga.html": "¡Hola! Estuve viendo Torre 7 Investiga y me gustaría saber cómo podrían apoyarnos con una investigación.",
+    "conecta.html": "¡Hola! Me gustaría saber cómo hacer parte de la Red ESAL de Torre 7.",
+    "blog.html": "¡Hola! Estuve leyendo su blog y me gustaría recibir asesoría para mi organización."
   };
-  const [pagina, tema] = PAGINAS[archivo] || ["sitio web", "los servicios de Torre 7"];
+
+  /* Cuando el botón trae data-interes, se convierte en una frase natural. */
+  const minus = (t) => t.charAt(0).toLowerCase() + t.slice(1);
+  const frase = (interes) => {
+    if (/^Asesoría inicial/i.test(interes)) return "Me gustaría agendar una asesoría inicial para mi organización.";
+    if (/^Registrar mi organización/i.test(interes)) return "Quiero registrar mi organización en la Red ESAL de Torre 7. ¿Cómo es el proceso?";
+    if (/^Conocer la Red de Profesionales/i.test(interes)) return "Me gustaría saber cómo hacer parte de la Red de Profesionales de Torre 7.";
+    if (/^Membresía/i.test(interes)) return `Me interesa la ${minus(interes)} de Torre 7 Proyecta. ¿Me cuentan qué incluye y cómo funciona?`;
+    if (/^Torre 7 Capacita/i.test(interes)) return "Me gustaría recibir información sobre los programas de formación de Torre 7 Capacita.";
+    if (/^Torre 7 Investiga/i.test(interes)) return "Me gustaría recibir información sobre los servicios de investigación de Torre 7 Investiga.";
+    if (/^Torre 7 Proyecta – /.test(interes)) return `Me interesa el servicio de ${minus(interes.replace(/^Torre 7 Proyecta – /, ""))} de Torre 7 Proyecta. ¿Me pueden dar más información?`;
+    if (/^Torre 7 Proyecta/i.test(interes)) return "Me gustaría recibir información sobre fortalecimiento organizacional y gestión de proyectos con Torre 7 Proyecta.";
+    if (/^Capacita /i.test(interes)) return `Me interesa ${interes}, de Torre 7 Capacita. ¿Me pueden dar más información?`;
+    if (/^Innova /i.test(interes)) return `Me gustaría recibir información sobre el servicio de ${interes.replace(/^Innova /i, "")} de Torre 7 Innova.`;
+    if (/^Investiga: /i.test(interes)) return `Me gustaría recibir información sobre ${minus(interes.replace(/^Investiga: /i, ""))} con Torre 7 Investiga.`;
+    return `Me gustaría recibir información sobre ${interes}.`;
+  };
 
   const mensaje = (el) => {
     let interes = (el.dataset.interes || "").trim();
@@ -31,9 +49,10 @@
     if (servicio) interes = `Torre 7 Proyecta – ${servicio}`;
     if (enArticulo) {
       const titulo = (document.querySelector("h1")?.textContent || "").trim();
-      return `Hola, equipo de Torre 7. Leí el artículo «${titulo}» en su blog y quiero ${interes ? "información sobre: " + interes : "asesoría para mi organización"}.`;
+      return `¡Hola! Acabo de leer su artículo «${titulo}» y me gustaría recibir asesoría para mi organización.${interes ? " " + frase(interes) : ""}`;
     }
-    return `Hola, equipo de Torre 7. Estoy en la página de ${pagina} y quiero información sobre ${interes ? ": " + interes : tema}.`.replace("sobre :", "sobre:");
+    if (interes) return `¡Hola! ${frase(interes)}${archivo === "index.html" ? "" : " Los vi en su página web."}`;
+    return PAGINAS[archivo] || "¡Hola! Estuve revisando su página web y me gustaría que me contaran cómo pueden acompañar a mi organización.";
   };
   const enlace = (el) => `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensaje(el))}`;
 

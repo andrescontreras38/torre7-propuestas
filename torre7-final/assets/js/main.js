@@ -127,12 +127,12 @@ if ("IntersectionObserver" in window) {
 const pend = '<span class="pending">Por confirmar</span>';
 const waLink = (txt) => `https://wa.me/${CONTACTO.whatsapp}?text=${encodeURIComponent(txt)}`;
 $("#contactData").innerHTML = `
-  <li><small>WhatsApp</small>${CONTACTO.whatsapp ? `<a href="${waLink("Hola Torre 7, quiero más información.")}" target="_blank" rel="noopener">${CONTACTO.telefono || "+" + CONTACTO.whatsapp}</a>` : pend}</li>
+  <li><small>WhatsApp</small>${CONTACTO.whatsapp ? `<a href="${waLink("¡Hola! Quisiera más información sobre los servicios de Torre 7.")}" target="_blank" rel="noopener">${CONTACTO.telefono || "+" + CONTACTO.whatsapp}</a>` : pend}</li>
   <li><small>Correo</small>${CONTACTO.correo ? `<a href="mailto:${CONTACTO.correo}">${CONTACTO.correo}</a>` : pend}</li>
   <li><small>Ubicación</small>${CONTACTO.ciudad || pend}</li>`;
 const redes = Object.entries(CONTACTO.redes).filter(([, url]) => url);
 $("#footerContact").innerHTML = [
-  CONTACTO.whatsapp && `<a href="${waLink("Hola Torre 7, quiero más información.")}" target="_blank" rel="noopener">WhatsApp</a>`,
+  CONTACTO.whatsapp && `<a href="${waLink("¡Hola! Quisiera más información sobre los servicios de Torre 7.")}" target="_blank" rel="noopener">WhatsApp</a>`,
   CONTACTO.correo && `<a href="mailto:${CONTACTO.correo}">${CONTACTO.correo}</a>`,
   CONTACTO.ciudad && `<span>${CONTACTO.ciudad}</span>`,
   ...redes.map(([n, url]) => `<a href="${url}" target="_blank" rel="noopener">${n[0].toUpperCase() + n.slice(1)}</a>`)
@@ -166,7 +166,7 @@ form.addEventListener("submit", (e) => {
   if (!ok) { msg.textContent = form.querySelector(".consent.is-invalid") && !form.querySelector(".field.is-invalid") ? "Para enviar la solicitud, autoriza el tratamiento de tus datos." : "Por favor completa los campos marcados."; return; }
   const d = Object.fromEntries(new FormData(form));
   const texto =
-`Hola Torre 7, quiero solicitar información.
+`¡Hola! Quiero solicitar información sobre Torre 7. Les dejo mis datos:
 
 *Nombre:* ${d.nombre}
 *Organización:* ${d.organizacion}
