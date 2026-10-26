@@ -6,7 +6,8 @@
    ========================================================== */
 
 /* banner de cada línea: el mismo del inicio, con una sola imagen */
-.slider--page { height: min(600px, calc(100svh - 96px)); min-height: 460px; }
+.slider--page { min-height: min(600px, calc(100svh - 96px)); }
+.slider--page .slide { padding-block: clamp(72px, 8vh, 100px); }
 .slider--page .slide__title { font-size: clamp(46px, 6.4vw, 92px); }
 .slider--page .slide__lead { max-width: 560px; }
 

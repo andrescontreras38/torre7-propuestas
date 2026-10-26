@@ -1,0 +1,119 @@
+/* ==========================================================
+   Acabado premium (se carga al final en todas las páginas)
+   - Colores de marca SÓLIDOS: los degradados dorado→verde se
+     mezclaban en tonos oliva y café que se veían sucios.
+   - Verde #0b5c33, dorado #f7b100, negro #141414, blanco.
+   ========================================================== */
+:root {
+  --gold: #f7b100;
+  --gold-hover: #ffbf1a;
+  --grad: linear-gradient(#f7b100, #f7b100);   /* lo que usaba degradado queda en dorado sólido */
+  --line: #e4e4e4;
+  --shadow-soft: 0 1px 2px rgba(20,20,20,.04), 0 24px 48px -28px rgba(20,20,20,.28);
+}
+
+/* palabras destacadas: verde sobre claro, dorado sobre oscuro */
+.grad-text { background: none !important; color: var(--green-deep) !important; -webkit-text-fill-color: currentColor; }
+.grad-text--light, .slide .grad-text, .finale .grad-text, .band .grad-text { color: var(--gold) !important; }
+
+/* etiqueta sobre los títulos: línea dorada + texto, sin cápsula */
+.eyebrow { display: inline-flex; align-items: center; gap: 12px; background: none !important; padding: 0 !important; border-radius: 0; color: var(--green-deep); font-size: 12.5px; letter-spacing: .08em; margin-bottom: 18px; }
+.eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--gold); flex: none; }
+.head--center .eyebrow, .plans-sec .head .eyebrow { justify-content: center; }
+.band .eyebrow { color: #fff !important; }
+
+/* botones */
+.btn { letter-spacing: .005em; transition: background .25s, border-color .25s, transform .2s, box-shadow .25s; }
+.btn--grad { background: var(--gold); color: var(--ink); box-shadow: 0 14px 28px -16px rgba(247,177,0,.95); }
+.btn--grad:hover { background: var(--gold-hover); box-shadow: 0 18px 32px -16px rgba(247,177,0,1); transform: translateY(-1px); }
+.btn--dark:hover { transform: translateY(-1px); }
+.btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* mosaico de líneas: bloques sólidos de marca */
+.tile { transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
+a.tile:hover { transform: translateY(-4px); box-shadow: 0 34px 60px -34px rgba(20,20,20,.5); }
+.tile--amber { background: var(--gold); }
+.tile--amber .tag { background: var(--ink); color: #fff; }
+.tile--amber li { color: var(--ink); }
+.tile--amber .tile__foot { color: var(--ink); }
+.tile--mint { background: var(--green-deep); }
+.tile--mint h3, .tile--mint li, .tile--mint li::before, .tile--mint .tile__foot { color: #fff; }
+.tile--mint .tag--green { background: var(--gold); color: var(--ink); }
+.tile__foot { font-weight: 700; }
+
+/* tarjetas de "Quiénes somos" con ilustración */
+.ucard { background: #fff; border: 1px solid var(--line); padding: 12px 12px 28px; }
+.ucard:hover { box-shadow: var(--shadow-soft); }
+.ui-diag { background: var(--gold); }
+.ui-plan { background: var(--green-deep); }
+.ui-chart { background: var(--ink); }
+
+/* cifras y chips */
+.nums dd { background: none !important; color: var(--green-deep) !important; -webkit-text-fill-color: currentColor; }
+.nums div { border-top: 2px solid var(--ink); }
+.chip--a b { background: none; color: var(--green-deep); -webkit-text-fill-color: currentColor; }
+.tl__line span { background: var(--gold); }
+
+/* membresías */
+.plan { transition: box-shadow .3s, transform .3s; }
+.plan:hover { box-shadow: var(--shadow-soft); }
+.plan--pop { background: #fff; border: 2px solid var(--gold); box-shadow: 0 34px 64px -36px rgba(247,177,0,.75); }
+.plan__badge { background: var(--green-deep); }
+
+/* preguntas */
+.faq details { border-color: var(--line); transition: border-color .2s, box-shadow .2s; }
+.faq details[open] { border-color: var(--ink); box-shadow: var(--shadow-soft); }
+.faq summary::after { background: #fff; border: 1px solid var(--line); }
+.faq details[open] summary::after { background: var(--gold); border-color: var(--gold); }
+
+/* contacto: panel verde con el texto y formulario blanco, sin manchas de color */
+.cta-card { background: #fff; border: 1px solid var(--line); border-radius: 32px; box-shadow: var(--shadow-soft); }
+.cta-card .mesh { display: none; }
+.cta-card__grid { padding: 0; gap: 0; align-items: stretch; }
+.cta-card__copy { background: var(--green-deep); color: #fff; padding: clamp(32px, 5vw, 64px); display: flex; flex-direction: column; justify-content: center; }
+.cta-card__copy .h2 { color: #fff; }
+.cta-card__copy .lead { color: rgba(255,255,255,.86); }
+.cta-card__copy .eyebrow { color: #fff !important; }
+.cta-card__copy .cta-extra { color: var(--gold); }
+.contact-data li { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); backdrop-filter: none; color: #fff; }
+.contact-data small { color: rgba(255,255,255,.66); }
+.contact-data a { color: #fff; }
+.contact-data .pending { color: var(--gold); }
+.cta-card .form { box-shadow: none; border-radius: 0; padding: clamp(28px, 4vw, 56px); align-self: center; }
+
+/* campos del formulario: borde visible (antes eran blancos sobre blanco) */
+.field input, .field select, .field textarea { background-color: #fff; border: 1px solid #d6d6d6; border-radius: 12px; padding: 13px 14px; }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: #b8b8b8; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green-deep); box-shadow: 0 0 0 4px rgba(11,92,51,.12); }
+
+/* cierre: negro sólido, sin manchas de color */
+.mesh--finale { display: none; }
+.finale { background: var(--ink); }
+.finale__mark { width: 72px; }
+
+/* banda de público y servicios */
+.svc-panel { box-shadow: 0 34px 64px -36px rgba(11,92,51,.7); }
+.logos { border-block: 1px solid var(--line) !important; }
+
+@media (max-width: 1000px) {
+  .cta-card__copy { border-radius: 0; }
+}
+
+/* blog y barras laterales: mismos colores sólidos */
+.bl-h::before { background: var(--gold); }
+.bl-cats button[aria-pressed="true"] b { background: var(--gold); }
+.bl-cta { background: var(--green-deep); }
+.bl-cta .mesh { display: none; }
+.bl-cta__kicker { background: rgba(255,255,255,.12); color: #fff; }
+.bl-cta h3 { color: #fff; }
+.bl-cta p { color: rgba(255,255,255,.86); }
+.bl-cta .btn--dark { background: var(--gold); color: var(--ink); }
+.bl-cta .btn--dark:hover { background: var(--gold-hover); }
+.bl-plans .is-pop a { background: #fff; border: 2px solid var(--gold); }
+.bl-red__ic { background: var(--gold); }
+
+/* el cierre se une con el pie sin bordes blancos */
+.finale { margin: 24px 0 0; border-radius: var(--r-xl) var(--r-xl) 0 0; }
+
+/* margen lateral del título de público en celular */
+.logos > p.logos__title { padding-inline: var(--gutter); }
