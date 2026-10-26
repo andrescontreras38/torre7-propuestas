@@ -59,35 +59,6 @@ const CLAVES = [
   ["ordenar", /orden|gesti[oó]n|fortalec|diagn[oó]stico|organiza/]
 ];
 
-const promptText = $("#promptText");
-const reco = $("#reco");
-let recoKey = null;
-const showReco = (k) => {
-  recoKey = k;
-  const r = RUTAS[k];
-  $("#recoTitle").textContent = r.t;
-  $("#recoText").textContent = r.d;
-  reco.hidden = false;
-};
-document.querySelectorAll("#suggest button").forEach((b) => {
-  b.addEventListener("click", () => {
-    const k = b.dataset.k;
-    promptText.value = RUTAS[k].q;
-    promptText.focus();
-    showReco(k);
-  });
-});
-$("#prompt").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const txt = promptText.value.trim().toLowerCase();
-  if (!txt) { promptText.focus(); return; }
-  const hit = CLAVES.find(([, re]) => re.test(txt));
-  showReco(hit ? hit[0] : "ordenar");
-});
-promptText.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("#prompt").requestSubmit(); }
-});
-
 /* ---------- servicios en la sección oscura ---------- */
 const SERVICIOS = [
   { t: "Diagnóstico y fortalecimiento organizacional", d: "Identificación de capacidades, necesidades y oportunidades de mejora.", e: ["Diagnóstico", "Matriz de oportunidades", "Recomendaciones priorizadas"] },
@@ -188,12 +159,6 @@ document.addEventListener("click", (e) => {
   const el = e.target.closest("[data-interes]");
   if (el) interes.value = el.dataset.interes;
 });
-$("#recoCta").addEventListener("click", () => {
-  if (!recoKey) return;
-  interes.value = RUTAS[recoKey].i;
-  if (!mensaje.value.trim()) mensaje.value = promptText.value.trim() || RUTAS[recoKey].q;
-});
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let ok = true;
@@ -242,37 +207,6 @@ const onScrollPro = () => {
 };
 onScrollPro();
 addEventListener("scroll", onScrollPro, { passive: true });
-
-/* texto de ejemplo que se escribe solo en el cuadro */
-if (!reduceMotion) {
-  const EJEMPLOS = [
-    "Queremos formular un proyecto para presentar a una convocatoria…",
-    "Necesitamos un plan estratégico con indicadores…",
-    "Buscamos formar a nuestro equipo en gestión de proyectos…",
-    "Queremos medir el impacto de nuestros programas…"
-  ];
-  let e = 0, ch = 0, borrando = false;
-  const tipear = () => {
-    if (document.activeElement === promptText || promptText.value) { setTimeout(tipear, 1200); return; }
-    const full = EJEMPLOS[e];
-    ch += borrando ? -1 : 1;
-    promptText.placeholder = full.slice(0, ch) + (borrando ? "" : "▍");
-    let wait = borrando ? 22 : 45;
-    if (!borrando && ch >= full.length) { borrando = true; wait = 1800; }
-    else if (borrando && ch <= 0) { borrando = false; e = (e + 1) % EJEMPLOS.length; wait = 400; }
-    setTimeout(tipear, wait);
-  };
-  setTimeout(tipear, 900);
-}
-
-/* tarjetas flotantes que siguen al ratón */
-if (finePointer && !reduceMotion) {
-  const fls = document.querySelectorAll(".fl");
-  $("#ruta").addEventListener("pointermove", (ev) => {
-    const dx = ev.clientX / innerWidth - .5, dy = ev.clientY / innerHeight - .5;
-    fls.forEach((f) => { const d = +f.dataset.depth; f.style.translate = `${dx * d}px ${dy * d}px`; });
-  });
-}
 
 /* inclinación 3D de las tarjetas */
 if (finePointer && !reduceMotion) {
