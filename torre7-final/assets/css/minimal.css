@@ -190,3 +190,39 @@ a.tile:hover { transform: translateY(-5px); box-shadow: var(--glow); }
 .lead-sec .eyebrow, .cta-card__copy .eyebrow { width: fit-content; align-self: flex-start; }
 .footer__top, .footer__grid, .footer__bottom { padding-inline: clamp(20px, 3vw, 40px); }
 .footer__top { margin-inline: 0; }
+
+/* ==========================================================
+   Contacto en claro + pie a todo el ancho
+   El bloque del formulario deja de ser una tarjeta verde pegada
+   al pie negro: fondo claro con un matiz suave, y el pie negro
+   ocupa todo el ancho de la pantalla.
+   ========================================================== */
+.lead-sec { background: linear-gradient(135deg, #fbfaf5 0%, #f4f1e6 55%, #eaf3ee 100%); border: 1px solid var(--line); box-shadow: none; margin-bottom: clamp(40px, 5vw, 72px); }
+.lead-sec::before { background: radial-gradient(circle, rgba(247,177,0,.22), transparent 68%); filter: blur(60px); }
+.lead-sec .h2 { color: var(--ink); }
+.lead-sec .lead { color: #6a6a64; }
+.lead-sec .eyebrow { color: var(--green-deep) !important; background: rgba(11,92,51,.07) !important; border-color: rgba(11,92,51,.14); }
+.lead-sec .cta-extra { color: var(--green-deep); }
+.lead-sec .cta-extra a, .lead-sec .lead a { color: var(--ink); }
+.lead-steps b { color: var(--ink); }
+.lead-steps span { color: #6a6a64; }
+.lead-steps li::before { box-shadow: 0 0 0 6px rgba(247,177,0,.18); }
+.lead-sec .contact-data li { background: #fff; border: 1px solid var(--line); color: var(--ink); }
+.lead-sec .contact-data small { color: #7a7a72; }
+.lead-sec .contact-data a { color: var(--ink); }
+.lead-sec .contact-data .pending { color: var(--green-deep); }
+.lead-sec .form { border: 1px solid var(--line); box-shadow: 0 30px 60px -36px rgba(20,20,20,.28); }
+
+.footer { width: 100%; max-width: none; margin: 0; border-radius: 0; }
+.footer::before { border-radius: 0; }
+.footer > .wrap { width: min(1160px, 100%); padding-inline: var(--gutter); }
+.footer__top, .footer__grid, .footer__bottom { padding-inline: 0; }
+.finale { width: 100%; max-width: none; border-radius: 0; }
+@media (max-width: 760px) { .footer { border-radius: 0; margin-bottom: 0; } }
+.lead-sec .lead-steps b { color: var(--ink) !important; }
+.lead-sec .lead-steps span { color: #6a6a64 !important; }
+.lead-sec .cta-extra, .lead-sec .cta-extra a { color: var(--green-deep) !important; }
+.footer > .wrap, .footer__top { margin-inline: auto !important; width: min(1160px, 100%); padding-inline: var(--gutter); box-sizing: border-box; }
+.footer__top, .footer__grid, .footer__bottom { padding-inline: var(--gutter); }
+.lead-sec .lead-steps li { color: var(--ink); font-weight: 600; font-size: 16.5px; }
+.lead-sec .cta-card__copy { color: var(--ink); }
