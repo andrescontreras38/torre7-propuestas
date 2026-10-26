@@ -31,9 +31,9 @@
     if (servicio) interes = `Torre 7 Proyecta – ${servicio}`;
     if (enArticulo) {
       const titulo = (document.querySelector("h1")?.textContent || "").trim();
-      return `Hola, equipo de Torre 7 👋. Leí el artículo «${titulo}» en su blog y quiero ${interes ? "información sobre: " + interes : "asesoría para mi organización"}.`;
+      return `Hola, equipo de Torre 7. Leí el artículo «${titulo}» en su blog y quiero ${interes ? "información sobre: " + interes : "asesoría para mi organización"}.`;
     }
-    return `Hola, equipo de Torre 7 👋. Estoy en la página de ${pagina} y quiero información sobre ${interes ? ": " + interes : tema}.`.replace("sobre :", "sobre:");
+    return `Hola, equipo de Torre 7. Estoy en la página de ${pagina} y quiero información sobre ${interes ? ": " + interes : tema}.`.replace("sobre :", "sobre:");
   };
   const enlace = (el) => `https://wa.me/${NUMERO}?text=${encodeURIComponent(mensaje(el))}`;
 
