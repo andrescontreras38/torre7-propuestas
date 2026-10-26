@@ -71,7 +71,6 @@ const SERVICIOS = [
 const stage = $("#stage");
 const renderSvc = (i) => {
   const s = SERVICIOS[i];
-  $("#stNum").textContent = String(i + 1).padStart(2, "0");
   $("#stTitle").textContent = s.t;
   $("#stText").textContent = s.d;
   $("#stList").innerHTML = s.e.map((x) => `<li>${x}</li>`).join("");
@@ -79,28 +78,20 @@ const renderSvc = (i) => {
   note.hidden = !s.n; note.textContent = s.n || "";
 };
 renderSvc(0);
-let svcIdx = 0, svcTimer = null;
+let svcIdx = 0;
 const selectSvc = (i, user) => {
   if (i === svcIdx) return;
   document.querySelectorAll("#svc button").forEach((x) => x.setAttribute("aria-selected", String(+x.dataset.i === i)));
   stage.classList.add("is-out");
   setTimeout(() => { renderSvc(i); stage.classList.remove("is-out"); }, 220);
   svcIdx = i;
-  if (user && svcTimer) { clearInterval(svcTimer); svcTimer = null; darkSec.classList.remove("is-auto"); }
 };
 const darkSec = $("#servicios");
-document.querySelectorAll("#svc button").forEach((b) => b.addEventListener("click", () => selectSvc(+b.dataset.i, true)));
-// avanza solo mientras la sección está visible, hasta que el usuario elige uno
-if (!reduceMotion && "IntersectionObserver" in window) {
-  new IntersectionObserver(([en]) => {
-    if (en.isIntersecting && svcTimer === null && !stage.dataset.user) {
-      darkSec.classList.add("is-auto");
-      svcTimer = setInterval(() => selectSvc((svcIdx + 1) % SERVICIOS.length), 3800);
-    } else if (!en.isIntersecting && svcTimer) { clearInterval(svcTimer); svcTimer = null; darkSec.classList.remove("is-auto"); }
-  }, { threshold: .4 }).observe($("#servicios"));
-  document.querySelectorAll("#svc button").forEach((b) => b.addEventListener("click", () => { stage.dataset.user = "1"; }));
-}
-
+document.querySelectorAll("#svc button").forEach((b) => b.addEventListener("click", () => {
+  selectSvc(+b.dataset.i, true);
+  // en celular el panel queda debajo de la lista: llevar a la persona hasta él
+  if (innerWidth < 900) setTimeout(() => stage.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }), 240);
+}));
 /* ---------- contadores ---------- */
 const runCount = (el) => {
   const end = +el.dataset.count, start = end > 1000 ? end - 30 : 0, t0 = performance.now(), dur = 1300;

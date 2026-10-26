@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/slider.css">
   <link rel="stylesheet" href="assets/css/pulido.css">
+  <link rel="stylesheet" href="assets/css/servicios.css">
   <link rel="stylesheet" href="assets/css/blog.css">
   <link rel="stylesheet" href="assets/css/red-esal.css">
 </head>
@@ -116,32 +117,29 @@
 </section>
 
 <!-- ============ 2. CONOCE TORRE 7 PROYECTA ============ -->
-<section class="dark" id="servicios">
-  <div class="wrap dark__grid">
-    <div class="dark__left">
-      <p class="kicker">Torre 7 Proyecta · Línea principal</p>
-      <h2 class="h2 h2--light">Conoce Torre 7 Proyecta</h2>
-      <p class="lead lead--light">Nuestra línea principal: fortalecimiento organizacional y gestión de proyectos para organizaciones sociales y ESAL. Seis servicios, ajustados al diagnóstico y al alcance de cada organización.</p>
-      <ul class="svc" id="svc" role="tablist" aria-label="Servicios">
-        <li><button role="tab" aria-selected="true" data-i="0">Diagnóstico y fortalecimiento organizacional</button></li>
-        <li><button role="tab" aria-selected="false" data-i="1">Planeación estratégica y organizacional</button></li>
-        <li><button role="tab" aria-selected="false" data-i="2">Formulación y estructuración de proyectos</button></li>
-        <li><button role="tab" aria-selected="false" data-i="3">Financiación y cooperación</button></li>
-        <li><button role="tab" aria-selected="false" data-i="4">Seguimiento, evaluación e impacto</button></li>
-        <li><button role="tab" aria-selected="false" data-i="5">Sostenibilidad organizacional</button></li>
+<section class="svc-sec" id="servicios">
+  <div class="wrap">
+    <header class="svc-sec__head">
+      <h2 class="h2">Conoce Torre&nbsp;7 Proyecta</h2>
+      <p class="lead">Nuestra línea principal: fortalecimiento organizacional y gestión de proyectos para organizaciones sociales y ESAL. Elige un servicio para ver lo que puede recibir tu organización.</p>
+    </header>
+    <div class="svc-sec__grid">
+      <ul class="svc" id="svc" role="tablist" aria-label="Servicios de Torre 7 Proyecta">
+        <li><button type="button" role="tab" aria-selected="true" data-i="0"><span class="svc__name">Diagnóstico y fortalecimiento organizacional</span><span class="svc__hint">Capacidades, necesidades y oportunidades de mejora</span></button></li>
+        <li><button type="button" role="tab" aria-selected="false" data-i="1"><span class="svc__name">Planeación estratégica y organizacional</span><span class="svc__hint">Objetivos, prioridades, estrategias e indicadores</span></button></li>
+        <li><button type="button" role="tab" aria-selected="false" data-i="2"><span class="svc__name">Formulación y estructuración de proyectos</span><span class="svc__hint">De la idea a un proyecto con objetivos y resultados</span></button></li>
+        <li><button type="button" role="tab" aria-selected="false" data-i="3"><span class="svc__name">Financiación y cooperación</span><span class="svc__hint">Oportunidades de financiación y cooperación</span></button></li>
+        <li><button type="button" role="tab" aria-selected="false" data-i="4"><span class="svc__name">Seguimiento, evaluación e impacto</span><span class="svc__hint">Herramientas para medir resultados e impacto</span></button></li>
+        <li><button type="button" role="tab" aria-selected="false" data-i="5"><span class="svc__name">Sostenibilidad organizacional</span><span class="svc__hint">Mejores condiciones de continuidad</span></button></li>
       </ul>
-    </div>
-    <div class="stage" aria-live="polite">
-      <div class="stage__glow" aria-hidden="true"></div>
-      <div class="stage__card" id="stage">
-        <span class="stage__num" id="stNum">01</span>
+      <div class="svc-panel" id="stage" role="tabpanel" aria-live="polite">
         <h3 id="stTitle">Diagnóstico y fortalecimiento organizacional</h3>
         <p id="stText">Identificación de capacidades, necesidades y oportunidades de mejora.</p>
-        <p class="stage__label">Entregables posibles</p>
-        <ul id="stList"></ul>
-        <p class="stage__note" id="stNote" hidden></p>
+        <p class="svc-panel__label">Lo que puede recibir tu organización</p>
+        <ul class="svc-panel__list" id="stList"></ul>
+        <p class="svc-panel__note" id="stNote" hidden></p>
+        <a href="#contacto" class="svc-panel__btn" data-interes="Torre 7 Proyecta – Fortalecimiento y proyectos">Solicitar este servicio</a>
       </div>
-      <div class="orbit" aria-hidden="true"><i></i><i></i><i></i></div>
     </div>
   </div>
 </section>
