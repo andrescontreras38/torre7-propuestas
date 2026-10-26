@@ -3,13 +3,13 @@
    Tema con data-theme="light" | "dark" y variables --b-*
    ========================================================== */
 .blog-sec, .blog-page {
-  --b-ink: #141413; --b-text: #2e2d2a; --b-muted: #5b5a54; --b-card: #ffffff; --b-line: rgba(20, 20, 19, .12);
-  --b-accent: #9a5a00; --b-soft: #fff1dc; --b-btn: #141413; --b-btn-ink: #fff;
+  --b-ink: #141414; --b-text: #2e2e2e; --b-muted: #5c5c5c; --b-card: #ffffff; --b-line: rgba(20, 20, 19, .12);
+  --b-accent: #0b5c33; --b-soft: #ffffff; --b-btn: #141414; --b-btn-ink: #fff;
   color: var(--b-text);
 }
 .blog-sec[data-theme="dark"], .blog-page[data-theme="dark"] {
-  --b-ink: #f4f2ed; --b-text: #dcdad4; --b-muted: #a7a8a2; --b-card: rgba(255, 255, 255, .05); --b-line: rgba(255, 255, 255, .12);
-  --b-accent: #ffc23d; --b-soft: rgba(255, 194, 61, .12); --b-btn: #ffd23f; --b-btn-ink: #111;
+  --b-ink: #ffffff; --b-text: #e0e0e0; --b-muted: #9a9a9a; --b-card: rgba(255, 255, 255, .05); --b-line: rgba(255, 255, 255, .12);
+  --b-accent: #f7b100; --b-soft: rgba(247, 177, 0, .12); --b-btn: #f7b100; --b-btn-ink: #111;
 }
 .blog-sec *, .blog-page * { box-sizing: border-box; }
 .blog-wrap { width: min(1200px, 100%); margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
@@ -40,9 +40,9 @@
 .bp-top__in { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 70px; }
 .bp-logo img { height: 36px; width: auto; display: block; }
 .bp-nav { display: flex; align-items: center; gap: 22px; font-weight: 600; font-size: 15px; }
-.bp-nav a { color: var(--bp-top-ink, #141413); text-decoration: none; }
+.bp-nav a { color: var(--bp-top-ink, #141414); text-decoration: none; }
 .bp-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
-.bp-nav .bp-btn { padding: 10px 16px; border-radius: 999px; background: var(--bp-top-ink, #141413); color: var(--bp-top-bg-solid, #fff); text-decoration: none; }
+.bp-nav .bp-btn { padding: 10px 16px; border-radius: 999px; background: var(--bp-top-ink, #141414); color: var(--bp-top-bg-solid, #fff); text-decoration: none; }
 .blog-page { padding-block: clamp(48px, 7vw, 90px) clamp(80px, 9vw, 120px); min-height: 70vh; }
 .blog-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 36px; }
 .blog-filters button { font-family: inherit; font-size: 14px; font-weight: 600; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--b-line); background: transparent; color: var(--b-ink); cursor: pointer; }
