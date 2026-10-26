@@ -1,0 +1,81 @@
+/* ==========================================================
+   Hero bento (inicio): una tarjeta grande con fotos que rotan,
+   panel de servicios de cristal, tarjeta de la red y cinta de temas.
+   Referencias del design-hub: Landing Love / Land-book / Awwwards
+   (bento grids, vidrio, tipografía grande, microinteracciones).
+   Colores corporativos: negro, verde, dorado y blanco.
+   ========================================================== */
+.hb { padding: 10px var(--gutter) 0; max-width: 1400px; margin-inline: auto; }
+.hb__grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; grid-template-rows: 1fr auto; gap: 14px; min-height: clamp(520px, 68vh, 640px); }
+
+/* ---------- tarjeta principal ---------- */
+.hb__main { --mx: 70%; --my: 30%; position: relative; grid-row: 1 / 3; border-radius: 36px; overflow: hidden; isolation: isolate; background: #141414; display: flex; align-items: flex-end; box-shadow: 0 50px 90px -52px rgba(0,40,24,.6); }
+.hb__photos img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.12); transition: opacity 1.2s var(--ease), transform 9s linear; z-index: -3; }
+.hb__photos img.is-on { opacity: 1; transform: scale(1); }
+.hb__veil { position: absolute; inset: 0; z-index: -2; background: linear-gradient(0deg, rgba(10,14,12,.88) 0%, rgba(10,14,12,.5) 45%, rgba(10,14,12,.12) 100%), linear-gradient(90deg, rgba(0,40,24,.55), transparent 60%); }
+.hb__main::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(380px circle at var(--mx) var(--my), rgba(255,208,90,.22), transparent 62%); mix-blend-mode: soft-light; }
+.hb__main::after { content: ""; position: absolute; inset: -30%; z-index: -1; pointer-events: none; background: radial-gradient(40% 50% at 85% 90%, rgba(11,92,51,.6), transparent 70%), radial-gradient(30% 40% at 10% 5%, rgba(247,177,0,.2), transparent 70%); animation: aurora 14s ease-in-out infinite alternate; }
+
+.hb__copy { position: relative; max-width: 760px; padding: clamp(26px, 4vw, 56px); padding-bottom: clamp(56px, 6vw, 76px); color: #fff; }
+.hb__tag { display: inline-flex; align-items: center; gap: 9px; padding: 7px 15px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-size: 12.5px; font-weight: 600; letter-spacing: .02em; margin-bottom: 18px; }
+.hb__tag i { width: 7px; height: 7px; border-radius: 50%; background: #f7b100; animation: pulso 2.2s ease-out infinite; }
+.hb__title { margin: 0 0 16px; color: #fff; font-size: clamp(42px, 5.4vw, 84px); line-height: .94; text-wrap: balance; }
+.hb__title .w { display: inline-block; opacity: 0; transform: translateY(.6em) rotate(2deg); filter: blur(8px); animation: hb-word .9s var(--ease) forwards; animation-delay: calc(.15s + var(--wi, 0) * .07s); }
+@keyframes hb-word { to { opacity: 1; transform: none; filter: none; } }
+.hb__title .grad-text, .hb__title .grad-text .w { color: #f7b100 !important; -webkit-text-fill-color: #f7b100; background: none !important; }
+.hb__lead { margin: 0 0 24px; max-width: 540px; font-size: clamp(16px, 1.3vw, 18.5px); line-height: 1.6; color: rgba(255,255,255,.9); }
+.hb__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.hb__dots { position: absolute; left: clamp(26px, 4vw, 56px); bottom: 24px; display: flex; gap: 8px; }
+.hb__dots button { width: 44px; height: 22px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; align-items: center; }
+.hb__dots i { display: block; height: 4px; border-radius: 4px; background: rgba(255,255,255,.3); overflow: hidden; position: relative; }
+.hb__dots i::after { content: ""; position: absolute; inset: 0; background: #f7b100; transform: scaleX(0); transform-origin: left; }
+.hb__dots button[aria-selected="true"] i::after { animation: slidefill 6s linear forwards; }
+
+/* ---------- panel de servicios (cristal) ---------- */
+.hb__services { display: grid; align-content: start; gap: 8px; padding: 16px; border-radius: 32px; background: #0b5c33; color: #fff; position: relative; overflow: hidden; isolation: isolate; }
+.hb__services::before { content: ""; position: absolute; z-index: -1; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(247,177,0,.4), transparent 70%); filter: blur(24px); }
+.hb__kicker { margin: 4px 8px 6px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #f7b100; }
+.hb__services a { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: #fff; text-decoration: none; transition: background .3s, color .3s, transform .35s var(--ease), border-color .3s; animation: panel-in .8s calc(.3s + var(--i) * .09s) var(--ease) both; }
+.hb__n { font-family: "Bebas Neue", Impact, sans-serif; font-size: 24px; color: #f7b100; transition: color .3s; }
+.hb__services b { display: block; font-size: 16px; }
+.hb__services small { display: block; font-size: 12.5px; line-height: 1.35; color: rgba(255,255,255,.72); transition: color .3s; }
+.hb__services i { font-style: normal; font-size: 18px; opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .3s; }
+.hb__services a:hover { background: #f7b100; color: #141414; border-color: #f7b100; transform: translateX(-5px); }
+.hb__services a:hover .hb__n, .hb__services a:hover small { color: #141414; }
+.hb__services a:hover i { opacity: 1; transform: none; }
+
+/* ---------- tarjeta de la red ---------- */
+.hb__red { position: relative; overflow: hidden; display: grid; gap: 4px; padding: 22px; border-radius: 32px; background: #f7b100; color: #141414; text-decoration: none; transition: transform .4s var(--ease), box-shadow .4s; }
+.hb__red:hover { transform: translateY(-5px); box-shadow: 0 30px 56px -30px rgba(247,177,0,.9); }
+.hb__red .hb__kicker { margin: 0; color: #141414; opacity: .7; }
+.hb__red b { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 34px; line-height: 1; max-width: 210px; }
+.hb__red small { font-size: 14px; font-weight: 700; }
+.hb__red svg { position: absolute; right: -8px; bottom: -8px; width: 120px; height: 120px; fill: none; stroke: #141414; stroke-width: 2; opacity: .22; transition: transform .8s var(--ease), opacity .3s; }
+.hb__red svg circle { fill: #141414; stroke: none; }
+.hb__red:hover svg { transform: rotate(18deg) scale(1.1); opacity: .4; }
+
+/* ---------- cinta de temas ---------- */
+.hb__ticker { grid-column: 1 / -1; margin-top: 14px; overflow: hidden; border-radius: 999px; background: #141414; padding: 13px 0; -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.hb__track { display: flex; width: max-content; animation: slide 50s linear infinite; }
+.hb__ticker:hover .hb__track { animation-play-state: paused; }
+.hb__track span { white-space: nowrap; padding-right: 36px; font-family: "Bebas Neue", Impact, sans-serif; font-size: 22px; letter-spacing: .03em; color: rgba(255,255,255,.86); }
+.hb__track span::before { content: "✦"; color: #f7b100; font-size: .6em; margin-right: 36px; vertical-align: middle; }
+
+/* ---------- adaptable ---------- */
+@media (max-width: 1050px) {
+  .hb__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; min-height: 0; }
+  .hb__main { grid-column: 1 / -1; grid-row: auto; min-height: 520px; }
+}
+@media (max-width: 640px) {
+  .hb { padding-inline: 10px; }
+  .hb__grid { grid-template-columns: 1fr; }
+  .hb__main { border-radius: 26px; min-height: 560px; }
+  .hb__title { font-size: clamp(38px, 11.5vw, 54px); }
+  .hb__ctas .btn { flex: 1 1 100%; justify-content: center; }
+  .hb__services, .hb__red { border-radius: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hb__title .w { animation: none !important; opacity: 1; transform: none; filter: none; }
+  .hb__track { animation: slide 80s linear infinite !important; }
+}
