@@ -1,0 +1,51 @@
+/* ==========================================================
+   Solo colores corporativos (se carga al final de todo)
+   Verde #0b5c33, dorado #f7b100, negro #141414 y blanco.
+   Fuera los fondos amarillos pálidos, cremas y verdes lavados:
+   los bloques de color son los de la marca, sin mezclas.
+   ========================================================== */
+:root {
+  --soft: #f6f6f6;
+  --line: #e9e9e9;
+  --tint-gold: linear-gradient(#f7b100, #f7b100);
+  --tint-green: linear-gradient(#0b5c33, #0b5c33);
+}
+
+/* sin halos amarillos: apenas un velo verde casi imperceptible */
+.svc-sec::before, .sec:not(.lead-sec)::before, .sec:nth-of-type(even):not(.lead-sec)::before { background: radial-gradient(circle, rgba(11,92,51,.10), transparent 68%); opacity: .5; }
+.lead-sec::before { display: none; }
+.logos { background: #fff; }
+.plans-sec, .stats-sec, .faq-sec { background: var(--soft); }
+
+/* mosaico de líneas: dorado y verde de marca */
+.tile--amber { background: #f7b100; }
+.tile--amber .tag { background: #141414; color: #fff; }
+.tile--amber h3, .tile--amber li, .tile--amber .tile__foot { color: #141414; }
+.tile--mint { background: #0b5c33; }
+.tile--mint h3, .tile--mint li, .tile--mint li::before, .tile--mint .tile__foot { color: #fff; }
+.tile--mint .tag--green { background: #f7b100; color: #141414; }
+
+/* ilustraciones de las tarjetas */
+.ui-diag { background: #f7b100; }
+.ui-plan { background: #0b5c33; }
+.ui-chart { background: #141414; }
+.split__media--ui .ucard__ui { background: #f7b100; }
+
+/* detalle detrás de las fotos: marco fino de marca, no bloque pastel */
+.split__media::after { background: none; border: 2px solid #f7b100; opacity: 1; }
+.split--rev .split__media::after { background: none; border-color: #0b5c33; }
+
+/* numeración, membresías y chips */
+.feats__ic { background: #f7b100; color: #141414; box-shadow: none; border: 0; }
+.plan--pop { background: #fff; border: 2px solid #f7b100; box-shadow: 0 30px 60px -38px rgba(20,20,20,.35); }
+.split__list li, .faq details, .nums div { background: var(--soft); }
+.faq details[open] { background: #fff; }
+.field input, .field select, .field textarea { background: #fff; }
+.eyebrow, .red-esal__pill { background: #fff !important; border: 1px solid var(--line); }
+
+/* contacto: blanco con borde fino, sin degradados cremas */
+.lead-sec { background: var(--soft); border: 1px solid var(--line); }
+.lead-sec .contact-data li { background: #fff; }
+
+/* destellos y brillos del puntero en dorado de marca, sin lavados */
+.plan:not(.plan--pop):hover, .rowc:hover, .info:hover, .tl__card:hover, .nums > div:hover, .faq details:hover { background-image: radial-gradient(260px circle at var(--cx, 50%) var(--cy, 50%), rgba(247,177,0,.10), transparent 65%); }
