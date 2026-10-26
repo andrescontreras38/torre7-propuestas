@@ -5,7 +5,7 @@
   document.documentElement.classList.add("js-anim");
 
   // elementos que entran con un desplazamiento suave
-  const auto = ".head, .logos > *, .feats li, .plan, .tl__item, .faq details, .nums > div, .svc-sec__head, .svc-sec__grid > *, .cta-card__copy > *, .red-esal__head, .blog-head, .lead-steps li, .tile, .ucard, .finale__inner > *";
+  const auto = ".head, .logos > *, .feats li, .plan, .tl__item, .faq details, .nums > div, .svc-sec__head, .svc-sec__grid > *, .cta-card__copy > *, .red-esal__head, .blog-head, .lead-steps li, .tile, .ucard, .why-card, .route-box, .why-cta, .finale__inner > *";
   document.querySelectorAll(auto).forEach((el) => {
     if (el.classList.contains("reveal")) return;
     const i = [...el.parentElement.children].indexOf(el);

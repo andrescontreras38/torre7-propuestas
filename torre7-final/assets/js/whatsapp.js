@@ -43,6 +43,7 @@
   };
 
   const mensaje = (el) => {
+    if (el.dataset.mensaje) return el.dataset.mensaje; /* mensaje armado por la página (¿Por dónde empezar?) */
     let interes = (el.dataset.interes || "").trim();
     /* el botón del portafolio de Proyecta menciona el servicio que está seleccionado */
     const servicio = el.classList.contains("svc-panel__btn") ? document.getElementById("stTitle")?.textContent.trim() : "";
