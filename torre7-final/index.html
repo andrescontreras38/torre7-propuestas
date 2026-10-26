@@ -12,6 +12,7 @@
   <meta property="og:image" content="assets/img/portada.webp">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/slider.css">
   <link rel="stylesheet" href="assets/css/blog.css">
   <link rel="stylesheet" href="assets/css/red-esal.css">
 </head>
@@ -45,8 +46,76 @@
 
 <main id="contenido">
 
-<!-- ============ 1. INICIO ============ -->
-<section class="hero" id="inicio">
+<!-- ============ 1. BANNER DESLIZANTE ============ -->
+<section class="slider-sec" id="inicio" aria-roledescription="carrusel" aria-label="Destacados de Torre 7">
+  <div class="slider" id="slider">
+      <article class="slide is-active" aria-roledescription="diapositiva" aria-label="1 de 6">
+        <img class="slide__img" src="assets/img/portada.webp" alt="" width="1600" height="1067" fetchpriority="high">
+        <div class="slide__content">
+          <span class="slide__tag">Torre 7 Soluciones Integrales</span>
+          <h1 class="slide__title">Fortalecemos organizaciones que <span class="grad-text grad-text--light">transforman</span></h1>
+          <p class="slide__lead">Proyectos, fortalecimiento, formación, investigación aplicada e innovación para organizaciones sociales y ESAL.</p>
+          <div class="slide__ctas"><a href="#contacto" class="btn btn--grad">Solicita una asesoría inicial →</a><a href="#servicios" class="btn btn--glass">Conoce los servicios</a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="diapositiva" aria-label="2 de 6" aria-hidden="true">
+        <img class="slide__img" src="assets/img/proyecta.webp" alt="" width="1600" height="1067" loading="lazy">
+        <div class="slide__content">
+          <span class="slide__tag">Línea principal</span>
+          <h2 class="slide__title">Torre 7 <span class="grad-text grad-text--light">Proyecta</span></h2>
+          <p class="slide__lead">Fortalecimiento organizacional y gestión de proyectos: diagnóstico, planeación, formulación, financiación, seguimiento y sostenibilidad.</p>
+          <div class="slide__ctas"><a href="#servicios" class="btn btn--grad">Ver los 6 servicios →</a><a href="#contacto" class="btn btn--glass">Solicita asesoría</a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="diapositiva" aria-label="3 de 6" aria-hidden="true">
+        <img class="slide__img" src="assets/img/capacita.webp" alt="" width="1600" height="1067" loading="lazy">
+        <div class="slide__content">
+          <span class="slide__tag">Línea complementaria</span>
+          <h2 class="slide__title">Torre 7 <span class="grad-text grad-text--light">Capacita</span></h2>
+          <p class="slide__lead">Formación y desarrollo de capacidades: cursos, talleres y programas a la medida. Presencial, virtual o combinada.</p>
+          <div class="slide__ctas"><a href="#lineas" class="btn btn--grad">Conoce la línea →</a><a href="#contacto" class="btn btn--glass">Solicita información</a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="diapositiva" aria-label="4 de 6" aria-hidden="true">
+        <img class="slide__img" src="assets/img/innova.webp" alt="" width="1600" height="1067" loading="lazy">
+        <div class="slide__content">
+          <span class="slide__tag">Línea complementaria</span>
+          <h2 class="slide__title">Torre 7 <span class="grad-text grad-text--light">Innova</span></h2>
+          <p class="slide__lead">Innovación y transformación organizacional: ideación, cocreación, mejora de procesos e iniciativas piloto.</p>
+          <div class="slide__ctas"><a href="#lineas" class="btn btn--grad">Conoce la línea →</a><a href="#contacto" class="btn btn--glass">Solicita información</a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="diapositiva" aria-label="5 de 6" aria-hidden="true">
+        <img class="slide__img" src="assets/img/investiga.webp" alt="" width="1600" height="1067" loading="lazy">
+        <div class="slide__content">
+          <span class="slide__tag">Línea complementaria</span>
+          <h2 class="slide__title">Torre 7 <span class="grad-text grad-text--light">Investiga</span></h2>
+          <p class="slide__lead">Investigación aplicada y generación de conocimiento: diagnósticos, estudios, análisis y sistematización de experiencias.</p>
+          <div class="slide__ctas"><a href="#lineas" class="btn btn--grad">Conoce la línea →</a><a href="#contacto" class="btn btn--glass">Solicita información</a></div>
+        </div>
+      </article>
+      <article class="slide" aria-roledescription="diapositiva" aria-label="6 de 6" aria-hidden="true">
+        <img class="slide__img" src="assets/img/equipo.webp" alt="" width="1600" height="1067" loading="lazy">
+        <div class="slide__content">
+          <span class="slide__tag">Nuevo · Membresías abiertas</span>
+          <h2 class="slide__title">Acompañamiento <span class="grad-text grad-text--light">continuo</span></h2>
+          <p class="slide__lead">Membresías Basic, Standard y Premium para avanzar con una ruta de fortalecimiento y revisión de avances.</p>
+          <div class="slide__ctas"><a href="#membresias" class="btn btn--grad">Ver membresías →</a><a href="#contacto" class="btn btn--glass">Solicita información</a></div>
+        </div>
+      </article>
+    <div class="slider__bar">
+      <div class="slider__dots" role="tablist" aria-label="Elegir diapositiva"><button type="button" role="tab" aria-label="Diapositiva 1" aria-selected="true"><i></i></button><button type="button" role="tab" aria-label="Diapositiva 2" aria-selected="false"><i></i></button><button type="button" role="tab" aria-label="Diapositiva 3" aria-selected="false"><i></i></button><button type="button" role="tab" aria-label="Diapositiva 4" aria-selected="false"><i></i></button><button type="button" role="tab" aria-label="Diapositiva 5" aria-selected="false"><i></i></button><button type="button" role="tab" aria-label="Diapositiva 6" aria-selected="false"><i></i></button></div>
+      <span class="slider__count"><b id="slideNow">01</b> / 06</span>
+      <div class="slider__arrows">
+        <button type="button" class="slider__arrow" id="slidePrev" aria-label="Anterior">←</button>
+        <button type="button" class="slider__arrow" id="slideNext" aria-label="Siguiente">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ¿POR DÓNDE EMPEZAR? ============ -->
+<section class="hero hero--ruta" id="ruta">
   <div class="mesh" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="floaters" id="floaters" aria-hidden="true">
     <div class="fl fl--1" data-depth="18"><span class="fl__ic fl__ic--green">✓</span><div><b>Diagnóstico listo</b><small>Matriz de oportunidades</small></div></div>
@@ -56,8 +125,8 @@
   </div>
   <div class="wrap hero__inner">
     <a href="#membresias" class="pill"><span class="pill__new">Nuevo</span> Torre 7 Proyecta. Membresías abiertas <span aria-hidden="true">→</span></a>
-    <h1 class="hero__title">Fortalecemos organizaciones<br>que <span class="grad-text">transforman</span></h1>
-    <p class="hero__lead">¿Por dónde empezar? Cuéntanos qué necesita tu organización y te sugerimos el servicio que mejor se ajusta.</p>
+    <h2 class="hero__title">¿Por dónde <span class="grad-text">empezar?</span></h2>
+    <p class="hero__lead">Cuéntanos qué necesita tu organización y te sugerimos el servicio que mejor se ajusta.</p>
 
     <form class="prompt" id="prompt">
       <label class="sr" for="promptText">Cuéntanos qué necesita tu organización</label>
@@ -405,7 +474,7 @@
     <h2 class="finale__title">Transformemos tu propósito en <span class="grad-text grad-text--light">soluciones sostenibles</span></h2>
     <div class="finale__ctas">
       <a href="#contacto" class="btn btn--grad">Solicita una asesoría inicial</a>
-      <a href="#inicio" class="btn btn--glass">Encuentra tu servicio</a>
+      <a href="#ruta" class="btn btn--glass">Encuentra tu servicio</a>
     </div>
   </div>
 </section>
@@ -432,6 +501,7 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/slider.js" defer></script>
 <script src="assets/js/red-esal.js"></script>
 <script src="assets/js/blog-datos.js"></script>
 <script src="assets/js/blog.js"></script>

@@ -268,7 +268,7 @@ if (!reduceMotion) {
 /* tarjetas flotantes que siguen al ratón */
 if (finePointer && !reduceMotion) {
   const fls = document.querySelectorAll(".fl");
-  $("#inicio").addEventListener("pointermove", (ev) => {
+  $("#ruta").addEventListener("pointermove", (ev) => {
     const dx = ev.clientX / innerWidth - .5, dy = ev.clientY / innerHeight - .5;
     fls.forEach((f) => { const d = +f.dataset.depth; f.style.translate = `${dx * d}px ${dy * d}px`; });
   });
