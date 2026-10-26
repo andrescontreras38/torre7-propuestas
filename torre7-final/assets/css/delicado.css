@@ -207,3 +207,12 @@ a.tile:hover { transform: translateY(-8px); }
   .js-anim .a-in, .js-anim .split__media, .js-anim .split__text > *, .js-anim .split .chip { opacity: 1 !important; transform: none !important; transition: none !important; }
   *, *::before, *::after { animation: none !important; }
 }
+
+/* Nosotros: la imagen acompaña la altura del texto, sin huecos */
+.about { align-items: stretch; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
+.about__img { height: 100%; min-height: 420px; aspect-ratio: auto; border-radius: 36px; box-shadow: var(--glow); position: sticky; top: 110px; align-self: start; max-height: calc(100vh - 150px); }
+.about .prose p { font-size: clamp(16px, 1.3vw, 17.5px); line-height: 1.7; }
+@media (max-width: 1000px) { .about__img { position: static; height: auto; min-height: 0; aspect-ratio: 3 / 2; max-height: none; } }
+
+/* listas de tarjetas: si queda una sola en la última fila, ocupa todo el ancho (sin hueco) */
+.rows > .rowc:last-child:nth-child(odd) { grid-column: 1 / -1; }
