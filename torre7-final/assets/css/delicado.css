@@ -1,0 +1,120 @@
+/* ==========================================================
+   Acabado delicado (se carga al final, después de premium.css)
+   Lleva a la versión final la suavidad de Moderna Pro:
+   halos de color difuminados, tintes suaves en lugar de bloques
+   sólidos, esquinas más redondeadas, vidrio en el encabezado,
+   sombras largas y difusas y detalles finos.
+   Paleta de marca intacta: verde, dorado, negro y blanco.
+   ========================================================== */
+:root {
+  --soft: #f7f6f1;
+  --line: #ebeae4;
+  --r-xl: 32px;
+  --r-lg: 24px;
+  --r-md: 16px;
+  --tint-gold: linear-gradient(160deg, #fff6d6 0%, #ffe9a3 100%);
+  --tint-green: linear-gradient(160deg, #e6f4ec 0%, #b9dfc9 100%);
+  --glow: 0 1px 2px rgba(20,20,20,.03), 0 30px 70px -34px rgba(20,20,20,.22);
+  --shadow-soft: 0 1px 2px rgba(20,20,20,.03), 0 30px 70px -34px rgba(20,20,20,.22);
+}
+
+/* encabezado de vidrio flotante */
+.header .header__inner { background: rgba(255,255,255,.78); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); }
+.header.is-scrolled .header__inner { border-radius: 999px; box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 18px 40px -18px rgba(0,0,0,.3); }
+
+/* halos de color difuminados detrás de las secciones claras */
+.svc-sec, .sec, .logos, .red-esal, .blog-sec { position: relative; isolation: isolate; }
+.svc-sec, .sec { overflow: clip; }
+.svc-sec::before, .sec:not(.lead-sec)::before { content: ""; position: absolute; z-index: -1; pointer-events: none; width: min(60vw, 720px); aspect-ratio: 1; border-radius: 50%; filter: blur(90px); opacity: .5; top: 4%; right: -14%; background: radial-gradient(circle, rgba(247,177,0,.38), transparent 68%); }
+.sec:nth-of-type(even):not(.lead-sec)::before { right: auto; left: -16%; top: 18%; background: radial-gradient(circle, rgba(11,92,51,.22), transparent 68%); }
+
+/* banner: esquinas amplias y controles de vidrio */
+.slider { border-radius: 36px; box-shadow: 0 50px 90px -50px rgba(0,40,24,.55); }
+.slider__bar { background: rgba(20,20,20,.28); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; }
+.slider__arrow { backdrop-filter: blur(10px); background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); }
+.slide__tag { border-radius: 999px; backdrop-filter: blur(10px); background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); color: #fff; }
+
+/* etiqueta superior en cápsula suave */
+.eyebrow { padding: 6px 16px 6px 12px !important; border-radius: 999px; background: rgba(11,92,51,.07) !important; border: 1px solid rgba(11,92,51,.12); }
+.eyebrow::before { width: 8px; height: 8px; border-radius: 50%; }
+.band .eyebrow, .cta-card__copy .eyebrow, .lead-sec .eyebrow { background: rgba(255,255,255,.14) !important; border-color: rgba(255,255,255,.24); }
+.red-esal__pill { padding: 6px 16px 6px 12px; border-radius: 999px; background: rgba(11,92,51,.07); border: 1px solid rgba(11,92,51,.12); }
+.red-esal__pill::before { width: 8px; height: 8px; border-radius: 50%; }
+
+/* botones: píldora con brillo suave */
+.btn, .btn--sm { border-radius: 999px; }
+.btn--ghost { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); border-color: var(--line); }
+.btn--grad { background: linear-gradient(180deg, #ffc62e, #f7b100); box-shadow: 0 16px 30px -14px rgba(247,177,0,.9), inset 0 1px 0 rgba(255,255,255,.5); }
+.btn--glass { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.form__send { border-radius: 999px; }
+
+/* portafolio de Proyecta */
+.svc-panel { border-radius: 32px; background: linear-gradient(160deg, #0f6a3b 0%, #0b5c33 55%, #07452a 100%); position: relative; overflow: hidden; }
+.svc-panel::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(247,177,0,.35), transparent 70%); filter: blur(20px); pointer-events: none; }
+.svc button { border-radius: 16px; transition: background .25s, transform .25s; }
+.svc button[aria-selected="true"], .svc button:hover { background: rgba(11,92,51,.06); }
+
+/* banda de público */
+.logos { background: linear-gradient(180deg, #fff, var(--soft) 40%, #fff); border-block: 0 !important; }
+
+/* mosaico: tintes suaves, no bloques sólidos */
+.tile { border-radius: 32px; box-shadow: var(--glow); }
+.tile--amber { background: var(--tint-gold); }
+.tile--amber .tag { background: rgba(20,20,20,.9); }
+.tile--mint { background: var(--tint-green); }
+.tile--mint h3, .tile--mint li, .tile--mint .tile__foot { color: var(--ink); }
+.tile--mint li::before { color: var(--green-deep); }
+.tile--mint .tag--green { background: var(--green-deep); color: #fff; }
+.tile--big::before, .tile--photo::before { background: linear-gradient(180deg, transparent 30%, rgba(0,20,10,.78)); }
+.tile .tag { border-radius: 999px; }
+
+/* tarjetas con ilustración */
+.ucard { background: var(--soft); border: 0; border-radius: 32px; transition: transform .35s var(--ease), box-shadow .35s; }
+.ucard:hover { transform: translateY(-6px); box-shadow: var(--glow); }
+.ucard__ui { border-radius: 22px; }
+.ui-diag { background: linear-gradient(160deg, #ffe58a, #f7b100); }
+.ui-plan { background: linear-gradient(160deg, #1f8a54, #0b5c33); }
+.ui-chart { background: linear-gradient(160deg, #2b2b2b, #141414); }
+
+/* fotos del bloque "por qué elegir" y chips */
+.collage img { border-radius: 26px; box-shadow: var(--glow); }
+.chip { border-radius: 18px; box-shadow: var(--glow); backdrop-filter: blur(10px); background: rgba(255,255,255,.88); }
+.feats__ic { border-radius: 14px; background: var(--tint-gold); box-shadow: 0 10px 20px -12px rgba(247,177,0,.8); }
+
+/* cifras */
+.nums div { border-top: 0; background: var(--soft); border-radius: 24px; padding: 22px 24px; }
+
+/* membresías */
+.plan { border-radius: 30px; border: 1px solid var(--line); background: #fff; box-shadow: 0 1px 2px rgba(20,20,20,.03); }
+.plan:hover { transform: translateY(-4px); box-shadow: var(--glow); }
+.plan--pop { border: 1px solid rgba(247,177,0,.55); background: linear-gradient(180deg, #fffaea 0%, #fff 55%); box-shadow: 0 40px 80px -40px rgba(247,177,0,.7); }
+.plan__badge { border-radius: 999px; }
+
+/* método */
+.tl__card { border-radius: 24px; border: 1px solid var(--line); background: #fff; box-shadow: 0 1px 2px rgba(20,20,20,.03); }
+.tl__card:hover { box-shadow: var(--glow); }
+.tl__dot { box-shadow: 0 0 0 6px rgba(247,177,0,.18); }
+
+/* preguntas */
+.faq details { border-radius: 20px; background: var(--soft); border-color: transparent; }
+.faq details[open] { background: #fff; border-color: var(--line); }
+
+/* campos de formulario */
+.field input, .field select, .field textarea { border-radius: 14px; border-color: #e2e1da; background: #fcfcfa; }
+
+/* bloque del formulario: halo dorado sobre el velo verde */
+.lead-sec { border-radius: 40px; }
+.lead-sec::before { content: ""; position: absolute; z-index: -1; right: -8%; top: -30%; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(247,177,0,.35), transparent 68%); filter: blur(50px); pointer-events: none; }
+.lead-sec .form { border-radius: 30px; }
+.lead-sec .form::before { height: 4px; background: linear-gradient(90deg, #f7b100, #ffd45c); }
+.lead-steps li::before { box-shadow: 0 0 0 6px rgba(247,177,0,.2); }
+
+/* cierre */
+.finale { border-radius: 40px 40px 0 0; }
+
+@media (max-width: 760px) {
+  .slider { border-radius: 26px; }
+  .tile, .ucard, .plan { border-radius: 24px; }
+  .lead-sec { border-radius: 28px; }
+}
+@media (prefers-reduced-motion: reduce) { .ucard:hover, .plan:hover { transform: none; } }
