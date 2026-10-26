@@ -92,3 +92,9 @@
   .hf__img { transform: none !important; transition: none !important; }
   .hf__dots button[aria-selected="true"] i::after { animation: slidefill var(--dur, 6s) linear forwards !important; }
 }
+
+/* banner de las páginas de servicio: una sola diapositiva, un poco más compacto */
+.hf--page .hf__wrap { padding-top: clamp(40px, 5vw, 68px); padding-bottom: clamp(34px, 4.4vw, 56px); }
+.hf--page .hf__title { font-size: clamp(38px, 4.8vw, 70px); }
+.hf__links a[aria-current="page"] { background: #f7b100; color: #141414; }
+.hf__links a[aria-current="page"] span, .hf__links a[aria-current="page"] small { color: #141414; }
