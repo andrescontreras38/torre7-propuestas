@@ -117,3 +117,7 @@ a.tile:hover { transform: translateY(-4px); box-shadow: 0 34px 60px -34px rgba(2
 
 /* margen lateral del título de público en celular */
 .logos > p.logos__title { padding-inline: var(--gutter); }
+
+/* etiqueta de la red con el mismo estilo de las demás */
+.red-esal__pill { display: inline-flex; align-items: center; gap: 12px; padding: 0; border: 0; background: none; border-radius: 0; color: var(--green-deep); font-size: 12.5px; letter-spacing: .08em; }
+.red-esal__pill::before { content: ""; width: 26px; height: 2px; background: var(--gold); }
