@@ -198,3 +198,27 @@ a.tile:hover { transform: translateY(-4px); box-shadow: 0 34px 60px -34px rgba(2
   .lead-sec .lead-steps { order: 6; margin-top: 40px; }
   .lead-sec .contact-data { order: 7; }
 }
+
+/* versión compacta del bloque del formulario */
+.lead-sec { padding-block: clamp(56px, 6vw, 84px); }
+.lead-sec .cta-card__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: clamp(32px, 5vw, 72px); }
+.lead-sec .h2 { font-size: clamp(40px, 4.2vw, 62px); }
+.lead-sec .lead { margin-top: 14px; }
+.lead-steps { margin-top: 26px; gap: 10px; }
+.lead-steps li { grid-template-columns: 34px 1fr; column-gap: 12px; color: #fff; font-weight: 600; font-size: 16px; }
+.lead-steps li::before { grid-row: auto; width: 34px; height: 34px; font-size: 19px; }
+.lead-mail { margin: 24px 0 0; color: rgba(255,255,255,.75); font-size: 15px; }
+.lead-mail a { color: #fff; font-weight: 700; }
+.lead-mail a:hover { color: var(--gold); }
+.lead-sec .form { padding: clamp(24px, 2.6vw, 34px); }
+.form__head { margin-bottom: 16px; }
+.form__title { font-size: clamp(30px, 2.6vw, 38px); margin: 0; }
+.lead-sec .field { margin-bottom: 10px; }
+.lead-sec .field textarea { min-height: 84px; }
+.form__send { padding: 16px 22px; }
+@media (max-width: 1000px) {
+  .lead-sec .lead-mail { order: 7; }
+}
+.contact-data[hidden] { display: none !important; }
+.lead-sec .field input, .lead-sec .field select { padding-block: 11px; }
+.lead-sec .form__msg:empty { display: none; }
