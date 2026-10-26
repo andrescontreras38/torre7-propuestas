@@ -27,7 +27,7 @@ const ORG = "Torre 7 Soluciones Integrales S.A.S.";
 
 /* ---------- carga de los datos ---------- */
 const ctx = vm.createContext({});
-for (const f of ["blog-nuevos.js", "blog-datos.js"]) {
+for (const f of ["blog-nuevos.js", "blog-datos.js", "blog-seo.js"]) {
   const code = fs.readFileSync(path.join(root, "assets/js", f), "utf8").replace(/^const (\w+) =/m, "var $1 =");
   vm.runInContext(code, ctx, { filename: f });
 }
@@ -58,7 +58,7 @@ const render = (p) => {
       toc.push({ id, txt: plain(m[1]).replace(/^\d+[.)]\s*/, "") });
       return `<h2 id="${id}">${m[1]}</h2>`;
     }
-    return /^\s*</.test(c) ? fixLinks(c) : `<p>${fixLinks(c)}</p>`;
+    return /^\s*</.test(c) ? fixLinks(c).replace(/<table>/g, '<div class="article__table"><table>').replace(/<\/table>/g, '</table></div>') : `<p>${fixLinks(c)}</p>`;
   }).join("\n");
   const faq = p.faq?.length ? `
         <section class="article__faq" id="preguntas-frecuentes" aria-labelledby="faqT">
@@ -70,15 +70,28 @@ const render = (p) => {
     .sort((a, b) => (b.categoria === p.categoria) - (a.categoria === p.categoria)).slice(0, 3);
 
   const url = abs(`blog/${p.slug}.html`);
+  const desc = p.descripcion || p.resumen;
+  const titleSeo = p.tituloSeo || p.titulo;
+  const fuentes = p.fuentes?.length ? `
+      <section class="article__sources" aria-labelledby="srcT">
+        <h2 id="srcT">Para profundizar</h2>
+        <ul>${p.fuentes.map(([n, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(n)}</a></li>`).join("")}</ul>
+      </section>` : "";
   const ld = [{
     "@context": "https://schema.org", "@type": "BlogPosting",
-    headline: p.titulo, description: p.resumen, image: abs(p.imagen),
+    headline: p.titulo, alternativeHeadline: titleSeo, description: desc,
+    image: { "@type": "ImageObject", url: abs(p.imagen), caption: p.imagenAlt || p.titulo },
+    thumbnailUrl: abs(p.imagen),
     datePublished: iso(p), dateModified: iso(p), inLanguage: "es-CO",
+    isAccessibleForFree: true,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    isPartOf: { "@type": "Blog", name: "Blog Torre 7 Soluciones Integrales", url: abs("blog.html") },
     author: { "@type": "Organization", name: ORG, url: BASE },
     publisher: { "@type": "Organization", name: ORG, logo: { "@type": "ImageObject", url: abs("assets/img/logo-h.png") } },
     articleSection: p.categoria, wordCount: words(p),
-    about: p.categoria
+    keywords: [p.categoria, "ESAL", "organizaciones sociales", "Colombia"].join(", "),
+    about: [{ "@type": "Thing", name: p.categoria }, { "@type": "Thing", name: "Entidades sin ánimo de lucro (ESAL)" }],
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".article__brief p"] }
   }, {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: [["Inicio", BASE], ["Blog", abs("blog.html")], [p.titulo, url]].map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item }))
@@ -95,30 +108,42 @@ const render = (p) => {
   <meta charset="utf-8">
   <meta name="robots" content="${robots}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(p.titulo)} | Blog Torre 7</title>
-  <meta name="description" content="${esc(p.resumen)}">
+  <title>${esc(titleSeo)} | Torre 7</title>
+  <meta name="description" content="${esc(desc)}">
   <link rel="canonical" href="${url}">
+  <link rel="alternate" hreflang="es-CO" href="${url}">
+  <link rel="alternate" hreflang="x-default" href="${url}">
+  <link rel="alternate" type="application/rss+xml" title="Blog Torre 7" href="../feed.xml">
+  <meta name="author" content="${esc(p.autor || "Equipo Torre 7")}">
+  <meta name="theme-color" content="#0b5c33">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Torre 7 Soluciones Integrales">
   <meta property="og:title" content="${esc(p.titulo)}">
-  <meta property="og:description" content="${esc(p.resumen)}">
+  <meta property="og:description" content="${esc(desc)}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${abs(p.imagen)}">
+  <meta property="og:image:alt" content="${esc(p.imagenAlt || p.titulo)}">
   <meta property="article:published_time" content="${iso(p)}">
+  <meta property="article:modified_time" content="${iso(p)}">
   <meta property="article:section" content="${esc(p.categoria)}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(p.titulo)}">
+  <meta name="twitter:description" content="${esc(desc)}">
+  <meta name="twitter:image" content="${abs(p.imagen)}">
+  <link rel="preload" href="../assets/fonts/BebasNeue.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="../assets/fonts/DINPro-Regular.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <link rel="stylesheet" href="../assets/css/styles.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/blog.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/legal.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/blog-lateral.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/premium.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/delicado.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/minimal.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/efectos.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/corporativo.css?v=202610261200">
-  <link rel="stylesheet" href="../assets/css/articulo.css?v=202610261200">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/blog.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/legal.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/blog-lateral.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/premium.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/delicado.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/minimal.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/efectos.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/corporativo.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/articulo.css?v=202610261300">
 ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n")}
 </head>
 <body style="--bp-top-bg: rgba(255,255,255,.92); --bp-top-bg-solid: #fff; --bp-top-ink: #141414; --bp-top-line: rgba(20,20,19,.1);">
@@ -142,11 +167,11 @@ ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</scri
       <h1 itemprop="headline">${esc(p.titulo)}</h1>
       <p class="article__lead">${esc(p.resumen)}</p>
       ${p.respuesta ? `<aside class="article__brief" aria-label="Respuesta breve"><b>En breve</b><p>${esc(p.respuesta)}</p></aside>` : ""}
-      <figure class="article__img"><img src="../${p.imagen}" alt="${esc(p.imagenAlt || p.titulo)}" width="1600" height="900" fetchpriority="high"></figure>
+      <figure class="article__img"><img src="../${p.imagen}" alt="${esc(p.imagenAlt || p.titulo)}" width="1600" height="900" fetchpriority="high" decoding="async"></figure>
       <nav class="article__toc" aria-label="En este artículo"><b>En este artículo</b><ol>${toc.map((t) => `<li><a href="#${t.id}">${esc(t.txt)}</a></li>`).join("")}</ol></nav>
       <div class="article__body" itemprop="articleBody">
 ${body}
-      </div>${faq}
+      </div>${faq}${fuentes}
       <p class="article__author">Por <b>${esc(p.autor || "Equipo Torre 7")}</b> · ${ORG} · Actualizado el <time datetime="${iso(p)}">${esc(p.fecha || "26 de octubre de 2026")}</time></p>
       <p class="article__note">Este contenido es orientativo y no reemplaza la asesoría jurídica, contable o tributaria. Verifica la normativa vigente antes de tomar decisiones.</p>
       <div class="article__cta">
@@ -200,5 +225,49 @@ fs.writeFileSync(path.join(root, "llms.txt"), `# Torre 7 Soluciones Integrales S
 ## Blog: guías para organizaciones sociales y ESAL
 ${POSTS.filter((p) => !p.ejemplo).map((p) => `- [${p.titulo}](${abs(`blog/${p.slug}.html`)}): ${p.resumen}`).join("\n")}
 `);
+
+/* ---------- llms-full.txt: todos los artículos en texto plano (Markdown) para asistentes de IA ---------- */
+const md = (html) => html
+  .replace(/<h2[^>]*>(.*?)<\/h2>/gi, "\n## $1\n").replace(/<li>(.*?)<\/li>/gi, "- $1\n").replace(/<\/tr>/gi, "\n")
+  .replace(/<\/t[dh]>/gi, " | ").replace(/<a [^>]*href=['"]([^'"]+)['"][^>]*>(.*?)<\/a>/gi, "$2")
+  .replace(/<\/p>/gi, "\n\n").replace(/<[^>]+>/g, "").replace(/\n{3,}/g, "\n\n").trim();
+fs.writeFileSync(path.join(root, "llms-full.txt"), `# Torre 7 Soluciones Integrales S.A.S. — Blog completo\n\n> Guías prácticas para ESAL y organizaciones sociales en Colombia. Contenido orientativo: verifica la normativa vigente antes de decidir sobre temas legales o tributarios.\n\n` +
+  POSTS.filter((p) => !p.ejemplo).map((p) => `# ${p.titulo}\n\nURL: ${abs(`blog/${p.slug}.html`)}\nCategoría: ${p.categoria}\nFecha: ${iso(p)}\n\n${p.respuesta ? `**En breve:** ${p.respuesta}\n\n` : ""}${p.contenido.map(md).join("\n\n")}\n\n${p.faq?.length ? `## Preguntas frecuentes\n\n${p.faq.map((f) => `**${f.q}**\n${f.a}`).join("\n\n")}\n` : ""}`).join("\n---\n\n"));
+
+/* ---------- feed.xml (RSS) ---------- */
+const xml = (t) => esc(t).replace(/'/g, "&apos;");
+fs.writeFileSync(path.join(root, "feed.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>\n<title>Blog Torre 7 Soluciones Integrales</title>\n<link>${abs("blog.html")}</link>\n<description>Guías prácticas para ESAL y organizaciones sociales en Colombia.</description>\n<language>es-CO</language>\n${POSTS.filter((p) => !p.ejemplo).map((p) => `<item><title>${xml(p.titulo)}</title><link>${abs(`blog/${p.slug}.html`)}</link><guid>${abs(`blog/${p.slug}.html`)}</guid><pubDate>${new Date(iso(p) + "T12:00:00-05:00").toUTCString()}</pubDate><category>${xml(p.categoria)}</category><description>${xml(p.descripcion || p.resumen)}</description></item>`).join("\n")}\n</channel></rss>\n`);
+
+/* ---------- blog.html: contenido visible sin JavaScript + datos estructurados ---------- */
+const bf = path.join(root, "blog.html");
+let bh = fs.readFileSync(bf, "utf8");
+const real = POSTS.filter((p) => !p.ejemplo);
+const listHtml = `<!--ssr:start-->
+    <header class="bl-head"><p class="blog-pill">Blog</p><h1 class="blog-title">Ideas para fortalecer tu organización</h1><p class="blog-lead">Guías prácticas para ESAL y organizaciones sociales en Colombia: planeación, proyectos, indicadores, presupuesto, financiación, sostenibilidad y gobierno.</p></header>
+    <ul class="blog-ssr">${POSTS.map((p) => `<li><a href="blog/${p.slug}.html"><b>${esc(p.titulo)}</b></a> <span>${esc(p.categoria)}</span><p>${esc(p.descripcion || p.resumen)}</p></li>`).join("")}</ul>
+    <!--ssr:end-->`;
+bh = bh.replace(/<!--ssr:start-->[\s\S]*?<!--ssr:end-->/, "").replace(/(<div class="blog-wrap" id="blogApp">)\s*(<\/div>)?/, (m, a, b) => `${a}\n    ${listHtml}\n  ${b || ""}`);
+const blogLd = [{
+  "@context": "https://schema.org", "@type": "CollectionPage", name: "Blog Torre 7 Soluciones Integrales", url: abs("blog.html"), inLanguage: "es-CO",
+  description: "Guías prácticas para ESAL y organizaciones sociales en Colombia.",
+  mainEntity: { "@type": "ItemList", itemListElement: real.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: abs(`blog/${p.slug}.html`), name: p.titulo })) }
+}, { "@context": "https://schema.org", "@type": "Blog", name: "Blog Torre 7 Soluciones Integrales", url: abs("blog.html"), inLanguage: "es-CO", publisher: { "@type": "Organization", name: ORG, url: BASE } }];
+bh = bh.replace(/<!--blogseo:start-->[\s\S]*?<!--blogseo:end-->\n?/, "").replace("</head>", `<!--blogseo:start-->
+  <link rel="canonical" href="${abs("blog.html")}">
+  <link rel="alternate" hreflang="es-CO" href="${abs("blog.html")}">
+  <link rel="alternate" hreflang="x-default" href="${abs("blog.html")}">
+  <link rel="alternate" type="application/rss+xml" title="Blog Torre 7" href="feed.xml">
+  <meta property="og:type" content="website"><meta property="og:locale" content="es_CO"><meta property="og:site_name" content="Torre 7 Soluciones Integrales">
+  <meta property="og:title" content="Blog para ESAL y organizaciones sociales | Torre 7"><meta property="og:url" content="${abs("blog.html")}">
+  <meta property="og:description" content="Guías prácticas para ESAL y organizaciones sociales en Colombia: planeación, proyectos, indicadores, presupuesto, financiación, sostenibilidad y gobierno.">
+  <meta property="og:image" content="${abs("assets/img/portada.webp")}">
+  <meta name="twitter:card" content="summary_large_image">
+${blogLd.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n")}
+<!--blogseo:end-->
+</head>`);
+bh = bh.replace(/<title>[^<]*<\/title>/, "<title>Blog para ESAL y organizaciones sociales | Torre 7</title>")
+  .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="Guías prácticas para ESAL y organizaciones sociales en Colombia: planeación, proyectos, indicadores, presupuesto, financiación, sostenibilidad y gobierno.">`)
+  .replace(/<meta name="robots" content="[^"]*">/, `<meta name="robots" content="${INDEXABLE ? "index, follow, max-snippet:-1, max-image-preview:large" : "noindex, nofollow"}">`);
+fs.writeFileSync(bf, bh);
 
 console.log(`${POSTS.length} artículos → blog/*.html · sitemap.xml · robots.txt · llms.txt (${INDEXABLE ? "indexable" : "noindex"})`);
