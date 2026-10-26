@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="assets/css/menu.css?v=202610262122">
   <link rel="stylesheet" href="assets/css/elegirnos.css?v=202610262122">
   <link rel="stylesheet" href="assets/css/secciones.css?v=202610262122">
-  <link rel="stylesheet" href="assets/css/hero.css?v=202610262141">
+  <link rel="stylesheet" href="assets/css/hero.css?v=202610262146">
   <!--seo:start-->
   <link rel="canonical" href="https://andrescontreras38.github.io/torre7-propuestas/torre7-final/">
   <link rel="alternate" hreflang="es-CO" href="https://andrescontreras38.github.io/torre7-propuestas/torre7-final/">
@@ -88,25 +88,78 @@
 
 <main id="contenido">
 
-<!-- ============ 1. HERO A ANCHO COMPLETO ============ -->
-<section class="hf" id="inicio" aria-label="Torre 7 Soluciones Integrales">
-  <div class="hf__photos" aria-hidden="true">
-    <img class="is-on" src="assets/img/portada.webp" alt="" width="1600" height="1067" fetchpriority="high">
-    <img src="assets/img/pizarra.webp" alt="" width="1600" height="1067" loading="lazy">
-    <img src="assets/img/doc-proyecta.webp" alt="" width="1600" height="1067" loading="lazy">
-    <img src="assets/img/equipo.webp" alt="" width="1600" height="1067" loading="lazy">
+<!-- ============ 1. HERO A ANCHO COMPLETO (varias diapositivas) ============ -->
+<section class="hf" id="inicio" aria-roledescription="carrusel" aria-label="Destacados de Torre 7">
+  <div class="hf__stage">
+    <article class="hf__slide is-on" aria-roledescription="diapositiva" aria-label="1 de 7">
+      <img class="hf__img" src="assets/img/portada.webp" alt="" width="1600" height="1067" fetchpriority="high">
+      <div class="hf__wrap"><div class="hf__copy">
+        <span class="hf__tag"><i></i>Torre 7 Soluciones Integrales S.A.S.</span>
+        <h1 class="hf__title">Convertimos propósitos sociales en organizaciones <span>sostenibles</span></h1>
+        <p class="hf__lead">Soluciones integrales para fortalecer organizaciones, con especial atención a las ESAL y las organizaciones sociales.</p>
+        <div class="hf__ctas"><a href="#contacto" class="btn btn--grad" data-interes="Asesoría inicial">Solicita una asesoría inicial →</a><a href="#ruta" class="hf__ghost">¿Por dónde empezar?</a></div>
+      </div></div>
+    </article>
+    <article class="hf__slide" aria-roledescription="diapositiva" aria-label="2 de 7" aria-hidden="true">
+      <img class="hf__img" src="assets/img/doc-proyecta.webp" alt="" width="1600" height="1067" loading="lazy">
+      <div class="hf__wrap"><div class="hf__copy">
+        <span class="hf__tag"><i></i>Servicio estratégico</span>
+        <h2 class="hf__title">Torre 7 <span>Proyectos</span></h2>
+        <p class="hf__lead">Fortalecimiento organizacional y gestión de proyectos: estructuramos tus iniciativas y construimos condiciones para la sostenibilidad.</p>
+        <div class="hf__ctas"><a href="proyecta.html" class="btn btn--grad">Conoce Proyectos →</a><a href="#membresias" class="hf__ghost">Ver membresías</a></div>
+      </div></div>
+    </article>
+    <article class="hf__slide" aria-roledescription="diapositiva" aria-label="3 de 7" aria-hidden="true">
+      <img class="hf__img" src="assets/img/doc-capacita.webp" alt="" width="1600" height="1067" loading="lazy">
+      <div class="hf__wrap"><div class="hf__copy">
+        <span class="hf__tag"><i></i>Servicio estratégico</span>
+        <h2 class="hf__title">Torre 7 <span>Formación</span></h2>
+        <p class="hf__lead">Cursos, talleres y programas virtuales prácticos para personas, equipos y organizaciones.</p>
+        <div class="hf__ctas"><a href="capacita.html" class="btn btn--grad">Conoce Formación →</a><a href="#contacto" class="hf__ghost" data-interes="Torre 7 Capacita – Formación">Solicita información</a></div>
+      </div></div>
+    </article>
+    <article class="hf__slide" aria-roledescription="diapositiva" aria-label="4 de 7" aria-hidden="true">
+      <img class="hf__img" src="assets/img/doc-innova.webp" alt="" width="1600" height="1067" loading="lazy">
+      <div class="hf__wrap"><div class="hf__copy">
+        <span class="hf__tag"><i></i>Servicio estratégico</span>
+        <h2 class="hf__title">Torre 7 <span>Innovación</span></h2>
+        <p class="hf__lead">Transformamos ideas en soluciones que generan valor para organizaciones, empresas y territorios.</p>
+        <div class="hf__ctas"><a href="innova.html" class="btn btn--grad">Conoce Innovación →</a><a href="#contacto" class="hf__ghost" data-interes="Innova Diagnóstico">Solicitar diagnóstico</a></div>
+      </div></div>
+    </article>
+    <article class="hf__slide" aria-roledescription="diapositiva" aria-label="5 de 7" aria-hidden="true">
+      <img class="hf__img" src="assets/img/doc-investiga.webp" alt="" width="1600" height="1067" loading="lazy">
+      <div class="hf__wrap"><div class="hf__copy">
+        <span class="hf__tag"><i></i>Servicio estratégico</span>
+        <h2 class="hf__title">Torre 7 <span>Investigación</span></h2>
+        <p class="hf__lead">Convertimos preguntas en conocimiento y evidencia para decidir mejor.</p>
+        <div class="hf__ctas"><a href="investiga.html" class="btn btn--grad">Conoce Investigación →</a><a href="#contacto" class="hf__ghost" data-interes="Torre 7 Investiga – Investigación aplicada">Solicita una propuesta</a></div>
+      </div></div>
+    </article>
+    <article class="hf__slide" aria-roledescription="diapositiva" aria-label="6 de 7" aria-hidden="true">
+      <img class="hf__img" src="assets/img/doc-equipo.webp" alt="" width="1600" height="1067" loading="lazy">
+      <div class="hf__wrap"><div class="hf__copy">
+        <span class="hf__tag"><i></i>Red ESAL</span>
+        <h2 class="hf__title">Conectamos organizaciones. Activamos capacidades. Impulsamos <span>propósitos</span></h2>
+        <p class="hf__lead">Registra gratis tu organización en el directorio y haz parte de la Red Torre 7.</p>
+        <div class="hf__ctas"><a href="conecta.html" class="btn btn--grad">Conoce la Red ESAL →</a><a href="#contacto" class="hf__ghost" data-interes="Registrar mi organización en la Red Torre 7">Registrar mi organización</a></div>
+      </div></div>
+    </article>
+    <article class="hf__slide" aria-roledescription="diapositiva" aria-label="7 de 7" aria-hidden="true">
+      <img class="hf__img" src="assets/img/equipo.webp" alt="" width="1600" height="1067" loading="lazy">
+      <div class="hf__wrap"><div class="hf__copy">
+        <span class="hf__tag"><i></i>Membresías Torre 7 Proyecta</span>
+        <h2 class="hf__title">Fortalece tu <span>organización</span></h2>
+        <p class="hf__lead">Membresías Basic, Standard y Premium para avanzar con una ruta de fortalecimiento y acompañamiento continuo.</p>
+        <div class="hf__ctas"><a href="#membresias" class="btn btn--grad">Ver membresías →</a><a href="#contacto" class="hf__ghost" data-interes="Membresía Standard">Solicita información</a></div>
+      </div></div>
+    </article>
   </div>
   <div class="hf__veil" aria-hidden="true"></div>
-  <div class="hf__wrap">
-    <div class="hf__copy">
-      <span class="hf__tag"><i></i>Para ESAL y organizaciones sociales en Colombia</span>
-      <h1 class="hf__title">Convertimos propósitos sociales en organizaciones <span>sostenibles</span></h1>
-      <p class="hf__lead">Proyectos, formación, innovación e investigación con un solo equipo que te acompaña de la idea al resultado.</p>
-      <div class="hf__ctas">
-        <a href="#contacto" class="btn btn--grad">Solicita una asesoría inicial →</a>
-        <a href="#ruta" class="hf__ghost">¿Por dónde empezar?</a>
-      </div>
-    </div>
+  <div class="hf__nav">
+    <div class="hf__dots" role="tablist" aria-label="Elegir diapositiva"><button type="button" role="tab" aria-selected="true" aria-label="Diapositiva 1"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 2"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 3"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 4"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 5"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 6"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 7"><i></i></button></div>
+    <span class="hf__count"><b id="hfNow">01</b> / 07</span>
+    <div class="hf__arrows"><button type="button" id="hfPrev" aria-label="Anterior">←</button><button type="button" id="hfNext" aria-label="Siguiente">→</button></div>
   </div>
   <ul class="hf__links" aria-label="Nuestros servicios">
     <li><a href="proyecta.html"><span>01</span><b>Proyectos</b><small>Fortalecimiento y gestión</small></a></li>
@@ -115,7 +168,6 @@
     <li><a href="investiga.html"><span>04</span><b>Investigación</b><small>Estudios y evaluación</small></a></li>
     <li><a href="conecta.html"><span>05</span><b>Red ESAL</b><small>Directorio y alianzas</small></a></li>
   </ul>
-  <div class="hf__dots" role="tablist" aria-label="Fotos"><button type="button" role="tab" aria-selected="true" aria-label="Foto 1"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Foto 2"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Foto 3"><i></i></button><button type="button" role="tab" aria-selected="false" aria-label="Foto 4"><i></i></button></div>
 </section>
 
 <!-- ============ 2. CONOCE TORRE 7 PROYECTA ============ -->
@@ -579,7 +631,7 @@
 <script src="assets/js/blog-datos.js?v=202610262122"></script>
 <script src="assets/js/blog-seo.js?v=202610262122"></script>
 <script src="assets/js/blog.js?v=202610262122"></script>
-<script src="assets/js/hero.js?v=202610262141" defer></script>
+<script src="assets/js/hero.js?v=202610262146" defer></script>
 <script src="assets/js/ruta.js?v=202610262122" defer></script>
 <script src="assets/js/whatsapp.js?v=202610262122" defer></script>
 </body>

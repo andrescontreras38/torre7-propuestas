@@ -36,7 +36,7 @@
 .hf__dots button { width: 38px; height: 20px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; align-items: center; }
 .hf__dots i { display: block; height: 3px; border-radius: 3px; background: rgba(255,255,255,.3); overflow: hidden; position: relative; }
 .hf__dots i::after { content: ""; position: absolute; inset: 0; background: #f7b100; transform: scaleX(0); transform-origin: left; }
-.hf__dots button[aria-selected="true"] i::after { animation: slidefill 6s linear forwards; }
+.hf__dots button[aria-selected="true"] i::after { animation: slidefill var(--dur, 6s) linear forwards; }
 
 @media (max-width: 900px) {
   .hf__links { grid-template-columns: 1fr 1fr; }
@@ -50,3 +50,45 @@
   .hf__dots { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .hf__title .w { animation: none; opacity: 1; transform: none; filter: none; } }
+
+/* ---------- varias diapositivas ---------- */
+.hf__stage { display: grid; }
+.hf__slide { grid-area: 1 / 1; position: relative; opacity: 0; visibility: hidden; transition: opacity 1s var(--ease), visibility 0s 1s; z-index: 0; }
+.hf__slide.is-on { opacity: 1; visibility: visible; transition: opacity 1s var(--ease), visibility 0s; z-index: 1; }
+.hf__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; transform: scale(1.1); transition: transform 9s linear; }
+.hf__slide.is-on .hf__img { transform: scale(1); }
+.hf__slide .hf__wrap { position: relative; }
+.hf__slide .hf__tag, .hf__slide .hf__lead, .hf__slide .hf__ctas { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.hf__slide.is-on .hf__tag { opacity: 1; transform: none; transition-delay: .05s; }
+.hf__slide.is-on .hf__lead { opacity: 1; transform: none; transition-delay: .35s; }
+.hf__slide.is-on .hf__ctas { opacity: 1; transform: none; transition-delay: .5s; }
+.hf__slide .hf__title .w { animation: none; opacity: 0; }
+.hf__slide.is-on .hf__title .w { animation: hb-word .9s var(--ease) forwards; animation-delay: calc(.1s + var(--wi, 0) * .06s); }
+.hf__slide .hf__title { min-height: 2ch; }
+.hf__veil { z-index: 0; pointer-events: none; }
+.hf__stage { position: relative; z-index: 1; }
+.hf__slide { z-index: 1; }
+
+.hf__nav { position: absolute; z-index: 5; right: clamp(16px, 3vw, 40px); top: clamp(16px, 2.4vw, 28px); display: flex; align-items: center; gap: 14px; padding: 6px 8px 6px 14px; border-radius: 999px; background: rgba(8,12,10,.4); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.hf__nav .hf__dots { position: static; }
+.hf__count { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.75); }
+.hf__count b { color: #fff; font-size: 15px; }
+.hf__arrows { display: flex; gap: 6px; }
+.hf__arrows button { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.1); color: #fff; font-size: 16px; cursor: pointer; transition: background .25s, transform .25s; }
+.hf__arrows button:hover { background: #f7b100; color: #141414; border-color: #f7b100; transform: scale(1.06); }
+@media (max-width: 600px) { .hf__nav { top: auto; bottom: auto; right: 12px; top: 10px; padding: 4px 6px 4px 10px; } .hf__nav .hf__dots, .hf__count { display: none; } .hf__dots { display: flex; } .hf__nav .hf__dots { display: none; } }
+@media (min-width: 601px) { .hf__slide .hf__wrap { padding-bottom: clamp(40px, 5vw, 64px); } }
+.hf__img { z-index: -2; }
+.hf__slide::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8,12,10,.9) 0%, rgba(8,12,10,.62) 48%, rgba(8,12,10,.2) 100%), linear-gradient(0deg, rgba(8,12,10,.7), transparent 45%); }
+.hf__veil { display: none; }
+@media (max-width: 600px) { .hf__slide::before { background: linear-gradient(0deg, rgba(8,12,10,.92) 0%, rgba(8,12,10,.65) 60%, rgba(8,12,10,.35) 100%); } .hf__slide .hf__wrap { padding-top: 64px; } }
+
+/* movimiento reducido: el texto se ve siempre (sin animar palabras) y las diapositivas cambian con fundido suave */
+@media (prefers-reduced-motion: reduce) {
+  .hf__slide .hf__title .w { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .hf__slide .hf__tag, .hf__slide .hf__lead, .hf__slide .hf__ctas { opacity: 1; transform: none; transition: none; }
+  .hf__slide { transition: opacity 1s linear, visibility 0s 1s !important; }
+  .hf__slide.is-on { transition: opacity 1s linear, visibility 0s !important; }
+  .hf__img { transform: none !important; transition: none !important; }
+  .hf__dots button[aria-selected="true"] i::after { animation: slidefill var(--dur, 6s) linear forwards !important; }
+}
