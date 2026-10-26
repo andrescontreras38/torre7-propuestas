@@ -1,18 +1,18 @@
 /* Efectos del banner y de la página: títulos palabra por palabra, luz que sigue al
-   puntero, botones magnéticos, panel de líneas en el banner y brillo en tarjetas */
+   puntero, botones magnéticos, panel de servicios en el banner y brillo en tarjetas */
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hover = matchMedia("(hover: hover)").matches;
   const root = document.documentElement;
 
-  // ---------- panel de líneas dentro del banner ----------
-  const lineas = [["Proyecta", "proyecta.html"], ["Capacita", "capacita.html"], ["Innova", "innova.html"], ["Investiga", "investiga.html"], ["Conecta", "conecta.html"]];
+  // ---------- panel de servicios dentro del banner ----------
+  const lineas = [["Proyectos", "proyecta.html"], ["Formación", "capacita.html"], ["Innovación", "innova.html"], ["Investigación", "investiga.html"], ["Red de aliados", "conecta.html"]];
   const actual = location.pathname.split("/").pop();
   document.querySelectorAll(".slider").forEach((s) => {
     const nav = document.createElement("nav");
     nav.className = "slider__lines";
-    nav.setAttribute("aria-label", "Líneas de Torre 7");
-    nav.innerHTML = `<span class="slider__lines-t">Nuestras líneas</span>` + lineas.map(([n, h], i) =>
+    nav.setAttribute("aria-label", "Servicios de Torre 7");
+    nav.innerHTML = `<span class="slider__lines-t">Nuestros servicios</span>` + lineas.map(([n, h], i) =>
       `<a href="${h}" style="--i:${i}"${h === actual ? ' aria-current="page"' : ""}><i></i>${n}<b aria-hidden="true">→</b></a>`).join("");
     s.appendChild(nav);
   });

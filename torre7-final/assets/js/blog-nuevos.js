@@ -75,8 +75,8 @@ const BLOG_NUEVOS = [
       "Una matriz DOFA (debilidades, oportunidades, fortalezas y amenazas) es una herramienta sencilla para ordenar la información. Lo importante no es llenar los cuadros, sino extraer conclusiones: ¿en qué somos fuertes?, ¿qué riesgos hay?, ¿qué oportunidades podemos aprovechar?",
       "<h2>4. Define objetivos estratégicos</h2>",
       "Elige pocos objetivos —entre tres y cinco suele ser manejable— y redáctalos de forma que se pueda saber si se cumplieron. Por ejemplo: «Diversificar las fuentes de ingreso para que ninguna supere el 50 % del presupuesto en tres años».",
-      "<h2>5. Organiza líneas estratégicas y prioridades</h2>",
-      "Agrupa los objetivos en líneas de trabajo (programática, financiera, institucional, alianzas) y prioriza según impacto, urgencia y capacidad real. Priorizar también es decidir qué no se hará ahora.",
+      "<h2>5. Organiza ejes estratégicos y prioridades</h2>",
+      "Agrupa los objetivos en ejes de trabajo (programática, financiera, institucional, alianzas) y prioriza según impacto, urgencia y capacidad real. Priorizar también es decidir qué no se hará ahora.",
       "<h2>6. Construye el plan de acción</h2>",
       "Cada objetivo se traduce en actividades concretas. Un buen plan de acción responde, para cada actividad: <strong>qué, quién, cuándo, con qué recursos y cómo sabremos que se logró</strong>.",
       "<table><thead><tr><th>Elemento</th><th>Pregunta que responde</th></tr></thead><tbody><tr><td>Actividad</td><td>¿Qué se va a hacer?</td></tr><tr><td>Responsable</td><td>¿Quién responde por ella?</td></tr><tr><td>Plazo</td><td>¿Para cuándo?</td></tr><tr><td>Recursos</td><td>¿Qué presupuesto o apoyo requiere?</td></tr><tr><td>Indicador</td><td>¿Cómo se verifica el avance?</td></tr></tbody></table>",
@@ -84,7 +84,7 @@ const BLOG_NUEVOS = [
       "Un plan que no se revisa se desactualiza. Programa reuniones periódicas de seguimiento (mensuales o trimestrales), una revisión anual y ajustes cuando el contexto cambie. Los <a href='blog/indicadores-para-proyectos-sociales.html'>indicadores</a> son la base de ese seguimiento.",
       "<h2>Errores frecuentes</h2>",
       "<ul><li>Hacer un plan solo para cumplir un requisito y no volver a mirarlo.</li><li>Fijar demasiados objetivos sin presupuesto ni responsables.</li><li>No involucrar al equipo ni a la junta directiva en la construcción.</li><li>Confundir actividades (lo que se hace) con resultados (lo que cambia).</li></ul>",
-      "Si necesitas acompañamiento para construir tu plan, Torre 7 ofrece <a href='proyecta.html'>planeación estratégica y sostenibilidad</a> dentro de la línea Proyecta."
+      "Si necesitas acompañamiento para construir tu plan, Torre 7 ofrece <a href='proyecta.html'>planeación estratégica y sostenibilidad</a> dentro de Torre 7 Proyecta."
     ],
     faq: [
       { q: "¿Cuánto tiempo toma construir un plan estratégico?", a: "Depende del tamaño de la organización y del nivel de participación. Un proceso ágil puede tomar de unas semanas a un par de meses, incluyendo diagnóstico, talleres de construcción y documento final." },
@@ -228,7 +228,7 @@ const BLOG_NUEVOS = [
       "Un tablero sencillo con unos pocos indicadores, actualizado cada mes o trimestre, suele ser más útil que un informe extenso que nadie lee. Lo importante es que el equipo se pregunte: ¿qué nos dicen los datos?, ¿qué debemos cambiar?",
       "<h2>Errores frecuentes</h2>",
       "<ul><li>Dejar el seguimiento para el final del proyecto.</li><li>Recopilar datos que luego no se analizan.</li><li>Confundir evaluación con auditoría o con control.</li><li>No comunicar resultados al equipo, a la población ni a los aliados.</li></ul>",
-      "Torre 7 apoya a las organizaciones con <a href='proyecta.html'>seguimiento, evaluación y gestión de resultados</a>: matrices de indicadores, instrumentos, tableros e informes de gestión. Para estudios más profundos, conoce la línea <a href='investiga.html'>Torre 7 Investiga</a>."
+      "Torre 7 apoya a las organizaciones con <a href='proyecta.html'>seguimiento, evaluación y gestión de resultados</a>: matrices de indicadores, instrumentos, tableros e informes de gestión. Para estudios más profundos, conoce el servicio <a href='investiga.html'>Torre 7 Investiga</a>."
     ],
     faq: [
       { q: "¿Cuándo se hace la evaluación de un proyecto?", a: "Puede hacerse en distintos momentos: al inicio (línea base o evaluación ex ante), a mitad de ejecución (evaluación intermedia), al cierre (evaluación final) o tiempo después (evaluación de impacto o ex post)." },
@@ -291,7 +291,7 @@ const BLOG_NUEVOS = [
       "<ul><li>Evalúa y comunica resultados con <a href='blog/indicadores-para-proyectos-sociales.html'>indicadores</a> claros.</li><li>Escucha a la población y ajusta los programas.</li><li>Teje alianzas con otras organizaciones, instituciones y empresas.</li><li>Practica la transparencia: informes y rendición de cuentas periódicos (<a href='blog/gobierno-y-transparencia-en-esal.html'>gobierno y transparencia</a>).</li></ul>",
       "<h2>Un plan de sostenibilidad en cuatro pasos</h2>",
       "<ol><li>Diagnostica el estado de cada dimensión.</li><li>Prioriza dos o tres acciones de mayor impacto.</li><li>Asigna responsables, plazos y recursos.</li><li>Revisa los avances cada trimestre.</li></ol>",
-      "En Torre 7 acompañamos a las organizaciones con diagnóstico, <a href='blog/planeacion-estrategica-para-esal-paso-a-paso.html'>planeación estratégica</a> y servicios de <a href='proyecta.html'>sostenibilidad organizacional</a> dentro de la línea Proyecta. Las <a href='proyecta.html#membresias'>membresías</a> ofrecen un acompañamiento recurrente."
+      "En Torre 7 acompañamos a las organizaciones con diagnóstico, <a href='blog/planeacion-estrategica-para-esal-paso-a-paso.html'>planeación estratégica</a> y servicios de <a href='proyecta.html'>sostenibilidad organizacional</a> dentro de Torre 7 Proyecta. Las <a href='proyecta.html#membresias'>membresías</a> ofrecen un acompañamiento recurrente."
     ],
     faq: [
       { q: "¿Qué significa que una organización sea sostenible?", a: "Que puede mantener su misión y sus programas en el tiempo, sin depender de una única fuente de recursos o de una sola persona, y con la confianza de su comunidad y de sus aliados." },
@@ -357,7 +357,7 @@ const BLOG_NUEVOS = [
       "<h2>Errores comunes</h2>",
       "<ul><li>Enamorarse de la solución antes de entender el problema.</li><li>No involucrar a las personas a quienes va dirigida.</li><li>Pilotear sin medir y, por tanto, sin aprender.</li><li>Escalar antes de comprobar que funciona.</li></ul>",
       "<h2>De la idea al proyecto</h2>",
-      "Cuando un piloto confirma que la solución funciona, el siguiente paso es estructurarla como proyecto para buscar apoyo (<a href='blog/como-formular-un-proyecto-social.html'>cómo formular un proyecto social</a>) y planear su sostenibilidad. La línea <a href='innova.html'>Torre 7 Innova</a> acompaña estos procesos: diagnóstico, talleres de ideación y cocreación, diseño de soluciones e implementación de pilotos."
+      "Cuando un piloto confirma que la solución funciona, el siguiente paso es estructurarla como proyecto para buscar apoyo (<a href='blog/como-formular-un-proyecto-social.html'>cómo formular un proyecto social</a>) y planear su sostenibilidad. El servicio <a href='innova.html'>Torre 7 Innova</a> acompaña estos procesos: diagnóstico, talleres de ideación y cocreación, diseño de soluciones e implementación de pilotos."
     ],
     faq: [
       { q: "¿Se necesita tecnología para innovar?", a: "No. Muchas innovaciones sociales son cambios en procesos, modelos de servicio, alianzas o metodologías. La tecnología puede ayudar, pero no es indispensable." },
