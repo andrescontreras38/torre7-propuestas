@@ -140,3 +140,13 @@
   .cmp thead th small { font-size: 10.5px; line-height: 1.2; }
   .cmp .pct { font-size: 12.5px; }
 }
+
+/* enlace "conoce más" alineado con el texto */
+.more-link { display: inline-block; margin-top: 18px; font-weight: 700; color: var(--green-deep); text-decoration: none; }
+.more-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ways + .plans-more { margin-top: -28px; }
+
+/* quiénes somos: foto del cliente junto al texto */
+.about { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.about__img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--r-xl); box-shadow: var(--shadow); }
+@media (max-width: 1000px) { .about { grid-template-columns: 1fr; } }

@@ -67,7 +67,7 @@
           <li><a href="proyecta.html#membresias"><b>Premium</b><span>Maximiza tu impacto</span></a></li>
         </ul>
       </div>
-      <a class="bl-red" href="index.html#red"><span class="bl-red__ic" aria-hidden="true">✦</span><span><b>¿Tu organización es una ESAL?</b><small>Regístrala gratis en la Red Torre 7 →</small></span></a>
+      <a class="bl-red" href="conecta.html"><span class="bl-red__ic" aria-hidden="true">✦</span><span><b>¿Tu organización es una ESAL?</b><small>Regístrala gratis en la Red Torre 7 →</small></span></a>
     </aside>`;
 
   const bindSide = () => {
