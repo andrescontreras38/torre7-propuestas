@@ -154,11 +154,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   let ok = true;
   form.querySelectorAll("[required]").forEach((f) => {
-    const bad = !f.value.trim() || (f.type === "email" && !/^\S+@\S+\.\S+$/.test(f.value));
-    f.closest(".field").classList.toggle("is-invalid", bad);
+    const bad = f.type === "checkbox" ? !f.checked : (!f.value.trim() || (f.type === "email" && !/^\S+@\S+\.\S+$/.test(f.value)));
+    (f.closest(".field") || f.closest(".consent")).classList.toggle("is-invalid", bad);
     if (bad) ok = false;
   });
-  if (!ok) { msg.textContent = "Por favor completa los campos marcados."; return; }
+  if (!ok) { msg.textContent = form.querySelector(".consent.is-invalid") && !form.querySelector(".field.is-invalid") ? "Para enviar la solicitud, autoriza el tratamiento de tus datos." : "Por favor completa los campos marcados."; return; }
   const d = Object.fromEntries(new FormData(form));
   const texto =
 `Hola Torre 7, quiero solicitar información.

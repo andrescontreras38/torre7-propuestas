@@ -116,7 +116,7 @@
     const toc = [];
     const body = p.contenido.map((c) => {
       const m = c.match(/^\s*<h2>(.*?)<\/h2>\s*$/i);
-      if (m) { const id = "s-" + slugify(m[1]); toc.push({ id, txt: m[1].replace(/<[^>]+>/g, "") }); return `<h2 id="${id}">${m[1]}</h2>`; }
+      if (m) { const id = "s-" + slugify(m[1]); toc.push({ id, txt: m[1].replace(/<[^>]+>/g, "").replace(/^\s*\d+[.)]\s*/, "") }); return `<h2 id="${id}">${m[1]}</h2>`; }
       return /^\s*</.test(c) ? c : `<p>${c}</p>`;
     }).join("\n");
     app.innerHTML = `
