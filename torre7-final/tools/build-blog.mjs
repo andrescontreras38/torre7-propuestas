@@ -24,6 +24,7 @@ const arg = (n) => process.argv.find((a) => a.startsWith(`--${n}=`))?.split("=")
 const INDEXABLE = process.argv.includes("--indexable");
 const BASE = (arg("base") || "https://andrescontreras38.github.io/torre7-propuestas/torre7-final/").replace(/\/?$/, "/");
 const ORG = "Torre 7 Soluciones Integrales S.A.S.";
+const V = new Date().toISOString().replace(/\D/g, "").slice(0, 12); /* versión de CSS/JS: evita que el navegador use copias viejas */
 
 /* ---------- carga de los datos ---------- */
 const ctx = vm.createContext({});
