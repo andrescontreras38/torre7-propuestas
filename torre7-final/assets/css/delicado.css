@@ -117,4 +117,93 @@
   .tile, .ucard, .plan { border-radius: 24px; }
   .lead-sec { border-radius: 28px; }
 }
-@media (prefers-reduced-motion: reduce) { .ucard:hover, .plan:hover { transform: none; } }
+/* ==========================================================
+   Filas de dos columnas: imagen + texto, proporcionadas
+   ========================================================== */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+.split + .split { margin-top: clamp(64px, 8vw, 112px); }
+.split--rev .split__media { order: 2; }
+.split__media { position: relative; margin: 0; aspect-ratio: 5 / 4; border-radius: 36px; box-shadow: var(--glow); }
+.split__media > img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.split__media::after { content: ""; position: absolute; inset: 18px -18px -18px 18px; z-index: -1; border-radius: inherit; background: var(--tint-gold); }
+.split--rev .split__media::after { inset: 18px 18px -18px -18px; background: var(--tint-green); }
+.split__media--ui { display: grid; }
+.split__media--ui .ucard__ui { aspect-ratio: auto; height: 100%; border-radius: inherit; padding: clamp(22px, 3vw, 40px); display: grid; gap: 16px; align-content: center; background: linear-gradient(160deg, #ffe58a, #f7b100); }
+.split__media--ui .ui-win { box-shadow: 0 24px 44px -20px rgba(0,0,0,.4); }
+.split__media--ui .ui-win--b { width: 86%; justify-self: end; }
+.split__media .chip--a { right: -18px; top: 8%; }
+.split__media .chip--b { left: -18px; bottom: 10%; }
+.split__text .h2 { margin-bottom: 18px; }
+.split__text .lead { margin-bottom: 18px; }
+.split__h { font-size: clamp(30px, 3vw, 44px); line-height: 1; margin: 0 0 12px; color: var(--ink); }
+.split__h--xl { font-size: clamp(38px, 4vw, 58px); margin-bottom: 18px; }
+.split__h:not(:first-child) { margin-top: 34px; }
+.split__p { margin: 0; color: var(--muted); font-size: clamp(16px, 1.3vw, 18px); line-height: 1.65; }
+.split__list { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.split__list li { padding: 9px 16px; border-radius: 999px; background: var(--soft); border: 1px solid var(--line); font-weight: 600; font-size: 14.5px; color: var(--ink); }
+.more-link { display: inline-flex; gap: 8px; font-weight: 700; color: var(--green-deep); text-decoration: none; transition: gap .25s; }
+.more-link:hover { gap: 14px; }
+
+/* "Por qué elegir": mismas proporciones que las demás filas */
+.collage { aspect-ratio: 5 / 4.4; }
+
+@media (max-width: 900px) {
+  .split { grid-template-columns: 1fr; gap: 36px; }
+  .split--rev .split__media { order: 0; }
+  .split__media { max-width: 620px; width: calc(100% - 18px); }
+  .split__media::after, .split--rev .split__media::after { inset: 14px -14px -14px 14px; }
+  .split__media .chip--a { right: -8px; }
+  .split__media .chip--b { left: -8px; }
+}
+
+/* ==========================================================
+   Animaciones
+   ========================================================== */
+.js-anim .a-in { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0s); }
+.js-anim .a-in.is-in { opacity: 1; transform: none; }
+.js-anim .reveal-l .split__media, .js-anim .reveal-r .split__media { opacity: 0; transform: translateX(-48px) scale(.97); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.js-anim .reveal-r .split__media { transform: translateX(48px) scale(.97); }
+.js-anim .split .split__text > * { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(.18s + var(--i, 0) * .09s); }
+.js-anim .split.is-in .split__media { opacity: 1; transform: none; }
+.js-anim .split.is-in .split__text > * { opacity: 1; transform: none; }
+.js-anim .split .chip { opacity: 0; transform: scale(.8); animation: none; transition: opacity .6s .7s, transform .6s .7s var(--ease); }
+.js-anim .split.is-in .chip { opacity: 1; transform: none; }
+
+/* imágenes con zoom suave */
+.split__media > img { clip-path: inset(0 round 36px); transition: transform .9s var(--ease); }
+.split__media:hover > img { transform: scale(1.04); }
+.slide__img { animation: kenburns 18s ease-in-out infinite alternate; }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08) translate(-1%, -1%); } }
+
+/* elementos flotantes */
+.chip { animation: flota 6s ease-in-out infinite; }
+.chip--b { animation-delay: -3s; }
+@keyframes flota { 50% { transform: translateY(-8px); } }
+.ui-win { animation: flota 7s ease-in-out infinite; }
+.ui-win--b { animation-delay: -3.5s; }
+.ui-row b::after { transform-origin: left; animation: llena 1.6s var(--ease) both; }
+@keyframes llena { from { transform: scaleX(0); } }
+.ui-bars b { transform-origin: bottom; animation: crece 1.2s var(--ease) both; }
+@keyframes crece { from { transform: scaleY(0); } }
+
+/* halos que respiran */
+.svc-sec::before, .sec:not(.lead-sec)::before { animation: respira 14s ease-in-out infinite alternate; }
+@keyframes respira { to { transform: translate(-4vw, 3vw) scale(1.12); } }
+
+/* botones con destello y tarjetas que reaccionan */
+.btn--grad { position: relative; overflow: hidden; }
+.btn--grad::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%); transform: translateX(-120%); transition: transform .8s var(--ease); pointer-events: none; }
+.btn--grad:hover::after { transform: translateX(120%); }
+a.tile:hover { transform: translateY(-8px); }
+.tile .tag { transition: transform .3s; }
+.tile:hover .tag { transform: translateX(4px); }
+.tl__dot { animation: latido 3.2s ease-in-out infinite; }
+@keyframes latido { 50% { box-shadow: 0 0 0 12px rgba(247,177,0,0); } }
+.feats li { transition: transform .3s var(--ease); }
+.feats li:hover { transform: translateX(8px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ucard:hover, .plan:hover { transform: none; }
+  .js-anim .a-in, .js-anim .split__media, .js-anim .split__text > *, .js-anim .split .chip { opacity: 1 !important; transform: none !important; transition: none !important; }
+  *, *::before, *::after { animation: none !important; }
+}
