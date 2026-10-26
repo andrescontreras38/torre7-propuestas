@@ -62,12 +62,12 @@
       <div class="bl-box">
         <h3 class="bl-h">Membresías</h3>
         <ul class="bl-plans">
-          <li><a href="index.html#membresias"><b>Basic</b><span>Para empezar a fortalecer la gestión</span></a></li>
-          <li class="is-pop"><a href="index.html#membresias"><b>Standard</b><span>Acompañamiento periódico</span></a></li>
-          <li><a href="index.html#membresias"><b>Premium</b><span>Acompañamiento integral</span></a></li>
+          <li><a href="proyecta.html#membresias"><b>Basic</b><span>Impulsa tu gestión</span></a></li>
+          <li class="is-pop"><a href="proyecta.html#membresias"><b>Standard</b><span>Fortalece tu organización</span></a></li>
+          <li><a href="proyecta.html#membresias"><b>Premium</b><span>Maximiza tu impacto</span></a></li>
         </ul>
       </div>
-      <a class="bl-red" href="index.html#red"><span class="bl-red__ic" aria-hidden="true">✦</span><span><b>¿Tu organización es una ESAL?</b><small>Únete a nuestra Red de ESAL →</small></span></a>
+      <a class="bl-red" href="index.html#red"><span class="bl-red__ic" aria-hidden="true">✦</span><span><b>¿Tu organización es una ESAL?</b><small>Regístrala gratis en la Red Torre 7 →</small></span></a>
     </aside>`;
 
   const bindSide = () => {

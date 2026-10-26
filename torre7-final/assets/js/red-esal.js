@@ -1,10 +1,10 @@
 /* ==========================================================
-   RED DE ESAL — repositorio de organizaciones
+   TORRE 7 CONECTA — directorio de la Red Torre 7
    ----------------------------------------------------------
    Para agregar una organización, copia una línea dentro de
    RED_ESAL y cambia los datos. Ejemplo:
    { nombre: "Fundación Ejemplo", tipo: "esal", ciudad: "Medellín", web: "https://..." },
-   tipo puede ser: "aliado", "esal" u "organizacion".
+   tipo puede ser: "esal", "profesional" o "aliado".
    La web es opcional (si se deja "", la tarjeta no es enlace).
    ========================================================== */
 const RED_ESAL = [
@@ -15,9 +15,9 @@ const RED_ESAL = [
   const sec = document.getElementById("red");
   if (!sec) return;
   const GRUPOS = [
-    { id: "aliado", titulo: "Aliados estratégicos" },
-    { id: "esal", titulo: "Entidades sin ánimo de lucro" },
-    { id: "organizacion", titulo: "Organizaciones sociales" }
+    { id: "esal", titulo: "Entidades sin ánimo de lucro", unirse: ["¿Tu organización es una ESAL?", "Regístrala gratis →", "Registrar mi organización en la Red Torre 7", "Queremos registrar gratuitamente nuestra organización en el directorio de la Red Torre 7."] },
+    { id: "profesional", titulo: "Profesionales aliados", unirse: ["¿Eres profesional?", "Únete a la red →", "Conocer la Red de Profesionales", "Soy profesional y quiero hacer parte de la Red de Profesionales de Torre 7."] },
+    { id: "aliado", titulo: "Organizaciones aliadas", unirse: ["¿Quieres ser aliado?", "Escríbenos →", "Conocer la Red de Profesionales", "Nuestra organización quiere ser aliada de la Red Torre 7."] }
   ];
   const groupsEl = sec.querySelector("#redGroups"), search = sec.querySelector("#redSearch"),
         filters = sec.querySelector("#redFilters"), empty = sec.querySelector("#redEmpty");
@@ -27,7 +27,6 @@ const RED_ESAL = [
 
   filters.innerHTML = [["todos", "Todas"], ...GRUPOS.map((g) => [g.id, g.titulo])]
     .map(([id, t]) => `<button type="button" role="tab" data-tipo="${id}" aria-selected="${id === "todos"}">${t}</button>`).join("");
-  const join = '<a href="#contacto" class="red-org red-org--join" data-red-join><b>¿Tu organización es una ESAL?</b><small>Únete a la red →</small></a>';
 
   const render = () => {
     const q = norm(search.value.trim());
@@ -40,7 +39,7 @@ const RED_ESAL = [
         const inner = `<b>${esc(o.nombre)}</b>${o.ciudad ? `<small>${esc(o.ciudad)}</small>` : ""}`;
         return o.web ? `<a class="red-org red-org--real" href="${esc(o.web)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="red-org red-org--real">${inner}</div>`;
       }).join("");
-      if (!q) cards += '<div class="red-org red-org--soon"><b>Próximamente</b><small>Espacio para una organización de la red</small></div>'.repeat((4 - ((items.length + 1) % 4)) % 4) + join;
+      if (!q) cards += '<div class="red-org red-org--soon"><b>Próximamente</b><small>Espacio disponible en la red</small></div>'.repeat((4 - ((items.length + 1) % 4)) % 4) + `<a href="#contacto" class="red-org red-org--join" data-red-join="${g.id}"><b>${g.unirse[0]}</b><small>${g.unirse[1]}</small></a>`;
       const num = String(GRUPOS.indexOf(g) + 1).padStart(2, "0");
       return `<div class="red-esal__group"><h3 class="red-esal__gtitle"><span>${num}</span>${g.titulo}</h3><div class="red-esal__grid">${cards}</div></div>`;
     }).join("");
@@ -56,11 +55,15 @@ const RED_ESAL = [
   search.addEventListener("input", render);
   // "Únete a la red" deja el formulario listo
   sec.addEventListener("click", (e) => {
-    if (!e.target.closest("[data-red-join]")) return;
+    const j = e.target.closest("[data-red-join]"); if (!j) return;
+    const [, , interes, texto] = GRUPOS.find((g) => g.id === j.dataset.redJoin).unirse;
     const sel = document.getElementById("interes");
-    if (sel) sel.value = "Unirme a la Red de ESAL";
+    if (sel) {
+      if (![...sel.options].some((o) => o.value === interes)) sel.add(new Option(interes, interes));
+      sel.value = interes;
+    }
     const ta = document.querySelector("#form textarea[name=mensaje]");
-    if (ta && !ta.value.trim()) ta.value = "Queremos que nuestra organización haga parte de la Red de ESAL de Torre 7.";
+    if (ta && !ta.value.trim()) ta.value = texto;
   });
   render();
 

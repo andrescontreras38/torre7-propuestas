@@ -61,37 +61,38 @@ const CLAVES = [
 
 /* ---------- servicios en la sección oscura ---------- */
 const SERVICIOS = [
-  { t: "Diagnóstico y fortalecimiento organizacional", d: "Identificación de capacidades, necesidades y oportunidades de mejora.", e: ["Diagnóstico", "Matriz de oportunidades", "Recomendaciones priorizadas"] },
-  { t: "Planeación estratégica y organizacional", d: "Acompañamiento en la definición de objetivos, prioridades, estrategias e indicadores.", e: ["Plan estratégico", "Plan de acción", "Matriz de indicadores", "Esquema de seguimiento"] },
-  { t: "Formulación y estructuración de proyectos", d: "Transformación de necesidades e ideas en proyectos con objetivos, actividades, recursos, resultados e indicadores.", e: ["Perfil de proyecto", "Marco lógico", "Presupuesto y cronograma"] },
-  { t: "Financiación y cooperación", d: "Identificación y análisis de oportunidades de financiación y cooperación pertinentes para la organización.", e: ["Matriz de oportunidades", "Criterios de elegibilidad", "Hoja de ruta para la postulación"], n: "No implica garantizar financiación ni aprobación." },
-  { t: "Seguimiento, evaluación e impacto", d: "Diseño de herramientas para monitorear actividades, resultados y avances hacia los objetivos.", e: ["Indicadores", "Instrumentos de seguimiento", "Matrices de resultados e informes"] },
-  { t: "Sostenibilidad organizacional", d: "Acompañamiento para identificar oportunidades de fortalecimiento y mejorar las condiciones de continuidad.", e: ["Diagnóstico de sostenibilidad", "Plan de mejora", "Recomendaciones de gestión"] }
+  { t: "Diagnóstico y fortalecimiento institucional", e: ["Diagnóstico organizacional", "Identificación de brechas", "Evaluación de capacidades", "Planes de mejoramiento"] },
+  { t: "Planeación estratégica y sostenibilidad", e: ["Planeación estratégica", "Definición de objetivos", "Modelo de sostenibilidad", "Identificación de fuentes de ingresos", "Fortalecimiento de alianzas"] },
+  { t: "Formulación y gestión de proyectos", e: ["Identificación de oportunidades", "Estructuración de proyectos", "Marco lógico", "Presupuesto", "Indicadores y seguimiento"] },
+  { t: "Gestión administrativa, financiera y contable", e: ["Fortalecimiento de procesos administrativos", "Presupuestos y flujo de caja", "Organización de información financiera", "Control de gestión"], n: "Según el alcance contratado." },
+  { t: "Cooperación y movilización de recursos", e: ["Identificación de convocatorias", "Análisis de requisitos", "Preparación de propuestas", "Relacionamiento con cooperantes y aliados"], n: "No implica garantizar financiación ni aprobación." },
+  { t: "Seguimiento, evaluación y gestión de resultados", e: ["Diseño de indicadores", "Tableros de seguimiento", "Evaluación de avances", "Informes de gestión"] }
 ];
 const stage = $("#stage");
-const renderSvc = (i) => {
-  const s = SERVICIOS[i];
-  $("#stTitle").textContent = s.t;
-  $("#stText").textContent = s.d;
-  $("#stList").innerHTML = s.e.map((x) => `<li>${x}</li>`).join("");
-  const note = $("#stNote");
-  note.hidden = !s.n; note.textContent = s.n || "";
-};
-renderSvc(0);
-let svcIdx = 0;
-const selectSvc = (i, user) => {
-  if (i === svcIdx) return;
-  document.querySelectorAll("#svc button").forEach((x) => x.setAttribute("aria-selected", String(+x.dataset.i === i)));
-  stage.classList.add("is-out");
-  setTimeout(() => { renderSvc(i); stage.classList.remove("is-out"); }, 220);
-  svcIdx = i;
-};
 const darkSec = $("#servicios");
-document.querySelectorAll("#svc button").forEach((b) => b.addEventListener("click", () => {
-  selectSvc(+b.dataset.i, true);
-  // en celular el panel queda debajo de la lista: llevar a la persona hasta él
-  if (innerWidth < 900) setTimeout(() => stage.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }), 240);
-}));
+if (stage) {
+  const renderSvc = (i) => {
+    const s = SERVICIOS[i];
+    $("#stTitle").textContent = s.t;
+    $("#stList").innerHTML = s.e.map((x) => `<li>${x}</li>`).join("");
+    const note = $("#stNote");
+    note.hidden = !s.n; note.textContent = s.n || "";
+  };
+  renderSvc(0);
+  let svcIdx = 0;
+  const selectSvc = (i) => {
+    if (i === svcIdx) return;
+    document.querySelectorAll("#svc button").forEach((x) => x.setAttribute("aria-selected", String(+x.dataset.i === i)));
+    stage.classList.add("is-out");
+    setTimeout(() => { renderSvc(i); stage.classList.remove("is-out"); }, 220);
+    svcIdx = i;
+  };
+  document.querySelectorAll("#svc button").forEach((b) => b.addEventListener("click", () => {
+    selectSvc(+b.dataset.i);
+    // en celular el panel queda debajo de la lista: llevar a la persona hasta él
+    if (innerWidth < 900) setTimeout(() => stage.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }), 240);
+  }));
+}
 /* ---------- contadores ---------- */
 const runCount = (el) => {
   const end = +el.dataset.count, start = end > 1000 ? end - 30 : 0, t0 = performance.now(), dur = 1300;
@@ -148,7 +149,11 @@ if (!CONTACTO.whatsapp && CONTACTO.correo) submitBtn.textContent = "Enviar solic
 
 document.addEventListener("click", (e) => {
   const el = e.target.closest("[data-interes]");
-  if (el) interes.value = el.dataset.interes;
+  if (!el) return;
+  const v = el.dataset.interes;
+  // si el servicio no está en la lista, se agrega para que quede elegido
+  if (![...interes.options].some((o) => o.value === v)) interes.add(new Option(v, v));
+  interes.value = v;
 });
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -213,7 +218,7 @@ if (finePointer && !reduceMotion) {
 }
 
 /* luz que sigue al cursor en la sección oscura */
-if (finePointer) {
+if (finePointer && darkSec) {
   darkSec.addEventListener("pointermove", (ev) => {
     const r = darkSec.getBoundingClientRect();
     darkSec.style.setProperty("--mx", `${ev.clientX - r.left}px`);
@@ -223,6 +228,7 @@ if (finePointer) {
 
 /* línea de tiempo que se llena con el scroll */
 const tl = $("#timeline"), tlFill = $("#tlFill");
+if (tl) {
 const tlItems = [...document.querySelectorAll(".tl__item")];
 const onTimeline = () => {
   const r = tl.getBoundingClientRect();
@@ -236,3 +242,4 @@ const onTimeline = () => {
 onTimeline();
 addEventListener("scroll", onTimeline, { passive: true });
 if (reduceMotion) tlItems.forEach((it) => it.classList.add("is-on"));
+}

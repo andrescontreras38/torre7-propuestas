@@ -1,0 +1,142 @@
+/* ==========================================================
+   Páginas de líneas (Proyecta, Capacita, Innova, Investiga)
+   y bloques nuevos del documento "Insumo para la página web".
+   Usa los mismos bordes, radios y tipografías de Moderna Pro.
+   Colores: solo verde #0b5c33, dorado #f7b100, negro y blanco.
+   ========================================================== */
+
+/* banner de cada línea: el mismo del inicio, con una sola imagen */
+.slider--page { height: min(600px, calc(100svh - 96px)); min-height: 460px; }
+.slider--page .slide__title { font-size: clamp(46px, 6.4vw, 92px); }
+.slider--page .slide__lead { max-width: 560px; }
+
+/* selector de líneas bajo el banner */
+.lp-switch { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 22px var(--gutter) 0; }
+.lp-switch a { font-size: 14.5px; font-weight: 600; text-decoration: none; color: var(--ink); padding: 11px 18px; border-radius: 999px; border: 1px solid var(--line); background: #fff; transition: border-color .2s, background .2s; }
+.lp-switch a:hover { border-color: var(--ink); }
+.lp-switch a[aria-current="page"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* encabezado en dos columnas */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; margin-bottom: clamp(40px, 5vw, 60px); }
+.split .lead { margin: 0; max-width: 540px; }
+.split--top { align-items: start; }
+.prose p { font-size: 16.5px; line-height: 1.65; color: var(--text); margin: 0 0 14px; max-width: 62ch; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* bloques de información */
+.info3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.info3--2 { grid-template-columns: repeat(2, 1fr); }
+.info { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 30px 28px; }
+.info h3 { font-size: 30px; line-height: 1; margin: 0 0 12px; }
+.info p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
+.info p + p { margin-top: 10px; }
+.info .checks { margin-top: 4px; }
+
+/* banda verde de marca (una por página, para dar ritmo) */
+.band { background: var(--green-deep); color: #fff; }
+.band .h2, .band h3 { color: #fff; }
+.band .lead, .band .prose p { color: rgba(255,255,255,.86); }
+.band .eyebrow { background: #fff; color: var(--green-deep); }
+.band .info { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.2); }
+.band .info p { color: rgba(255,255,255,.84); }
+.band .info h3 { color: #f7b100; }
+
+/* fichas con miniatura (modalidades, servicios, programas) */
+.rows { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.rowc { display: flex; gap: 20px; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 20px; }
+.rowc__img { flex: none; width: 104px; height: 104px; border-radius: 16px; object-fit: cover; }
+.rowc__body { min-width: 0; display: flex; flex-direction: column; align-self: stretch; }
+.rowc h3 { font-size: 28px; line-height: 1; margin: 2px 0 8px; }
+.rowc p { margin: 0 0 8px; color: var(--text); font-size: 15.5px; line-height: 1.55; }
+.rowc__meta { font-size: 14px !important; color: var(--muted) !important; }
+.rowc__meta b { color: var(--ink); font-weight: 700; }
+.rowc__btn { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding-top: 8px; font-size: 14.5px; font-weight: 700; color: var(--green-deep); text-decoration: none; }
+.rowc__btn:hover { text-decoration: underline; text-underline-offset: 3px; }
+.badge { align-self: flex-start; display: inline-block; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: var(--green-deep); color: #fff; margin-bottom: 8px; }
+.rows--1 { grid-template-columns: 1fr; }
+
+/* listas en dos columnas */
+.cols2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 40px; }
+
+/* pasos numerados (son una secuencia) */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; list-style: none; margin: 0; padding: 0; counter-reset: paso; }
+.steps li { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 26px 24px; counter-increment: paso; }
+.steps li::before { content: "0" counter(paso); display: block; font-family: "Bebas Neue", Impact, sans-serif; font-size: 48px; line-height: 1; margin-bottom: 14px; color: var(--green-deep); border-bottom: 3px solid #f7b100; width: fit-content; padding-bottom: 6px; }
+.steps h3 { font-size: 26px; line-height: 1; margin: 0 0 8px; }
+.steps p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.55; }
+
+/* etiquetas sueltas */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.pills span { font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); }
+
+/* frase de cierre de una línea */
+.motto { font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(34px, 4vw, 52px); line-height: 1; letter-spacing: .01em; color: var(--ink); text-align: center; margin: clamp(48px, 6vw, 72px) 0 0; }
+
+/* lema bajo el nombre del plan */
+.plan__lema { font-size: 15px; font-weight: 700; color: var(--green-deep); margin: -4px 0 10px; }
+.plans-note { max-width: 860px; margin: 26px auto 0; text-align: center; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+.plans-more { display: block; width: fit-content; margin: 18px auto 0; font-weight: 700; color: var(--green-deep); text-decoration: none; }
+.plans-more:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* comparativo de beneficios */
+.cmp-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-lg); background: #fff; }
+.cmp { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; }
+.cmp th, .cmp td { padding: 13px 16px; border-bottom: 1px solid var(--line); text-align: center; }
+.cmp tbody th { text-align: left; font-weight: 500; color: var(--text); }
+.cmp thead th { padding: 18px 12px; vertical-align: bottom; }
+.cmp thead th:first-child { text-align: left; font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 26px; color: var(--ink); }
+.cmp thead th b { display: block; font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 28px; line-height: 1; letter-spacing: .02em; }
+.cmp thead th small { display: block; font-size: 12.5px; font-weight: 600; margin-top: 4px; }
+.cmp .c-basic { background: var(--green-deep); color: #fff; }
+.cmp .c-std { background: #f7b100; color: var(--ink); }
+.cmp .c-prem { background: var(--ink); color: #fff; }
+.cmp .grp th { text-align: left; font-size: 13px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--green-deep); padding-top: 22px; }
+.cmp .si { color: var(--green-deep); font-weight: 800; font-size: 17px; }
+.cmp .no { color: #b3b3b3; }
+.cmp .pct { font-weight: 800; color: var(--ink); }
+.cmp sup { color: #b07d00; font-weight: 800; }
+.cmp tr:last-child th, .cmp tr:last-child td { border-bottom: 0; }
+
+/* Torre 7 Conecta: tres caminos de la red */
+.ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: clamp(56px, 7vw, 84px); }
+.way { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--r-line, var(--line)); border-radius: 20px; padding: 28px 26px; }
+.way h3 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 28px; line-height: 1; letter-spacing: .01em; margin: 0 0 10px; color: var(--ink); }
+.way p { margin: 0 0 20px; color: var(--r-muted, var(--muted)); font-size: 15.5px; line-height: 1.6; }
+.way .btn { margin-top: auto; align-self: flex-start; }
+.dir-head { text-align: center; margin: 0 auto 28px; max-width: 640px; }
+.dir-head h3 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: clamp(32px, 3.4vw, 44px); line-height: 1; letter-spacing: .01em; margin: 0 0 8px; color: var(--ink); }
+.dir-head p { margin: 0; color: var(--muted); font-size: 16px; }
+
+/* pequeña nota bajo el formulario de contacto */
+.cta-extra { margin-top: 14px; font-weight: 700; color: var(--ink); }
+
+@media (max-width: 1000px) {
+  .info3, .steps, .ways { grid-template-columns: repeat(2, 1fr); }
+  .rows, .split { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .info3, .info3--2, .steps, .ways, .cols2 { grid-template-columns: 1fr; }
+  .rowc { padding: 16px; gap: 14px; }
+  .rowc__img { width: 76px; height: 76px; border-radius: 12px; }
+  .rowc h3 { font-size: 24px; }
+  .lp-switch { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .lp-switch a { flex: none; }
+}
+
+/* texto solo para lectores de pantalla */
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* foto "Acuerdo global": en celular se corre a la derecha para que el logo de la imagen no choque con el título */
+@media (max-width: 760px) { .slide__img--der { object-position: 88% center; } }
+
+/* comparativo en celular: las tres membresías visibles sin desplazar */
+@media (max-width: 640px) {
+  .cmp { min-width: 0; font-size: 13.5px; }
+  .cmp th, .cmp td { padding: 11px 6px; }
+  .cmp tbody th { padding-left: 12px; }
+  .cmp thead th { padding: 12px 4px; }
+  .cmp thead th:first-child { font-size: 20px; padding-left: 12px; }
+  .cmp thead th b { font-size: 20px; }
+  .cmp thead th small { font-size: 10.5px; line-height: 1.2; }
+  .cmp .pct { font-size: 12.5px; }
+}
