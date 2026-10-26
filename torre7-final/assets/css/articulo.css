@@ -69,3 +69,8 @@
 .bl-cats a:hover, .bl-cats a[aria-current] { background: #f6f6f6; }
 .bl-cats a[aria-current] span { font-weight: 700; color: #0b5c33; }
 @media (min-width: 1001px) { .bl-layout--post .article__toc { display: none; } .bl-layout--post .bl-side { position: sticky; top: 90px; } }
+
+/* evita que las tablas anchas ensanchen la columna en celular */
+.bl-layout--post .article, .bl-layout--post .bl-main { min-width: 0; max-width: 100%; }
+.article__table { max-width: 100%; }
+.article__body table { min-width: 480px; }
