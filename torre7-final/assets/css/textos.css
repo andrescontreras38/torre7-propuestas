@@ -27,3 +27,8 @@ body { font-size: 19px; }
 .footer a.footer__cta { font-size: 16px; }
 .footer__bottom { font-size: 13px; }
 .bp-foot { font-size: 14px; }
+
+/* contacto en fondo claro: la línea del correo era blanca y no se leía */
+.lead-sec .lead-mail { color: var(--muted); }
+.lead-sec .lead-mail a { color: var(--green-deep); }
+.lead-sec .lead-mail a:hover { color: var(--ink); }

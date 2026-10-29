@@ -156,7 +156,7 @@ const render = (p) => {
   <link rel="alternate" hreflang="x-default" href="${url}">
   <link rel="alternate" type="application/rss+xml" title="Blog Torre 7" href="../feed.xml">
   <meta name="author" content="${esc(p.autor || "Equipo Torre 7")}">
-  <meta name="theme-color" content="#004d2e">
+  <meta name="theme-color" content="#003721">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Torre 7 Soluciones Integrales">
