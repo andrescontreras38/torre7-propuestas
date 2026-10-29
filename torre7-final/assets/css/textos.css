@@ -20,3 +20,10 @@ body { font-size: 19px; }
 /* los títulos animados palabra por palabra se quedaban invisibles:
    la regla que los oculta era más fuerte que la que los muestra */
 .js-fx main .is-seen .w, .js-fx main .is-seen.w { opacity: 1; transform: none; filter: none; }
+
+/* el pie conserva su tamaño original: se ve más compacto */
+.footer { font-size: 15px; }
+.footer h4 { font-size: 20px; }
+.footer a.footer__cta { font-size: 16px; }
+.footer__bottom { font-size: 13px; }
+.bp-foot { font-size: 14px; }
