@@ -98,3 +98,15 @@
 .hf--page .hf__title { font-size: clamp(38px, 4.8vw, 70px); }
 .hf__links a[aria-current="page"] { background: #f7b100; color: #141414; }
 .hf__links a[aria-current="page"] span, .hf__links a[aria-current="page"] small { color: #141414; }
+
+/* banner del inicio menos alto: en un portátil de 15" ya no ocupa toda la primera vista */
+@media (min-width: 601px) {
+  .hf__slide .hf__wrap, .hf__wrap { padding-top: clamp(30px, 3.6vw, 52px); padding-bottom: clamp(26px, 3vw, 40px); }
+  .hf__tag { margin-bottom: 12px; }
+  .hf__title { font-size: clamp(38px, 4.3vw, 66px); margin-bottom: 12px; }
+  .hf__lead { font-size: clamp(17px, 1.2vw, 19.5px); margin-bottom: 18px; }
+  .hf__links a { padding-block: 12px; }
+  .hf__links a b { font-size: 17px; }
+  .hf__links a small { font-size: 14px; }
+  .hf__links a span { font-size: 23px; }
+}
