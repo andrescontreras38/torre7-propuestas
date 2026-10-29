@@ -38,3 +38,53 @@
 /* enlace de la página actual en el menú principal */
 .nav > a[aria-current="page"] { color: var(--ink); }
 .nav > a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+
+/* ==========================================================
+   Submenú de Servicios: diseño y efectos (solo el panel;
+   el encabezado y los enlaces principales no cambian)
+   ========================================================== */
+.nav__menu { counter-reset: srv; }
+@media (min-width: 1001px) {
+  .nav__menu { left: 50%; width: 400px; min-width: 0; padding: 18px 8px 8px; transform: translate(-50%, 10px) scale(.97); transform-origin: 50% 0; transition: opacity .28s var(--ease), transform .38s cubic-bezier(.2,.9,.25,1.15), visibility .28s; }
+  .nav__drop.is-open .nav__menu, .nav__drop:focus-within .nav__menu, .nav__drop:hover .nav__menu { transform: translate(-50%, 0) scale(1) !important; }
+  .nav__menu::before { inset: 8px 0 0; border-radius: 20px; background: #fff; border: 1px solid rgba(20,20,20,.07); box-shadow: 0 2px 6px rgba(20,20,20,.04), 0 28px 60px -24px rgba(0,55,33,.35); }
+  /* pestaña que apunta a «Servicios» y franja dorada superior */
+  .nav__menu::after { content: ""; position: absolute; top: 2px; left: 50%; width: 14px; height: 14px; background: #fff; border-left: 1px solid rgba(20,20,20,.07); border-top: 1px solid rgba(20,20,20,.07); border-top-left-radius: 4px; transform: translateX(-50%) rotate(45deg); }
+  .nav__menu > a:first-child { margin-top: 4px; }
+  /* las opciones entran una tras otra */
+  .nav__menu > a { opacity: 0; transform: translateY(6px); transition: opacity .3s var(--ease), transform .35s var(--ease), background .25s; }
+  .nav__drop.is-open .nav__menu > a, .nav__drop:focus-within .nav__menu > a, .nav__drop:hover .nav__menu > a { opacity: 1; transform: none; }
+  .nav__menu > a:nth-child(1) { transition-delay: .04s, .04s, 0s; }
+  .nav__menu > a:nth-child(2) { transition-delay: .08s, .08s, 0s; }
+  .nav__menu > a:nth-child(3) { transition-delay: .12s, .12s, 0s; }
+  .nav__menu > a:nth-child(4) { transition-delay: .16s, .16s, 0s; }
+}
+.nav .nav__menu a { counter-increment: srv; display: grid; grid-template-columns: 40px 1fr 16px; column-gap: 14px; row-gap: 1px; align-items: center; padding: 11px 12px; border-radius: 14px; overflow: hidden; isolation: isolate; }
+/* número del servicio en una ficha verde con número dorado */
+.nav .nav__menu a::before { content: "0" counter(srv); grid-row: 1 / span 2; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: #003721; color: #f7b100; font-family: "Bebas Neue", Impact, sans-serif; font-size: 19px; letter-spacing: .03em; transition: background .3s, color .3s, transform .4s cubic-bezier(.2,.9,.25,1.3); }
+.nav .nav__menu a b { grid-column: 2; font-size: 15.5px; line-height: 1.2; color: #141414; align-self: end; transition: color .25s; }
+.nav .nav__menu a small { grid-column: 2; font-size: 13px; line-height: 1.3; color: #6a6a64; align-self: start; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* flecha que aparece al pasar el cursor */
+.nav .nav__menu a::after { content: "→"; display: block !important; grid-column: 3; grid-row: 1 / span 2; position: static; width: auto; height: auto; background: none; font-size: 15px; font-weight: 700; color: #003721; opacity: 0; transform: translateX(-8px); transition: opacity .25s, transform .3s var(--ease); }
+/* fondo que se desliza al pasar el cursor */
+.nav .nav__menu a { background: linear-gradient(90deg, #f4f7f5, #f4f7f5) no-repeat 0 0 / 0% 100%; transition: background-size .35s var(--ease), opacity .3s var(--ease), transform .35s var(--ease); }
+.nav .nav__menu a:hover, .nav .nav__menu a:focus-visible { background-color: transparent; background-size: 100% 100%; transform: none; }
+.nav .nav__menu a:hover::before, .nav .nav__menu a:focus-visible::before { background: #f7b100; color: #141414; transform: rotate(-6deg) scale(1.06); }
+.nav .nav__menu a:hover b, .nav .nav__menu a:focus-visible b { color: #003721; }
+.nav .nav__menu a:hover::after, .nav .nav__menu a:focus-visible::after { opacity: 1; transform: none; }
+/* página actual */
+.nav .nav__menu a[aria-current="page"] { background: #003721; }
+.nav .nav__menu a[aria-current="page"]::before { background: #f7b100; color: #141414; }
+.nav .nav__menu a[aria-current="page"] b { color: #fff; }
+.nav .nav__menu a[aria-current="page"] small { color: rgba(255,255,255,.75); }
+.nav .nav__menu a[aria-current="page"]::after { color: #f7b100; opacity: 1; transform: none; }
+@media (max-width: 1000px) {
+  .nav .nav__menu a { grid-template-columns: 36px 1fr; padding: 10px 6px; }
+  .nav .nav__menu a::before { width: 36px; height: 36px; font-size: 17px; border-radius: 10px; }
+  .nav .nav__menu a b { font-size: 16px; }
+  .nav .nav__menu a small { font-size: 13.5px; white-space: normal; }
+  .nav .nav__menu a::after { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav__menu, .nav__menu > a, .nav .nav__menu a, .nav .nav__menu a::before, .nav .nav__menu a::after { transition: none !important; }
+}
