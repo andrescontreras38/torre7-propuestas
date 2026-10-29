@@ -6,65 +6,65 @@
 /* títulos: Bebas Neue es condensada, necesita más tamaño */
 .h2 { font-size: clamp(40px, 5.2vw, 70px); line-height: .96; }
 .head { margin-bottom: clamp(44px, 5vw, 64px); }
-.head .lead, .stats .lead { font-size: clamp(19.5px, 1.35vw,23px); line-height: 1.6; }
-.eyebrow { letter-spacing: .04em; text-transform: uppercase; font-size: 15px; padding: 6px 14px; }
+.head .lead, .stats .lead { font-size: clamp(16.5px, 1.35vw, 19px); line-height: 1.6; }
+.eyebrow { letter-spacing: .04em; text-transform: uppercase; font-size: 12.5px; padding: 6px 14px; }
 .sec { padding-block: clamp(84px, 9vw, 124px); }
 
 /* banda "Para organizaciones sociales y ESAL" */
 .logos { padding-block: clamp(48px, 6vw, 72px) 40px; background: var(--soft); border: 0; }
 .logos > p.logos__title { font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(34px, 4vw, 54px); line-height: 1; color: var(--ink); margin: 0 0 10px; letter-spacing: .01em; }
-.logos > p.logos__sub { font-size: 19.5px; color: var(--muted); margin: 0 auto 30px; max-width: 560px; padding-inline: 16px; }
+.logos > p.logos__sub { font-size: 16.5px; color: var(--muted); margin: 0 auto 30px; max-width: 560px; padding-inline: 16px; }
 .marquee span { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: clamp(28px, 3vw, 40px); color: #7a7a7a; letter-spacing: .02em; }
 .marquee__track { gap: 0; align-items: center; }
 .marquee span { padding-right: 48px; }
 .marquee span::before { content: "✦"; color: var(--orange); font-size: .5em; margin-right: 48px; vertical-align: middle; }
 
 /* sección oscura de servicios */
-.svc button { font-size: 19.5px; padding-block: 16px; }
+.svc button { font-size: 16.5px; padding-block: 16px; }
 .stage__card h3 { font-size: 30px; line-height: 1.05; }
-.stage__card > p { font-size: 18.5px; }
+.stage__card > p { font-size: 15.5px; }
 
 /* mosaico de líneas */
 .tile__body h3, .tile--txt h3 { font-size: 30px; line-height: 1; }
 .tile--big .tile__body h3 { font-size: clamp(38px, 4vw, 54px); }
-.tile--txt ul { font-size: 18px; }
-.tile__body p { font-size: 18.5px; }
+.tile--txt ul { font-size: 15px; }
+.tile__body p { font-size: 15.5px; }
 
 /* tarjetas "una forma distinta de acompañar" */
 .ucard h3 { font-size: 27px; line-height: 1.02; margin: 24px 12px 10px; }
-.ucard p { font-size: 18.5px; line-height: 1.55; }
+.ucard p { font-size: 15.5px; line-height: 1.55; }
 .cards3 { gap: 22px; }
 
 /* por qué elegir */
 .feats { gap: 22px; margin-top: 34px; }
 .feats b { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 25px; letter-spacing: .02em; line-height: 1.1; }
-.feats p { font-size: 18.5px; line-height: 1.55; margin-top: 4px; }
+.feats p { font-size: 15.5px; line-height: 1.55; margin-top: 4px; }
 .feats__ic { width: 46px; height: 46px; background: var(--grad); border: 0; color: var(--ink); }
 
 /* membresías */
 .plan { padding: 34px 30px; }
 .plan h3 { font-size: 42px; letter-spacing: .01em; margin-bottom: 10px; }
-.plan__for { font-size: 18.5px; line-height: 1.55; min-height: 72px; }
-.checks { font-size: 18.5px; }
+.plan__for { font-size: 15.5px; line-height: 1.55; min-height: 72px; }
+.checks { font-size: 15.5px; }
 
 /* cómo trabajamos */
 .tl__card { padding: 26px 28px; }
 .tl__card h3 { font-size: 28px; line-height: 1; margin-bottom: 8px; }
-.tl__card p { font-size: 18.5px; line-height: 1.55; }
-.tl__dot { font-family: "Bebas Neue", Impact, sans-serif; font-size: 23.5px; font-weight: 400; }
+.tl__card p { font-size: 15.5px; line-height: 1.55; }
+.tl__dot { font-family: "Bebas Neue", Impact, sans-serif; font-size: 22px; font-weight: 400; }
 
 /* preguntas */
 .faq__list { gap: 12px; }
-.faq summary { padding-block: 20px; font-size: 19.5px; }
-.faq details p { font-size: 18.5px; line-height: 1.6; }
+.faq summary { padding-block: 20px; font-size: 16.5px; }
+.faq details p { font-size: 15.5px; line-height: 1.6; }
 
 /* visión y cifras */
 .nums dd { font-size: clamp(54px, 6vw, 80px); background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.nums dt { font-size: 16.5px; text-transform: uppercase; letter-spacing: .05em; }
+.nums dt { font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
 
 /* contacto */
 .cta-card .h2 { font-size: clamp(38px, 4.4vw, 60px); }
-.field span { font-size: 16px; }
+.field span { font-size: 13.5px; }
 
 /* cierre */
 .finale__title { font-size: clamp(46px, 6.4vw, 92px); line-height: .95; }
@@ -73,7 +73,7 @@
 .footer, .footer p { color: rgba(255,255,255,.72); }
 .footer a { color: rgba(255,255,255,.72); transition: color .2s; }
 .footer a:hover { color: var(--yellow); }
-.footer h4 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 23.5px; letter-spacing: .04em; }
+.footer h4 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 22px; letter-spacing: .04em; }
 .footer__bottom, .footer__bottom a { color: rgba(255,255,255,.55); }
 
 @media (max-width: 600px) {
@@ -84,8 +84,8 @@
 }
 
 /* autorización de datos y enlaces legales */
-.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; line-height: 1.45; color: var(--muted); margin: 4px 0 14px; cursor: pointer; }
-.consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: #003721; flex: none; }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; line-height: 1.45; color: var(--muted); margin: 4px 0 14px; cursor: pointer; }
+.consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: #0b5c33; flex: none; }
 .consent a { color: var(--ink); font-weight: 600; }
 .consent.is-invalid span { color: #b42318; }
 .footer__legal a { display: inline; padding: 0; text-decoration: none; }

@@ -1,6 +1,6 @@
 /* ==========================================================
    Solo colores corporativos (se carga al final de todo)
-   Verde #003721, dorado #f7b100, negro #141414 y blanco.
+   Verde #0b5c33, dorado #f7b100, negro #141414 y blanco.
    Fuera los fondos amarillos pálidos, cremas y verdes lavados:
    los bloques de color son los de la marca, sin mezclas.
    ========================================================== */
@@ -8,11 +8,11 @@
   --soft: #f6f6f6;
   --line: #e9e9e9;
   --tint-gold: linear-gradient(#f7b100, #f7b100);
-  --tint-green: linear-gradient(#003721, #003721);
+  --tint-green: linear-gradient(#0b5c33, #0b5c33);
 }
 
 /* sin halos amarillos: apenas un velo verde casi imperceptible */
-.svc-sec::before, .sec:not(.lead-sec)::before, .sec:nth-of-type(even):not(.lead-sec)::before { background: radial-gradient(circle, rgba(0, 55, 33,.10), transparent 68%); opacity: .5; }
+.svc-sec::before, .sec:not(.lead-sec)::before, .sec:nth-of-type(even):not(.lead-sec)::before { background: radial-gradient(circle, rgba(11,92,51,.10), transparent 68%); opacity: .5; }
 .lead-sec::before { display: none; }
 .logos { background: #fff; }
 .plans-sec, .stats-sec, .faq-sec { background: var(--soft); }
@@ -21,19 +21,19 @@
 .tile--amber { background: #f7b100; }
 .tile--amber .tag { background: #141414; color: #fff; }
 .tile--amber h3, .tile--amber li, .tile--amber .tile__foot { color: #141414; }
-.tile--mint { background: #003721; }
+.tile--mint { background: #0b5c33; }
 .tile--mint h3, .tile--mint li, .tile--mint li::before, .tile--mint .tile__foot { color: #fff; }
 .tile--mint .tag--green { background: #f7b100; color: #141414; }
 
 /* ilustraciones de las tarjetas */
 .ui-diag { background: #f7b100; }
-.ui-plan { background: #003721; }
+.ui-plan { background: #0b5c33; }
 .ui-chart { background: #141414; }
 .split__media--ui .ucard__ui { background: #f7b100; }
 
 /* detalle detrás de las fotos: marco fino de marca, no bloque pastel */
 .split__media::after { background: none; border: 2px solid #f7b100; opacity: 1; }
-.split--rev .split__media::after { background: none; border-color: #003721; }
+.split--rev .split__media::after { background: none; border-color: #0b5c33; }
 
 /* numeración, membresías y chips */
 .feats__ic { background: #f7b100; color: #141414; box-shadow: none; border: 0; }

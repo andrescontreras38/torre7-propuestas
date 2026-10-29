@@ -156,7 +156,7 @@ const render = (p) => {
   <link rel="alternate" hreflang="x-default" href="${url}">
   <link rel="alternate" type="application/rss+xml" title="Blog Torre 7" href="../feed.xml">
   <meta name="author" content="${esc(p.autor || "Equipo Torre 7")}">
-  <meta name="theme-color" content="#003721">
+  <meta name="theme-color" content="#0b5c33">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Torre 7 Soluciones Integrales">
@@ -185,7 +185,6 @@ const render = (p) => {
   <link rel="stylesheet" href="../assets/css/efectos.css?v=202610261300">
   <link rel="stylesheet" href="../assets/css/corporativo.css?v=202610261300">
   <link rel="stylesheet" href="../assets/css/articulo.css?v=202610261300">
-  <link rel="stylesheet" href="../assets/css/textos.css?v=202610261300">
 ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n")}
 </head>
 <body style="--bp-top-bg: rgba(255,255,255,.92); --bp-top-bg-solid: #fff; --bp-top-ink: #141414; --bp-top-line: rgba(20,20,19,.1);">

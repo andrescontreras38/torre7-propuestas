@@ -19,9 +19,9 @@
 .slide.is-active .slide__content > :nth-child(2) { transition-delay: .12s; }
 .slide.is-active .slide__content > :nth-child(3) { transition-delay: .24s; }
 .slide.is-active .slide__content > :nth-child(4) { transition-delay: .36s; }
-.slide__tag { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); backdrop-filter: blur(8px); font-size: 16px; font-weight: 600; margin-bottom: 18px; }
+.slide__tag { display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); backdrop-filter: blur(8px); font-size: 13.5px; font-weight: 600; margin-bottom: 18px; }
 .slide__title { color: #fff; font-size: clamp(48px, 5.6vw, 92px); line-height: .94; margin: 0 0 20px; text-wrap: balance; }
-.slide__lead { font-size: clamp(19px, 1.4vw,23px); color: rgba(255,255,255,.9); max-width: 520px; margin: 0 0 28px; }
+.slide__lead { font-size: clamp(16px, 1.4vw, 19px); color: rgba(255,255,255,.9); max-width: 520px; margin: 0 0 28px; }
 .slide__ctas { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* controles */
@@ -34,10 +34,10 @@
 .slider.is-paused .slider__dots button[aria-selected="true"] i::after { animation-play-state: paused; }
 .slider.is-static .slider__dots button[aria-selected="true"] i::after { animation: none; transform: none; }
 @keyframes slidefill { to { transform: scaleX(1); } }
-.slider__count { color: rgba(255,255,255,.75); font-size: 16.5px; font-weight: 600; }
-.slider__count b { color: #fff; font-size: 20px; }
+.slider__count { color: rgba(255,255,255,.75); font-size: 14px; font-weight: 600; }
+.slider__count b { color: #fff; font-size: 17px; }
 .slider__arrows { margin-left: auto; display: flex; gap: 10px; }
-.slider__arrow { width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.1); backdrop-filter: blur(10px); color: #fff; font-size: 21px; cursor: pointer; transition: background .25s, transform .25s; }
+.slider__arrow { width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.1); backdrop-filter: blur(10px); color: #fff; font-size: 18px; cursor: pointer; transition: background .25s, transform .25s; }
 .slider__arrow:hover { background: rgba(255,255,255,.25); transform: scale(1.06); }
 
 /* bloque "¿Por dónde empezar?" debajo del banner */
