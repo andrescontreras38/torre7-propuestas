@@ -1,0 +1,43 @@
+/* ==========================================================
+   Textos más grandes y cómodos de leer (se carga al final).
+   Pedido del cliente: aumentar todos los textos, en especial
+   los párrafos de Quiénes somos y del blog.
+   ========================================================== */
+body { font-size: 19px; }
+.prose p, .about .prose p { font-size: 21px; line-height: 1.7; }
+.lead, .head .lead, .stats .lead, .blog-lead, .red-esal__lead { font-size: clamp(20px, 1.5vw, 23px); line-height: 1.6; }
+.slide__lead { font-size: clamp(19px, 1.4vw, 22px); }
+.ucard p, .info p, .rowc p, .way p, .feats p, .faq details p, .post-card p, .tile__body p, .steps p, .tl__card p, .plan__for, .checks { font-size: 19.5px; line-height: 1.6; }
+.article__lead { font-size: clamp(21px, 1.6vw, 24px); }
+.article__body { font-size: 22px; line-height: 1.75; }
+.article__brief p, .article__faq details p { font-size: 20.5px; }
+@media (max-width: 640px) {
+  .prose p, .about .prose p { font-size: 19.5px; }
+  .article__body { font-size: 20px; }
+  .ucard p, .info p, .rowc p, .way p, .feats p, .faq details p, .post-card p, .steps p, .tl__card p, .checks { font-size: 18.5px; }
+}
+
+/* los títulos animados palabra por palabra se quedaban invisibles:
+   la regla que los oculta era más fuerte que la que los muestra */
+.js-fx main .is-seen .w, .js-fx main .is-seen.w { opacity: 1; transform: none; filter: none; }
+
+/* el pie conserva su tamaño original: se ve más compacto */
+.footer { font-size: 15px; }
+.footer h4 { font-size: 20px; }
+.footer a.footer__cta { font-size: 16px; }
+.footer__bottom { font-size: 13px; }
+.bp-foot { font-size: 14px; }
+
+/* contacto en fondo claro: la línea del correo era blanca y no se leía */
+.lead-sec .lead-mail { color: var(--muted); }
+.lead-sec .lead-mail a { color: var(--green-deep); }
+.lead-sec .lead-mail a:hover { color: var(--ink); }
+
+/* encabezado: siempre como caja con esquinas redondeadas (no a todo el ancho),
+   igual que se veía al bajar por la página */
+.header { padding-top: 10px; }
+.header .header__inner, .header.is-scrolled .header__inner { max-width: 1040px; border-radius: 16px; height: 60px; box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 14px 34px -16px rgba(0,0,0,.3); }
+@media (max-width: 1000px) {
+  .header { padding-top: 8px; }
+  .header .header__inner, .header.is-scrolled .header__inner { margin-inline: 8px; width: auto; }
+}

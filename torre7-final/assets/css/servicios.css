@@ -2,7 +2,7 @@
    Servicios de Torre 7 Proyecta — sección clara
    El único elemento fuerte es el panel verde de la marca.
    ========================================================== */
-.svc-sec { --brand: #0b5c33; --brand-deep: #08472a; --tint: #ffffff; background: #fff; padding-block: clamp(84px, 9vw, 124px); }
+.svc-sec { --brand: #003721; --brand-deep: #002a19; --tint: #ffffff; background: #fff; padding-block: clamp(84px, 9vw, 124px); }
 .svc-sec__head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; margin-bottom: clamp(36px, 4vw, 52px); }
 .svc-sec__head .lead { margin: 0; max-width: 520px; }
 .svc-sec__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }
@@ -19,8 +19,8 @@
 .svc-sec .svc button:hover { background: var(--tint); }
 .svc-sec .svc button[aria-selected="true"] { background: var(--tint); }
 .svc-sec .svc button[aria-selected="true"]::before { background: var(--brand); }
-.svc__name { font-size: 18px; font-weight: 700; line-height: 1.3; color: var(--ink); }
-.svc__hint { font-size: 15px; color: var(--muted); line-height: 1.45; }
+.svc__name { font-size: 21px; font-weight: 700; line-height: 1.3; color: var(--ink); }
+.svc__hint { font-size: 18px; color: var(--muted); line-height: 1.45; }
 
 /* panel verde */
 .svc-panel {
@@ -30,13 +30,13 @@
 .svc-panel > * { transition: opacity .22s ease, transform .22s ease; }
 .svc-panel.is-out > * { opacity: 0; transform: translateY(6px); }
 .svc-panel h3 { color: #fff; font-size: clamp(32px, 3vw, 44px); line-height: 1; margin: 0 0 14px; }
-.svc-panel > p#stText { color: rgba(255,255,255,.86); font-size: 17px; line-height: 1.55; margin: 0 0 26px; max-width: 46ch; }
-.svc-panel__label { font-size: 15px; font-weight: 700; color: #f7b100; margin: 0 0 12px; }
+.svc-panel > p#stText { color: rgba(255,255,255,.86); font-size: 20px; line-height: 1.55; margin: 0 0 26px; max-width: 46ch; }
+.svc-panel__label { font-size: 18px; font-weight: 700; color: #f7b100; margin: 0 0 12px; }
 .svc-panel__list { list-style: none; margin: 0 0 22px; padding: 0; border-top: 1px solid rgba(255,255,255,.18); }
-.svc-panel__list li { position: relative; padding: 13px 0 13px 30px; border-bottom: 1px solid rgba(255,255,255,.18); font-size: 16.5px; }
+.svc-panel__list li { position: relative; padding: 13px 0 13px 30px; border-bottom: 1px solid rgba(255,255,255,.18); font-size: 19.5px; }
 .svc-panel__list li::before { content: ""; position: absolute; left: 2px; top: 18px; width: 9px; height: 15px; border: solid #f7b100; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
-.svc-panel__note { margin: -6px 0 22px; font-size: 14.5px; color: rgba(255,255,255,.75); }
-.svc-panel__btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 22px; border-radius: 10px; background: #fff; color: var(--brand-deep); font-weight: 700; font-size: 15.5px; text-decoration: none; transition: background .2s; }
+.svc-panel__note { margin: -6px 0 22px; font-size: 17px; color: rgba(255,255,255,.75); }
+.svc-panel__btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 22px; border-radius: 10px; background: #fff; color: var(--brand-deep); font-weight: 700; font-size: 18.5px; text-decoration: none; transition: background .2s; }
 .svc-panel__btn:hover { background: #f7b100; }
 .svc-panel__btn:focus-visible { outline: 3px solid #f7b100; outline-offset: 3px; }
 
