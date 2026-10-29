@@ -32,3 +32,12 @@ body { font-size: 19px; }
 .lead-sec .lead-mail { color: var(--muted); }
 .lead-sec .lead-mail a { color: var(--green-deep); }
 .lead-sec .lead-mail a:hover { color: var(--ink); }
+
+/* encabezado: siempre como caja con esquinas redondeadas (no a todo el ancho),
+   igual que se veía al bajar por la página */
+.header { padding-top: 10px; }
+.header .header__inner, .header.is-scrolled .header__inner { max-width: 1040px; border-radius: 16px; height: 60px; box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 14px 34px -16px rgba(0,0,0,.3); }
+@media (max-width: 1000px) {
+  .header { padding-top: 8px; }
+  .header .header__inner, .header.is-scrolled .header__inner { margin-inline: 8px; width: auto; }
+}
