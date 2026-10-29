@@ -17,8 +17,8 @@
 
 .nav .nav__menu a { display: grid; gap: 2px; padding: 11px 14px; border-radius: 14px; text-decoration: none; color: var(--ink); position: relative; transition: background .2s, transform .25s var(--ease); }
 .nav .nav__menu a::after { display: none; }
-.nav .nav__menu a b { font-size: 15px; font-weight: 700; }
-.nav .nav__menu a small { font-size: 12.5px; color: #6a6a64; line-height: 1.35; }
+.nav .nav__menu a b { font-size: 18px; font-weight: 700; }
+.nav .nav__menu a small { font-size: 15px; color: #6a6a64; line-height: 1.35; }
 .nav .nav__menu a:hover, .nav .nav__menu a:focus-visible { background: #f6f6f6; transform: translateX(3px); }
 .nav .nav__menu a[aria-current="page"] { background: #0b5c33; }
 .nav .nav__menu a[aria-current="page"] b { color: #fff; }
@@ -26,7 +26,7 @@
 
 @media (max-width: 1000px) {
   .nav__drop { display: block; border-bottom: 1px solid var(--line); }
-  .nav__trigger { width: 100%; justify-content: space-between; padding: 14px 0; font-size: 17px; }
+  .nav__trigger { width: 100%; justify-content: space-between; padding: 14px 0; font-size: 20px; }
   .nav__trigger[data-current]::after { display: none; }
   .nav__menu { position: static; min-width: 0; padding: 0 0 8px; opacity: 1; visibility: visible; transform: none; display: none; }
   .nav__menu::before { display: none; }

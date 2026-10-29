@@ -185,6 +185,7 @@ const render = (p) => {
   <link rel="stylesheet" href="../assets/css/efectos.css?v=202610261300">
   <link rel="stylesheet" href="../assets/css/corporativo.css?v=202610261300">
   <link rel="stylesheet" href="../assets/css/articulo.css?v=202610261300">
+  <link rel="stylesheet" href="../assets/css/textos.css?v=202610261300">
 ${ld.map((o) => `  <script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n")}
 </head>
 <body style="--bp-top-bg: rgba(255,255,255,.92); --bp-top-bg-solid: #fff; --bp-top-ink: #141414; --bp-top-line: rgba(20,20,19,.1);">

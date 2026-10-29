@@ -138,9 +138,9 @@
 .split__h { font-size: clamp(30px, 3vw, 44px); line-height: 1; margin: 0 0 12px; color: var(--ink); }
 .split__h--xl { font-size: clamp(38px, 4vw, 58px); margin-bottom: 18px; }
 .split__h:not(:first-child) { margin-top: 34px; }
-.split__p { margin: 0; color: var(--muted); font-size: clamp(16px, 1.3vw, 18px); line-height: 1.65; }
+.split__p { margin: 0; color: var(--muted); font-size: clamp(19px, 1.3vw,21px); line-height: 1.65; }
 .split__list { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-.split__list li { padding: 9px 16px; border-radius: 999px; background: var(--soft); border: 1px solid var(--line); font-weight: 600; font-size: 14.5px; color: var(--ink); }
+.split__list li { padding: 9px 16px; border-radius: 999px; background: var(--soft); border: 1px solid var(--line); font-weight: 600; font-size: 17px; color: var(--ink); }
 .more-link { display: inline-flex; gap: 8px; font-weight: 700; color: var(--green-deep); text-decoration: none; transition: gap .25s; }
 .more-link:hover { gap: 14px; }
 
@@ -211,7 +211,7 @@ a.tile:hover { transform: translateY(-8px); }
 /* Nosotros: la imagen acompaña la altura del texto, sin huecos */
 .about { align-items: stretch; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
 .about__img { height: 100%; min-height: 420px; aspect-ratio: auto; border-radius: 36px; box-shadow: var(--glow); position: sticky; top: 110px; align-self: start; max-height: calc(100vh - 150px); }
-.about .prose p { font-size: clamp(16px, 1.3vw, 17.5px); line-height: 1.7; }
+.about .prose p { font-size: clamp(19px, 1.3vw,20.5px); line-height: 1.7; }
 @media (max-width: 1000px) { .about__img { position: static; height: auto; min-height: 0; aspect-ratio: 3 / 2; max-height: none; } }
 
 /* listas de tarjetas: si queda una sola en la última fila, ocupa todo el ancho (sin hueco) */
