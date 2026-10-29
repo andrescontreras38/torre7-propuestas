@@ -32,3 +32,11 @@ body { font-size: 19px; }
 .lead-sec .lead-mail { color: var(--muted); }
 .lead-sec .lead-mail a { color: var(--green-deep); }
 .lead-sec .lead-mail a:hover { color: var(--ink); }
+
+/* el encabezado conserva su tamaño original (como el pie) */
+.nav { font-size: 14.5px; }
+.header .btn--sm { font-size: 13.5px; }
+@media (max-width: 1000px) {
+  .nav a:not(.btn) { font-size: 17px; }
+  .nav__trigger { font-size: 17px; }
+}
