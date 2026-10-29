@@ -108,3 +108,18 @@
   .header { padding-top: 8px; }
   .header .header__inner { margin-inline: 8px; width: auto; padding-inline: 16px 10px; }
 }
+
+/* barra compacta: se ajusta a su contenido, con los enlaces y botones
+   cerca del logo; así la forma redonda se ve claramente */
+@media (min-width: 1001px) {
+  .header .header__inner, .header.is-scrolled .header__inner { width: fit-content; max-width: calc(100% - 32px); grid-template-columns: auto auto auto; column-gap: 44px; padding: 0 10px 0 30px; margin-inline: auto; border: 1px solid #e4e4e4; }
+  .header .nav { gap: 26px; }
+}
+/* lados iguales: el logo queda exactamente al centro; enlaces y botones pegados a él */
+@media (min-width: 1001px) {
+  .header .header__inner, .header.is-scrolled .header__inner { grid-template-columns: 1fr auto 1fr; padding: 0 12px; column-gap: 40px; }
+  .header .nav { justify-self: end; }
+  .header .header__actions { justify-self: start; }
+}
+@media (min-width: 1001px) { .header .header__actions { justify-self: center; } .header .header__inner, .header.is-scrolled .header__inner { padding: 0 14px 0 26px; } }
+@media (min-width: 1001px) { .header .header__inner, .header.is-scrolled .header__inner { padding: 0 20px; } }
