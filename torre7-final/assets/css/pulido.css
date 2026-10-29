@@ -85,7 +85,7 @@
 
 /* autorización de datos y enlaces legales */
 .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; line-height: 1.45; color: var(--muted); margin: 4px 0 14px; cursor: pointer; }
-.consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: #0b5c33; flex: none; }
+.consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: #004d2e; flex: none; }
 .consent a { color: var(--ink); font-weight: 600; }
 .consent.is-invalid span { color: #b42318; }
 .footer__legal a { display: inline; padding: 0; text-decoration: none; }

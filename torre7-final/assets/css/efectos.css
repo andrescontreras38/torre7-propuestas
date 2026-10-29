@@ -9,7 +9,7 @@
 /* luz cálida que sigue al puntero */
 .slider::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255,208,90,.2), transparent 62%); mix-blend-mode: soft-light; transition: opacity .4s; }
 /* resplandor verde y dorado que se mueve despacio sobre la foto */
-.slide::after { content: ""; position: absolute; inset: -20%; z-index: -1; pointer-events: none; background: radial-gradient(40% 50% at 82% 88%, rgba(11,92,51,.55), transparent 70%), radial-gradient(34% 44% at 12% 8%, rgba(247,177,0,.22), transparent 70%); animation: aurora 14s ease-in-out infinite alternate; }
+.slide::after { content: ""; position: absolute; inset: -20%; z-index: -1; pointer-events: none; background: radial-gradient(40% 50% at 82% 88%, rgba(0, 77, 46,.55), transparent 70%), radial-gradient(34% 44% at 12% 8%, rgba(247,177,0,.22), transparent 70%); animation: aurora 14s ease-in-out infinite alternate; }
 @keyframes aurora { to { transform: translate(3%, -3%) scale(1.08); } }
 
 /* título palabra por palabra */
@@ -67,11 +67,11 @@ main .h2.is-seen .grad-text::after { transform: scaleX(1); }
 
 /* ---------- decoración flotante en secciones ---------- */
 .sec.plans-sec::after, #metodo::after { content: ""; position: absolute; z-index: -1; width: 120px; height: 120px; right: 8%; top: 14%; border-radius: 34px; border: 2px solid rgba(247,177,0,.45); transform: rotate(14deg); animation: gira 18s linear infinite; pointer-events: none; }
-#metodo::after { right: auto; left: 7%; top: 30%; width: 70px; height: 70px; border-radius: 50%; border-color: rgba(11,92,51,.3); animation-duration: 24s; }
+#metodo::after { right: auto; left: 7%; top: 30%; width: 70px; height: 70px; border-radius: 50%; border-color: rgba(0, 77, 46,.3); animation-duration: 24s; }
 @keyframes gira { to { transform: rotate(374deg) scale(1.1); } }
 
 /* barra de progreso con degradado de marca */
-.progress { background: linear-gradient(90deg, #f7b100, #0b5c33) !important; }
+.progress { background: linear-gradient(90deg, #f7b100, #004d2e) !important; }
 
 /* entrada de la página */
 body { animation: pagina .8s var(--ease) both; }

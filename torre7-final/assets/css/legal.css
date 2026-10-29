@@ -1,8 +1,8 @@
 /* Páginas legales (usa la barra lateral del blog) */
 .legal .blog-pill { margin-bottom: 10px; }
 .legal h1 { margin-top: 6px; }
-.lg-note { font-size: 17px; line-height: 1.5; color: #0b5c33; background: #ffffff; border: 1px solid #f7b100; border-radius: 12px; padding: 12px 16px; margin: 0 0 32px; }
-.lg-pend { background: #ffffff; color: #0b5c33; padding: 0 4px; border-radius: 4px; font-weight: 700; }
+.lg-note { font-size: 17px; line-height: 1.5; color: #004d2e; background: #ffffff; border: 1px solid #f7b100; border-radius: 12px; padding: 12px 16px; margin: 0 0 32px; }
+.lg-pend { background: #ffffff; color: #004d2e; padding: 0 4px; border-radius: 4px; font-weight: 700; }
 .legal .article__body h2 { scroll-margin-top: 90px; }
 .legal .article__body a { color: var(--b-accent); font-weight: 600; }
 .bl-toc a.is-on { background: #ffffff; color: var(--b-ink); font-weight: 700; }

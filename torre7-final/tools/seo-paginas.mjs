@@ -110,7 +110,7 @@ for (const [file, cfg] of Object.entries(PAGES)) {
   <link rel="alternate" hreflang="es-CO" href="${url}">
   <link rel="alternate" hreflang="x-default" href="${url}">
   <link rel="alternate" type="application/rss+xml" title="Blog Torre 7" href="feed.xml">
-  <meta name="theme-color" content="#0b5c33">
+  <meta name="theme-color" content="#004d2e">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Torre 7 Soluciones Integrales">

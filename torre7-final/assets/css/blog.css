@@ -4,7 +4,7 @@
    ========================================================== */
 .blog-sec, .blog-page {
   --b-ink: #141414; --b-text: #2e2e2e; --b-muted: #5c5c5c; --b-card: #ffffff; --b-line: rgba(20, 20, 19, .12);
-  --b-accent: #0b5c33; --b-soft: #ffffff; --b-btn: #141414; --b-btn-ink: #fff;
+  --b-accent: #004d2e; --b-soft: #ffffff; --b-btn: #141414; --b-btn-ink: #fff;
   color: var(--b-text);
 }
 .blog-sec[data-theme="dark"], .blog-page[data-theme="dark"] {

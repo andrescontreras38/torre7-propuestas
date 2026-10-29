@@ -4,14 +4,14 @@
    ========================================================== */
 .red-esal {
   --r-ink: #141414; --r-muted: #5c5c5c; --r-card: #ffffff; --r-card-hover: #fff;
-  --r-line: rgba(20, 20, 19, .13); --r-accent: #0b5c33; --r-pill-bg: #ffffff; --r-pill-ink: #0b5c33;
+  --r-line: rgba(20, 20, 19, .13); --r-accent: #004d2e; --r-pill-bg: #ffffff; --r-pill-ink: #004d2e;
   --r-join-bg: #141414; --r-join-ink: #fff; --r-join-accent: #f7b100; --r-input: #ffffff;
   position: relative; padding: clamp(80px, 10vw, 140px) clamp(16px, 4vw, 40px); color: var(--r-ink);
 }
 .red-esal[data-theme="dark"] {
   --r-ink: #ffffff; --r-muted: #9a9a9a; --r-card: rgba(255, 255, 255, .04); --r-card-hover: rgba(255, 255, 255, .08);
   --r-line: rgba(255, 255, 255, .12); --r-accent: #f7b100; --r-pill-bg: rgba(247, 177, 0, .1); --r-pill-ink: #f7b100;
-  --r-join-bg: #f7b100; --r-join-ink: #111; --r-join-accent: #0b5c33; --r-input: rgba(255, 255, 255, .06);
+  --r-join-bg: #f7b100; --r-join-ink: #111; --r-join-accent: #004d2e; --r-input: rgba(255, 255, 255, .06);
 }
 .red-esal * { box-sizing: border-box; }
 .red-esal__wrap { width: min(1200px, 100%); margin-inline: auto; }

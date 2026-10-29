@@ -2,7 +2,7 @@
    Servicios de Torre 7 Proyecta — sección clara
    El único elemento fuerte es el panel verde de la marca.
    ========================================================== */
-.svc-sec { --brand: #0b5c33; --brand-deep: #08472a; --tint: #ffffff; background: #fff; padding-block: clamp(84px, 9vw, 124px); }
+.svc-sec { --brand: #004d2e; --brand-deep: #08472a; --tint: #ffffff; background: #fff; padding-block: clamp(84px, 9vw, 124px); }
 .svc-sec__head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: end; margin-bottom: clamp(36px, 4vw, 52px); }
 .svc-sec__head .lead { margin: 0; max-width: 520px; }
 .svc-sec__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: start; }

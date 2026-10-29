@@ -20,7 +20,7 @@
 .nav .nav__menu a b { font-size: 18px; font-weight: 700; }
 .nav .nav__menu a small { font-size: 15px; color: #6a6a64; line-height: 1.35; }
 .nav .nav__menu a:hover, .nav .nav__menu a:focus-visible { background: #f6f6f6; transform: translateX(3px); }
-.nav .nav__menu a[aria-current="page"] { background: #0b5c33; }
+.nav .nav__menu a[aria-current="page"] { background: #004d2e; }
 .nav .nav__menu a[aria-current="page"] b { color: #fff; }
 .nav .nav__menu a[aria-current="page"] small { color: rgba(255,255,255,.78); }
 

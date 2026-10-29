@@ -2,7 +2,7 @@
    Acabado premium (se carga al final en todas las páginas)
    - Colores de marca SÓLIDOS: los degradados dorado→verde se
      mezclaban en tonos oliva y café que se veían sucios.
-   - Verde #0b5c33, dorado #f7b100, negro #141414, blanco.
+   - Verde #004d2e, dorado #f7b100, negro #141414, blanco.
    ========================================================== */
 :root {
   --gold: #f7b100;
@@ -84,7 +84,7 @@ a.tile:hover { transform: translateY(-4px); box-shadow: 0 34px 60px -34px rgba(2
 /* campos del formulario: borde visible (antes eran blancos sobre blanco) */
 .field input, .field select, .field textarea { background-color: #fff; border: 1px solid #d6d6d6; border-radius: 12px; padding: 13px 14px; }
 .field input:hover, .field select:hover, .field textarea:hover { border-color: #b8b8b8; }
-.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green-deep); box-shadow: 0 0 0 4px rgba(11,92,51,.12); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green-deep); box-shadow: 0 0 0 4px rgba(0, 77, 46,.12); }
 
 /* cierre: negro sólido, sin manchas de color */
 .mesh--finale { display: none; }
@@ -92,7 +92,7 @@ a.tile:hover { transform: translateY(-4px); box-shadow: 0 34px 60px -34px rgba(2
 .finale__mark { width: 72px; }
 
 /* banda de público y servicios */
-.svc-panel { box-shadow: 0 34px 64px -36px rgba(11,92,51,.7); }
+.svc-panel { box-shadow: 0 34px 64px -36px rgba(0, 77, 46,.7); }
 .logos { border-block: 1px solid var(--line) !important; }
 
 @media (max-width: 1000px) {

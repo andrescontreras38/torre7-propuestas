@@ -26,7 +26,7 @@
 .svc-sec, .sec, .logos, .red-esal, .blog-sec { position: relative; isolation: isolate; }
 .svc-sec, .sec { overflow: clip; }
 .svc-sec::before, .sec:not(.lead-sec)::before { content: ""; position: absolute; z-index: -1; pointer-events: none; width: min(60vw, 720px); aspect-ratio: 1; border-radius: 50%; filter: blur(90px); opacity: .5; top: 4%; right: -14%; background: radial-gradient(circle, rgba(247,177,0,.38), transparent 68%); }
-.sec:nth-of-type(even):not(.lead-sec)::before { right: auto; left: -16%; top: 18%; background: radial-gradient(circle, rgba(11,92,51,.22), transparent 68%); }
+.sec:nth-of-type(even):not(.lead-sec)::before { right: auto; left: -16%; top: 18%; background: radial-gradient(circle, rgba(0, 77, 46,.22), transparent 68%); }
 
 /* banner: esquinas amplias y controles de vidrio */
 .slider { border-radius: 36px; box-shadow: 0 50px 90px -50px rgba(0,40,24,.55); }
@@ -35,10 +35,10 @@
 .slide__tag { border-radius: 999px; backdrop-filter: blur(10px); background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); color: #fff; }
 
 /* etiqueta superior en cápsula suave */
-.eyebrow { padding: 6px 16px 6px 12px !important; border-radius: 999px; background: rgba(11,92,51,.07) !important; border: 1px solid rgba(11,92,51,.12); }
+.eyebrow { padding: 6px 16px 6px 12px !important; border-radius: 999px; background: rgba(0, 77, 46,.07) !important; border: 1px solid rgba(0, 77, 46,.12); }
 .eyebrow::before { width: 8px; height: 8px; border-radius: 50%; }
 .band .eyebrow, .cta-card__copy .eyebrow, .lead-sec .eyebrow { background: rgba(255,255,255,.14) !important; border-color: rgba(255,255,255,.24); }
-.red-esal__pill { padding: 6px 16px 6px 12px; border-radius: 999px; background: rgba(11,92,51,.07); border: 1px solid rgba(11,92,51,.12); }
+.red-esal__pill { padding: 6px 16px 6px 12px; border-radius: 999px; background: rgba(0, 77, 46,.07); border: 1px solid rgba(0, 77, 46,.12); }
 .red-esal__pill::before { width: 8px; height: 8px; border-radius: 50%; }
 
 /* botones: píldora con brillo suave */
@@ -49,10 +49,10 @@
 .form__send { border-radius: 999px; }
 
 /* portafolio de Proyecta */
-.svc-panel { border-radius: 32px; background: linear-gradient(160deg, #0f6a3b 0%, #0b5c33 55%, #07452a 100%); position: relative; overflow: hidden; }
+.svc-panel { border-radius: 32px; background: linear-gradient(160deg, #0f6a3b 0%, #004d2e 55%, #07452a 100%); position: relative; overflow: hidden; }
 .svc-panel::after { content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(247,177,0,.35), transparent 70%); filter: blur(20px); pointer-events: none; }
 .svc button { border-radius: 16px; transition: background .25s, transform .25s; }
-.svc button[aria-selected="true"], .svc button:hover { background: rgba(11,92,51,.06); }
+.svc button[aria-selected="true"], .svc button:hover { background: rgba(0, 77, 46,.06); }
 
 /* banda de público */
 .logos { background: linear-gradient(180deg, #fff, var(--soft) 40%, #fff); border-block: 0 !important; }
@@ -73,7 +73,7 @@
 .ucard:hover { transform: translateY(-6px); box-shadow: var(--glow); }
 .ucard__ui { border-radius: 22px; }
 .ui-diag { background: linear-gradient(160deg, #ffe58a, #f7b100); }
-.ui-plan { background: linear-gradient(160deg, #1f8a54, #0b5c33); }
+.ui-plan { background: linear-gradient(160deg, #1f8a54, #004d2e); }
 .ui-chart { background: linear-gradient(160deg, #2b2b2b, #141414); }
 
 /* fotos del bloque "por qué elegir" y chips */
