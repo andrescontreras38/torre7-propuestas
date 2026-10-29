@@ -110,3 +110,7 @@
   .hf__links a small { font-size: 14px; }
   .hf__links a span { font-size: 23px; }
 }
+
+/* el zoom de la foto (empieza al 110%) se salía por debajo de la diapositiva,
+   donde el velo oscuro ya no llega: la foto queda recortada dentro de su diapositiva */
+.hf__slide { overflow: hidden; }
