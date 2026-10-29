@@ -41,3 +41,7 @@ body { font-size: 19px; }
   .header { padding-top: 8px; }
   .header .header__inner, .header.is-scrolled .header__inner { margin-inline: 8px; width: auto; }
 }
+
+/* enlace «Pagar en línea» en las tarjetas de membresía */
+.plan__pay { display: block; margin: -12px 0 18px; text-align: center; font-size: 15px; font-weight: 700; color: #003721; text-decoration: none; }
+.plan__pay:hover { text-decoration: underline; text-underline-offset: 3px; }

@@ -1,0 +1,29 @@
+/* ==========================================================
+   Pasarela de pago de membresías (pagar.html y gracias.html)
+   ========================================================== */
+#basic, #standard, #premium { scroll-margin-top: 110px; }
+.plan__price { margin: 6px 0 16px; padding: 14px 0 12px; border-block: 1px solid #ececec; display: grid; gap: 2px; }
+.plan__price b { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 38px; line-height: 1; color: #141414; letter-spacing: .01em; }
+.plan__price b span { font-size: 18px; color: #6a6a64; }
+.plan__price small { font-size: 14px; font-weight: 600; color: #003721; }
+.plan--pop .plan__price { border-color: rgba(247,177,0,.45); }
+.pay-btn { gap: 8px; }
+
+.pay-trust { margin: 34px auto 0; max-width: 860px; display: grid; justify-items: center; gap: 14px; text-align: center; }
+.pay-trust__safe { display: inline-flex; align-items: center; gap: 10px; margin: 0; font-size: 16px; color: #3a3a3a; }
+.pay-trust__safe svg { color: #003721; flex: none; }
+.pay-trust__methods { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.pay-trust__methods li { font-size: 14px; font-weight: 600; color: #141414; padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid #e4e4e4; }
+
+/* página de gracias */
+.pay-done { padding-block: clamp(56px, 7vw, 96px); }
+.pay-done__card { max-width: 720px; margin-inline: auto; text-align: center; padding: clamp(32px, 5vw, 56px); border-radius: 28px; background: #fff; border: 1px solid #e9e9e9; box-shadow: 0 30px 70px -40px rgba(0,55,33,.4); }
+.pay-done__icon { display: inline-grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; background: #003721; color: #f7b100; margin-bottom: 18px; }
+.pay-done__card .eyebrow { justify-content: center; }
+.pay-done__card .lead { margin-inline: auto; }
+.pay-done__ref { margin: 14px 0 0; font-size: 14.5px; color: #6a6a64; }
+.pay-done__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+.pay-done__card.is-error .pay-done__icon { background: #b42318; color: #fff; }
+.pay-done__card.is-pending .pay-done__icon { background: #f7b100; color: #141414; }
+.plan__price.is-pend b { font-family: inherit; font-weight: 700; font-size: 17px; line-height: 1.3; color: #6a6a64; letter-spacing: 0; }
+.pay-done__icon { display: grid; margin: 0 auto 18px; }
