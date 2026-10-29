@@ -47,3 +47,87 @@
 .pay-modal__msg:empty { display: none; }
 .pay-modal__safe { margin: 12px 0 0; font-size: 13px; line-height: 1.45; color: #6a6a64; text-align: center; }
 .pay-modal__off p { margin: 0 0 18px; color: #3a3a3a; font-size: 16px; line-height: 1.55; }
+
+/* ==========================================================
+   Finalizar compra (checkout.html)
+   ========================================================== */
+.co-sec { padding-block: clamp(40px, 5vw, 64px) clamp(64px, 7vw, 96px); background: #f7f7f5; }
+.co-steps { list-style: none; margin: 0 0 26px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; font-weight: 600; color: #8a8a84; }
+.co-steps li { display: flex; align-items: center; gap: 8px; }
+.co-steps li + li::before { content: ""; width: 28px; height: 1px; background: #d6d6d6; margin-right: 6px; }
+.co-steps span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; background: #e9e9e9; color: #6a6a64; }
+.co-steps .is-done span { background: #003721; color: #f7b100; }
+.co-steps .is-on { color: #141414; }
+.co-steps .is-on span { background: #f7b100; color: #141414; }
+.co-head { margin-bottom: 26px; }
+.co-head .h2 { margin: 6px 0 6px; }
+.co-head .lead { margin: 0; }
+.co-back { font-size: 15px; font-weight: 600; color: #003721; text-decoration: none; }
+.co-back:hover { text-decoration: underline; }
+.co { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; align-items: start; }
+.co__main { display: grid; gap: 16px; min-width: 0; }
+.co-box { margin: 0; padding: clamp(20px, 2.6vw, 30px); border: 1px solid #e6e6e6; border-radius: 20px; background: #fff; min-width: 0; }
+.co-box legend { float: left; width: 100%; display: flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 0; font-family: "Bebas Neue", Impact, sans-serif; font-size: 26px; line-height: 1; color: #141414; letter-spacing: .01em; }
+.co-box legend + * { clear: both; }
+.co-box legend span { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #003721; color: #f7b100; font-size: 17px; }
+.co-box .field { margin-bottom: 12px; }
+.co-opt { font-weight: 500; color: #8a8a84; }
+.co-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.co-plan, .co-pay { position: relative; display: block; cursor: pointer; }
+.co-plan input, .co-pay input { position: absolute; opacity: 0; pointer-events: none; }
+.co-plan__box { display: grid; gap: 2px; height: 100%; padding: 14px 16px; border: 1.5px solid #e2e2e2; border-radius: 14px; transition: border-color .2s, box-shadow .2s, background .2s; }
+.co-plan__box b { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 26px; line-height: 1; color: #141414; }
+.co-plan__box small { font-size: 13px; color: #6a6a64; }
+.co-plan__box em { font-style: normal; font-size: 15px; font-weight: 700; color: #003721; margin-top: 6px; }
+.co-plan input:checked + .co-plan__box, .co-pay input:checked + .co-pay__box { border-color: #003721; box-shadow: 0 0 0 3px rgba(0,55,33,.12); background: #fbfdfc; }
+.co-plan input:focus-visible + .co-plan__box { outline: 3px solid #f7b100; outline-offset: 2px; }
+.co-pay { display: flex; align-items: center; gap: 14px; }
+.co-pay__box { flex: 1; display: grid; gap: 2px; padding: 14px 16px; border: 1.5px solid #e2e2e2; border-radius: 14px; }
+.co-pay__box b { font-size: 17px; color: #141414; }
+.co-pay__box small { font-size: 14px; color: #6a6a64; }
+.co-pay__lock { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #003721; }
+.co-note { margin: 12px 0 0; font-size: 14px; line-height: 1.5; color: #6a6a64; }
+.co-legal { display: grid; gap: 10px; }
+.co-legal .consent { margin: 0; }
+.co-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.co__side { position: sticky; top: 96px; }
+.co-sum { padding: 26px; border-radius: 22px; background: #fff; border: 1px solid #e6e6e6; box-shadow: 0 30px 60px -40px rgba(0,55,33,.45); }
+.co-sum__t { margin: 0 0 16px; font-family: "Bebas Neue", Impact, sans-serif; font-size: 28px; line-height: 1; color: #141414; }
+.co-sum__item { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #ececec; }
+.co-sum__item b { display: block; font-size: 17px; color: #141414; }
+.co-sum__item small { font-size: 14px; color: #6a6a64; }
+.co-sum__item > span { font-weight: 700; color: #141414; white-space: nowrap; }
+.co-sum__list { margin: 14px 0; font-size: 14.5px; gap: 7px; }
+.co-sum__more { padding-left: 0 !important; }
+.co-sum__more::before, .co-sum__more::after { display: none !important; }
+.co-sum__more a { font-weight: 700; color: #003721; }
+.co-sum__tot { margin: 0; padding-top: 12px; border-top: 1px solid #ececec; display: grid; gap: 8px; }
+.co-sum__tot div { display: flex; justify-content: space-between; }
+.co-sum__tot dt { color: #6a6a64; }
+.co-sum__tot dd { margin: 0; font-weight: 700; color: #141414; }
+.co-sum__tot .is-total { padding-top: 10px; border-top: 1px dashed #dcdcdc; }
+.co-sum__tot .is-total dt { color: #141414; font-weight: 700; }
+.co-sum__tot .is-total dd { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; color: #003721; }
+.co-sum__unico { margin: 8px 0 16px; font-size: 13px; color: #6a6a64; text-align: right; }
+.co-go { padding: 17px 22px; font-size: 17px; border-radius: 14px; }
+.co-go:disabled { opacity: .7; cursor: progress; }
+.co-msg { margin: 12px 0 0; font-size: 14.5px; line-height: 1.45; }
+.co-msg:empty { display: none; }
+.co-msg.is-error { color: #b42318; }
+.co-msg.is-info { padding: 12px 14px; border-radius: 12px; background: #fff8e6; border: 1px solid #f3d27a; color: #4a3b00; }
+.co-msg a { font-weight: 700; color: inherit; }
+.co-trust { list-style: none; margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid #ececec; display: grid; gap: 8px; font-size: 13.5px; color: #3a3a3a; }
+.co-trust li { display: flex; align-items: center; gap: 8px; }
+.co-trust svg { color: #003721; flex: none; }
+@media (max-width: 1000px) {
+  .co { grid-template-columns: 1fr; }
+  .co__side { position: static; }
+}
+@media (max-width: 640px) {
+  .co-plans { grid-template-columns: 1fr; }
+  .co-pay__lock { position: static; transform: none; }
+  .co-pay { flex-wrap: wrap; }
+}
+
+/* en el checkout no se muestran el formulario de asesoría ni el botón flotante: nada distrae de la compra */
+.co-page #contacto, .co-page .sticky-cta { display: none !important; }
